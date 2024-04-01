@@ -57,39 +57,45 @@ header {
 }
 
 nav {
-    flex: 1;
+    flex: 0;
 }
 
 .nav-menu {
     display: flex;
     flex-direction: column;
     &__button {
-        text-align: center;
+        @include fonts.roboto-regular;
         font-size: large;
         background-color: colors.$body-background-color;
         border-radius: 0.5em;
         border: 1px solid colors.$button-border-color;
         color: colors.$primary-text-color;
         padding: 0.5em;
+        padding-left: 3em;
+        padding-right: 3em;
         margin-bottom: 0.5em;
+        &:hover, &:active {
+            background-color: colors.$secondary-color;
+            border-color: colors.$secondary-color;
+        }
     }
 }
 
 main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex: 1;
 }
 aside {
-    flex: 1;
+    flex: 0;
 }
 .aside-content {
-    background-color: colors.$secondary-color;
-    border-radius: 0.5em;
     display: flex;
     flex-direction: column;
+    background-color: colors.$secondary-color;
+    border-radius: 0.5em;
     &__text {
         font-size: medium;
         padding: 0.5em;
