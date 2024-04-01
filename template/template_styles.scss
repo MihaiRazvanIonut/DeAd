@@ -1,0 +1,162 @@
+@use 'styles_components/colors.scss';
+@use 'styles_components/fonts.scss';
+
+html, body {
+    height: 100%;
+}
+
+body {
+    @include fonts.roboto-regular;
+    background-color: colors.$body-background-color;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    color: colors.$primary-text-color;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: colors.$primary-color;
+    margin: 0;
+    padding: 0;
+    padding-left: 0.5em;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em; 
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @include fonts.roboto-black; 
+    margin: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    &__glyph {
+        padding: 0.5em;
+        background-color: colors.$logo-color;
+        border-radius: 2em;
+        margin: 0;
+    }
+    &__app-name {
+        padding-left: 0.5em;
+        margin: 0;
+    }
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1em;
+}
+
+nav {
+    flex: 1;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    &__button {
+        text-align: center;
+        font-size: large;
+        background-color: colors.$body-background-color;
+        border-radius: 0.5em;
+        border: 1px solid colors.$button-border-color;
+        color: colors.$primary-text-color;
+        padding: 0.5em;
+        margin-bottom: 0.5em;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+aside {
+    flex: 1;
+}
+.aside-content {
+    background-color: colors.$secondary-color;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    &__text {
+        font-size: medium;
+        padding: 0.5em;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+        &--title {
+            @include fonts.roboto-medium;
+            font-size: large;
+        }
+    }
+}
+
+
+footer {
+    @include fonts.roboto-light;
+    background-color: colors.$primary-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    padding: 0.5em;
+}
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+
+}
+  
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+    
+}

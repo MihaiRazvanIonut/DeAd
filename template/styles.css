@@ -1,0 +1,148 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #333333;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  color: whitesmoke;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(54, 69, 79, 0.5);
+  margin: 0;
+  padding: 0;
+  padding-left: 0.5em;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  margin: 0;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.logo__glyph {
+  padding: 0.5em;
+  background-color: rgba(54, 69, 79, 0.6);
+  border-radius: 2em;
+  margin: 0;
+}
+.logo__app-name {
+  padding-left: 0.5em;
+  margin: 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1em;
+}
+
+nav {
+  flex: 1;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+}
+.nav-menu__button {
+  text-align: center;
+  font-size: large;
+  background-color: #333333;
+  border-radius: 0.5em;
+  border: 1px solid whitesmoke;
+  color: whitesmoke;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+aside {
+  flex: 1;
+}
+
+.aside-content {
+  background-color: #0066b2;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+}
+.aside-content__text {
+  font-size: medium;
+  padding: 0.5em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+.aside-content__text--title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: large;
+}
+
+footer {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  background-color: rgba(54, 69, 79, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  padding: 0.5em;
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+/*# sourceMappingURL=styles.css.map */
