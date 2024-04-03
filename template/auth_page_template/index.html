@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> DeAd - Authentification Page Template </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <div class="auth">
+            <div class = "logo">
+                <h3 class="logo__glyph">
+                    DeAd
+                </h3>
+                <h2 class="logo__app-name">
+                    Detention Admin
+                </h2>
+            </div>
+            <form action="POST" class="auth__form"">
+                <fieldset class="auth__form__fieldset">
+                    <legend>Login</legend>
+                    <label for="email">
+                        Email:
+                    </label>
+                    <input type="text" id="email" class="text-input">
+                    <label for="password">
+                        Password:
+                    </label>
+                    <input type="password" id="password" class="text-input">
+                </fieldset>
+                <fieldset class="auth__form__fieldset auth__form__fieldset--rows">
+                    <legend>Keep me logged in</legend>
+                    <input type="checkbox" id="keep_logged">
+                    <label for="keep_logged">
+                        Sure
+                    </label>
+                </fieldset>
+                <input type="submit" value="Login" class="auth__form__button">
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>Hello</p>
+    </footer>
+</body>
+</html>

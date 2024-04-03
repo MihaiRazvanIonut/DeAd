@@ -1,5 +1,6 @@
-@use 'styles_components/colors.scss';
-@use 'styles_components/fonts.scss';
+@use '../reuseable_components/colors';
+@use '../reuseable_components/fonts';
+@use '../reuseable_components/logo';
 
 html, body {
     height: 100%;
@@ -26,26 +27,6 @@ header {
     padding-left: 0.5em;
     border-bottom-left-radius: 1em;
     border-bottom-right-radius: 1em; 
-}
-
-.logo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    @include fonts.roboto-black; 
-    margin: 0;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    &__glyph {
-        padding: 0.5em;
-        background-color: colors.$logo-color;
-        border-radius: 2em;
-        margin: 0;
-    }
-    &__app-name {
-        padding-left: 0.5em;
-        margin: 0;
-    }
 }
 
 .content {
@@ -111,6 +92,7 @@ aside {
 
 footer {
     @include fonts.roboto-light;
+    font-size: small;
     background-color: colors.$primary-color;
     display: flex;
     flex-direction: column;

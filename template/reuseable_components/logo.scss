@@ -1,0 +1,22 @@
+@use './fonts.scss';
+@use './colors.scss';
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @include fonts.roboto-black; 
+    margin: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    &__glyph {
+        padding: 0.5em;
+        background-color: colors.$logo-color;
+        border-radius: 2em;
+        margin: 0;
+    }
+    &__app-name {
+        padding-left: 0.5em;
+        margin: 0;
+    }
+}
