@@ -1,0 +1,15 @@
+@use '../../reuseable_components/colors.scss';
+@use '../../reuseable_components/fonts.scss';
+
+.aside-content {
+    display: flex;
+    flex-direction: column;
+    background-color: colors.$secondary-color;
+    border-radius: 0.5em;
+    &__text {
+        padding: 0.5em;
+        &--title {
+            @include fonts.roboto-medium;
+        }
+    }
+}

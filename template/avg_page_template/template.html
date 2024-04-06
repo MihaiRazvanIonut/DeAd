@@ -7,45 +7,58 @@
     <title>DeAd-Template</title>
 </head>
 <body>
-    <header>
-        <button class="header__button">≡</button>
-        <div class = "logo">
-            <h3 class="logo__glyph">DeAd</h3>
-            <h2 class="logo__app-name">Detention Admin</h2>
+    <div class="page-content">
+        <header>
+            <div class="header-content">
+                <button class="header-content__button" onclick="toggleNav()">
+                    ≡
+                </button>
+                <div class = "logo">
+                    <h3 class="logo__glyph">DeAd</h3>
+                    <h2 class="logo__app-name">Detention Admin</h2>
+                </div>
+                <button class="header-content__button" onclick="toggleAside()">
+                    <
+                </button>
+            </div>
+        </header>
+        <div class="middle-page-content">
+            <nav class="shown-nav" id="page-nav">
+                <div class="nav-menu">
+                    <button class="nav-menu__button">Login</button>
+                    <button class="nav-menu__button">Contacts</button>
+                </div>
+            </nav>
+            <main>
+                <div class="main-content">
+                    <span>HELLO</span>
+                </div>
+            </main>
+            <aside class="shown-aside" id="aside-info">
+                <div class="aside-content">
+                    <span class="aside-content__text aside-content__text--title">
+                        Aside Title
+                    </span>
+                    <span class="aside-content__text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Nunc a nulla libero. Aenean pellentesque at elit et interdum.
+                        Maecenas ut porta arcu. In hac habitasse platea dictumst.
+                    </span>
+                </div>
+            </aside>
         </div>
-        <button class="header__button">☾</button>
-    </header>
-    <div class="content">
-        <nav>
-            <div class="nav-menu">
-                <button class="nav-menu__button">Login</button>
-                <button class="nav-menu__button">Contacts</button>
+        <footer>
+            <div class="footer-content">
+            <span>
+                Detention Admin Footer
+            </span>
+            <span>
+                Should have basic info about the application
+            </span>
             </div>
-        </nav>
-        <main>
-            <h1>HELLO</h1>
-        </main>
-        <aside>
-            <div class="aside-content">
-                <div class="aside-content__text aside-content__text--title">
-                    Aside Title
-                </div>
-                <div class="aside-content__text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Nunc a nulla libero. Aenean pellentesque at elit et interdum.
-                    Maecenas ut porta arcu. In hac habitasse platea dictumst.
-                </div>
-            </div>
-        </aside>
+        </footer>
     </div>
-    <footer>
-        <span>
-            Detention Admin Footer
-        </span>
-        <span>
-            Should have basic info about the application
-        </span>
-    </footer>
-    
+    <script src="./toggleable/show-nav.js"></script>
+    <script src="./toggleable/show-aside.js"></script>
 </body>
 </html>

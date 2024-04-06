@@ -1,0 +1,20 @@
+@use '../../reuseable_components/colors.scss';
+@use '../../reuseable_components/fonts.scss';
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    &__button {
+        @include fonts.roboto-regular;
+        background-color: colors.$body-background-color;
+        border-radius: 0.5em;
+        border: 1px solid colors.$button-border-color;
+        color: colors.$primary-text-color;
+        padding: 0.5em;
+        margin-bottom: 0.5em;
+        &:hover, &:active {
+            background-color: colors.$secondary-color;
+            border-color: colors.$secondary-color;
+        }
+    }
+}

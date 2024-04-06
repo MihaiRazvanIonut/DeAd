@@ -1,0 +1,11 @@
+@use '../../reuseable_components/colors.scss';
+@use '../../reuseable_components/fonts.scss';
+
+.page-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: colors.$body-background-color;
+    color: colors.$primary-text-color;
+}

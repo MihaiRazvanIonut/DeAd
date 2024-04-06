@@ -1,0 +1,21 @@
+@use '../../reuseable_components/colors.scss';
+@use '../../reuseable_components/fonts.scss';
+
+
+.header-content {
+    background-color: colors.$primary-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    &__button {
+        text-align: center;
+        font-size: xx-large;
+        background-color:transparent;
+        color: colors.$primary-text-color;
+        border: 1px solid transparent;
+        @include fonts.roboto-black;
+        &:active, &:hover {
+            color: rgb(200, 200, 200);
+        }
+    }
+}

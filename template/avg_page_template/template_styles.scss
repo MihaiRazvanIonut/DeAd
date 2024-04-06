@@ -1,162 +1,42 @@
 @use '../reuseable_components/colors';
 @use '../reuseable_components/fonts';
 @use '../reuseable_components/logo';
+@use './components/aside-content.scss';
+@use './components/header-content.scss';
+@use './components/nav-menu.scss';
+@use './components/page-content.scss';
+@use './components/middle-page-content.scss';
+@use './components/main-content.scss';
+@use './toggleable/hidden-nav.scss';
+@use './toggleable/shown-nav.scss';
+@use './toggleable/hidden-aside.scss';
+@use './toggleable/shown-aside.scss';
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
 
 html, body {
     height: 100%;
 }
 
-body {
-    @include fonts.roboto-regular;
-    background-color: colors.$body-background-color;
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
-    color: colors.$primary-text-color;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    background-color: colors.$primary-color;
-    margin: 0;
-    padding: 0;
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
-}
-
-.content {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 1em;
+main {
+    width: 70%;
+    margin: 2em;
 }
 
 nav {
-    flex: 0;
+    width: 10%;
+    margin: 2em;
 }
 
-.nav-menu {
-    display: flex;
-    flex-direction: column;
-    &__button {
-        @include fonts.roboto-regular;
-        font-size: large;
-        background-color: colors.$body-background-color;
-        border-radius: 0.5em;
-        border: 1px solid colors.$button-border-color;
-        color: colors.$primary-text-color;
-        padding: 0.5em;
-        padding-left: 3em;
-        padding-right: 3em;
-        margin-bottom: 0.5em;
-        &:hover, &:active {
-            background-color: colors.$secondary-color;
-            border-color: colors.$secondary-color;
-        }
-    }
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-}
 aside {
-    flex: 0;
-}
-.aside-content {
-    display: flex;
-    flex-direction: column;
-    background-color: colors.$secondary-color;
-    border-radius: 0.5em;
-    &__text {
-        font-size: medium;
-        padding: 0.5em;
-        padding-left: 1.5em;
-        padding-right: 1.5em;
-        &--title {
-            @include fonts.roboto-medium;
-            font-size: large;
-        }
-    }
+    width: 20%;
+    margin: 2em;
 }
 
+@media (orientation: portait) {
 
-footer {
-    @include fonts.roboto-light;
-    font-size: small;
-    background-color: colors.$primary-color;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
-    padding: 0.5em;
-}
-
-.header__button {
-    text-align: center;
-    background-color:transparent;
-    color: colors.$primary-text-color;
-    border: 1px solid transparent;
-    @include fonts.roboto-black;
-    font-size: xx-large;
-    &:active, &:hover {
-        color: rgb(200, 200, 200);
-    }
-}
-
-/* 
-  ##Device = Desktops
-  ##Screen = 1281px to higher resolution desktops
-*/
-@media (min-width: 1281px) {
-
-}
-  
-/* 
-  ##Device = Laptops, Desktops
-  ##Screen = B/w 1025px to 1280px
-*/
-@media (min-width: 1025px) and (max-width: 1280px) {
-
-}
-
-/* 
-  ##Device = Tablets, Ipads (portrait)
-  ##Screen = B/w 768px to 1024px
-*/
-@media (min-width: 768px) and (max-width: 1024px) {
-
-}
-
-/* 
-  ##Device = Tablets, Ipads (landscape)
-  ##Screen = B/w 768px to 1024px
-*/
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
-}
-
-/* 
-  ##Device = Low Resolution Tablets, Mobiles (Landscape)
-  ##Screen = B/w 481px to 767px
-*/
-@media (min-width: 481px) and (max-width: 767px) {
-
-}
-
-/* 
-  ##Device = Most of the Smartphones Mobiles (Portrait)
-  ##Screen = B/w 320px to 479px
-*/
-@media (min-width: 320px) and (max-width: 480px) {
-    
 }
