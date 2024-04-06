@@ -39,12 +39,11 @@ body {
 
 header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
   background-color: rgba(54, 69, 79, 0.5);
   margin: 0;
   padding: 0;
-  padding-left: 0.5em;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
 }
@@ -119,6 +118,7 @@ footer {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-style: normal;
+  font-size: small;
   background-color: rgba(54, 69, 79, 0.5);
   display: flex;
   flex-direction: column;
@@ -126,6 +126,20 @@ footer {
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
   padding: 0.5em;
+}
+
+.header__button {
+  text-align: center;
+  background-color: transparent;
+  color: whitesmoke;
+  border: 1px solid transparent;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: xx-large;
+}
+.header__button:active, .header__button:hover {
+  color: rgb(200, 200, 200);
 }
 
 /* 
