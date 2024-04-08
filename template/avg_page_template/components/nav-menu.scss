@@ -4,21 +4,29 @@
 .nav-menu {
     display: flex;
     flex-direction: column;
-    padding: 2em;
     border-left: 0px;
     position: sticky;
     top: 0;
     &__button {
+        width: 100%;
+        font-size: calc(1rem + 0.1vw);
         @include fonts.roboto-regular;
         background-color: colors.$main-content-color;
-        border-radius: 0.5em;
-        border: 1px solid colors.$button-border-color;
+        border: 1px solid transparent;
+        border-bottom: 1px solid black;
         color: colors.$primary-text-color;
-        padding: 0.5em;
-        margin-bottom: 0.5em;
+        padding: 1em;
         &:hover, &:active {
             background-color: colors.$secondary-color;
-            border-color: colors.$secondary-color;
+            border-color: transparent;
         }
+    }
+    &__title {
+        @include fonts.roboto-regular;
+        font-size: calc(1rem + 0.3vw);
+        text-align: center;
+        border-bottom: 1px solid black;
+        padding-bottom: 2em;
+        padding-top: 2em;
     }
 }

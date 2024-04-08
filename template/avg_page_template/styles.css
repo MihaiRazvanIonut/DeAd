@@ -31,25 +31,35 @@
 .nav-menu {
   display: flex;
   flex-direction: column;
-  padding: 2em;
   border-left: 0px;
   position: sticky;
   top: 0;
 }
 .nav-menu__button {
+  width: 100%;
+  font-size: calc(1rem + 0.1vw);
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
   background-color: rgba(49, 49, 49, 0.9);
-  border-radius: 0.5em;
-  border: 1px solid whitesmoke;
+  border: 1px solid transparent;
+  border-bottom: 1px solid black;
   color: whitesmoke;
-  padding: 0.5em;
-  margin-bottom: 0.5em;
+  padding: 1em;
 }
 .nav-menu__button:hover, .nav-menu__button:active {
   background-color: #0066b2;
-  border-color: #0066b2;
+  border-color: transparent;
+}
+.nav-menu__title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: calc(1rem + 0.3vw);
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 2em;
+  padding-top: 2em;
 }
 
 .page-content {
@@ -149,12 +159,12 @@ body {
 }
 
 main {
-  width: 90%;
+  width: 85%;
   margin-top: 1em;
 }
 
 nav {
-  width: 10%;
+  width: 15%;
   background-color: rgba(49, 49, 49, 0.9);
   margin-top: 0.5em;
   box-shadow: 0px 0px 10px 0px black;
