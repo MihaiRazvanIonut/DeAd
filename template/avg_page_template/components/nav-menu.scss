@@ -4,9 +4,13 @@
 .nav-menu {
     display: flex;
     flex-direction: column;
+    padding: 2em;
+    border-left: 0px;
+    position: sticky;
+    top: 0;
     &__button {
         @include fonts.roboto-regular;
-        background-color: colors.$body-background-color;
+        background-color: colors.$main-content-color;
         border-radius: 0.5em;
         border: 1px solid colors.$button-border-color;
         color: colors.$primary-text-color;

@@ -2,8 +2,6 @@
 @use '../../reuseable_components/fonts.scss';
 
 .middle-page-content {
-    height: 80%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
 }

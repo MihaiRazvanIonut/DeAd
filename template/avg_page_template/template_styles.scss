@@ -1,7 +1,6 @@
 @use '../reuseable_components/colors';
 @use '../reuseable_components/fonts';
 @use '../reuseable_components/logo';
-@use './components/aside-content.scss';
 @use './components/header-content.scss';
 @use './components/nav-menu.scss';
 @use './components/page-content.scss';
@@ -9,8 +8,7 @@
 @use './components/main-content.scss';
 @use './toggleable/hidden-nav.scss';
 @use './toggleable/shown-nav.scss';
-@use './toggleable/hidden-aside.scss';
-@use './toggleable/shown-aside.scss';
+@use './components/app-menu.scss';
 
 
 * {
@@ -22,19 +20,20 @@ html, body {
     height: 100%;
 }
 
+body {
+    height: 100%;
+}
+
 main {
-    width: 70%;
-    margin: 2em;
+    width: 90%;
+    margin-top: 1em;
 }
 
 nav {
     width: 10%;
-    margin: 2em;
-}
-
-aside {
-    width: 20%;
-    margin: 2em;
+    background-color: colors.$main-content-color;
+    margin-top: 0.5em;
+    box-shadow: 0px 0px 10px 0px colors.$shadow-color;
 }
 
 @media (orientation: portait) {

@@ -2,10 +2,10 @@
 @use '../../reuseable_components/fonts.scss';
 
 .main-content {
-    height: 100%;
-    background-color: colors.$main-content-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @include fonts.roboto-light;
+    font-size: calc(1rem + 0.2vw);
 }
