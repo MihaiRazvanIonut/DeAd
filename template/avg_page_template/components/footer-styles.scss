@@ -1,0 +1,29 @@
+@use '../../reuseable_components/colors.scss';
+@use '../../reuseable_components/fonts.scss';
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    padding-top: 0.5em;
+    &__info {
+        @include fonts.roboto-light;
+        font-size: calc(1rem + 0.05vw);
+        text-align: center;
+    }
+}
+
+.content-devider {
+    margin-top: 1em;
+    background-image:
+        linear-gradient(135deg,
+                       #000 25%,
+                       transparent 25%,
+                       transparent 50%,
+                       #000 50%,
+                       #000 75%,
+                       transparent 75%,
+                       colors.$body-background-color);
+    background-size: 20px 20px;
+}

@@ -6,7 +6,8 @@
     flex-direction: column;
     border-left: 0px;
     position: sticky;
-    top: 0;
+    top: 6.5em;
+    z-index: 1;
     &__button {
         width: 100%;
         font-size: calc(1rem + 0.1vw);
@@ -16,6 +17,9 @@
         border-bottom: 1px solid black;
         color: colors.$primary-text-color;
         padding: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         &:hover, &:active {
             background-color: colors.$secondary-color;
             border-color: transparent;

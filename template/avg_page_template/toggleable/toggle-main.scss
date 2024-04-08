@@ -1,6 +1,10 @@
 @use '../../reuseable_components/colors.scss';
 @use '../../reuseable_components/fonts.scss';
 
-.hidden-nav {
-    visibility: collapse;
+.hidden-main {
+    visibility: hidden;
+}
+
+.shown-main {
+    visibility: visible;
 }

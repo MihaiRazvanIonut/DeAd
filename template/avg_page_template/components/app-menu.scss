@@ -7,16 +7,16 @@
     background-color: colors.$main-content-color;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-evenly; 
     box-shadow: 0px 3px 3px 0px colors.$shadow-color;
     &__button {
-        font-size: calc(1rem + 0.3vw);
+        font-size: calc(1rem + 0.25vw);
         width: 100%;
         text-align: center;
         background-color:transparent;
         color: colors.$primary-text-color;
         border: 1px solid transparent;
-        @include fonts.roboto-black;
+        @include fonts.roboto-medium;
         padding-left: 0.1em;
         padding-right: 0.1em;
         &:hover {
@@ -28,15 +28,29 @@
             color: colors.$primary-text-color;
         }
         &--sandwich {
-            &:hover, &:active, &:focus {
+            @include fonts.roboto-black;
+            padding-left: 1em;
+            padding-right: 1em;
+            &:hover, &:active {
                 color: rgb(200, 200, 200);
+                background-color:transparent;
+                border: 1px solid transparent;
+            }
+            &:focus {
                 background-color:transparent;
                 border: 1px solid transparent;
             }
         }
         &--logout {
-            &:hover, &:active, &:focus {
+            @include fonts.roboto-black;
+            padding-left: 1em;
+            padding-right: 1em;
+            &:hover, &:active {
                 color: red;
+                background-color:transparent;
+                border: 1px solid transparent;
+            }
+            &:focus {
                 background-color:transparent;
                 border: 1px solid transparent;
             }

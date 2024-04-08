@@ -6,10 +6,10 @@
 @use './components/page-content.scss';
 @use './components/middle-page-content.scss';
 @use './components/main-content.scss';
-@use './toggleable/hidden-nav.scss';
-@use './toggleable/shown-nav.scss';
 @use './components/app-menu.scss';
-
+@use './components/footer-styles.scss';
+@use './toggleable/toggle-main.scss';
+@use './toggleable/toggle-nav.scss';
 
 * {
     margin: 0;
@@ -25,10 +25,14 @@ body {
 }
 
 main {
-    width: 85%;
+    width: 100%;
     margin-top: 1em;
 }
-
+header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
 nav {
     width: 15%;
     background-color: colors.$main-content-color;
@@ -36,6 +40,8 @@ nav {
     box-shadow: 0px 0px 10px 0px colors.$shadow-color;
 }
 
-@media (orientation: portait) {
-
+@media (orientation: portrait) {
+    nav {
+        width: 400%;
+    }
 }

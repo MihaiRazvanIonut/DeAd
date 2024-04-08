@@ -11,9 +11,10 @@
     padding-bottom: 0.5em;
     &__glyph {
         padding: 0.5em;
-        background-color: colors.$logo-color;
-        border-radius: 2em;
+        border-radius: 3em;
+        border: 1px solid #00c896;
         margin: 0;
+        box-shadow: 1px 1px 1px 0px colors.$shadow-color;
     }
     &__app-name {
         padding-left: 0.5em;
