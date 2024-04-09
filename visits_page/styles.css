@@ -1,0 +1,241 @@
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  margin: 0;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.logo__glyph {
+  padding: 0.5em;
+  border-radius: 3em;
+  border: 1px solid #00c896;
+  margin: 0;
+  box-shadow: 1px 1px 1px 0px black;
+}
+.logo__app-name {
+  padding-left: 0.5em;
+  margin: 0;
+}
+
+.header-content {
+  background-color: #518071;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: calc(1rem + 0.2vw);
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  border-left: 0px;
+  position: sticky;
+  top: 6.5em;
+  z-index: 1;
+}
+.nav-menu__button {
+  width: 100%;
+  font-size: calc(1rem + 0.1vw);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: rgb(49, 49, 49);
+  border: 1px solid transparent;
+  border-bottom: 1px solid black;
+  color: #f2ecff;
+  padding: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.nav-menu__button:hover, .nav-menu__button:active {
+  background-color: #00c896;
+  border-color: transparent;
+}
+.nav-menu__title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: calc(1rem + 0.3vw);
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 2em;
+  padding-top: 2em;
+}
+
+.page-content {
+  background-color: rgb(51, 51, 51);
+  color: #f2ecff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.middle-page-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: calc(1rem + 0.3vw);
+}
+
+.app-menu {
+  width: 100%;
+  background-color: rgb(49, 49, 49);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  box-shadow: 0px 3px 3px 0px black;
+}
+.app-menu__button {
+  font-size: calc(1rem + 0.25vw);
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+  color: #f2ecff;
+  border: 1px solid transparent;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+}
+.app-menu__button:hover {
+  color: rgb(200, 200, 200);
+}
+.app-menu__button:focus {
+  background-color: #00c896;
+  border: 1px solid #00c896;
+  color: #f2ecff;
+}
+.app-menu__button--sandwich {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.app-menu__button--sandwich:hover, .app-menu__button--sandwich:active {
+  color: rgb(200, 200, 200);
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.app-menu__button--sandwich:focus {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.app-menu__button--logout {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.app-menu__button--logout:hover, .app-menu__button--logout:active {
+  color: red;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.app-menu__button--logout:focus {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.app-menu :first-child {
+  flex: 0;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+.app-menu :last-child {
+  flex: 0;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+  padding-top: 0.2em;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  padding-top: 0.5em;
+}
+.footer-content__info {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: calc(1rem + 0.05vw);
+  text-align: center;
+}
+
+.content-devider {
+  margin-top: 1em;
+  background-image: linear-gradient(135deg, #000 25%, transparent 25%, transparent 50%, #000 50%, #000 75%, transparent 75%, rgb(51, 51, 51));
+  background-size: 20px 20px;
+}
+
+.hidden-main {
+  visibility: hidden;
+}
+
+.shown-main {
+  visibility: visible;
+}
+
+.hidden-nav {
+  display: none;
+}
+
+.shown-nav {
+  visibility: visible;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+main {
+  width: 100%;
+  margin-top: 1em;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+nav {
+  width: 15%;
+  background-color: rgb(49, 49, 49);
+  margin-top: 0.5em;
+  box-shadow: 0px 0px 10px 0px black;
+}
+
+@media (orientation: portrait) {
+  nav {
+    width: 400%;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
