@@ -118,6 +118,15 @@
 .app-menu__button:hover {
   color: rgb(200, 200, 200);
 }
+.app-menu__button--active {
+  background-color: #00c896;
+  border: 1px solid #00c896;
+  color: #f2ecff;
+  cursor: default;
+}
+.app-menu__button--active:hover {
+  color: #f2ecff;
+}
 .app-menu__button:focus {
   background-color: #00c896;
   border: 1px solid #00c896;

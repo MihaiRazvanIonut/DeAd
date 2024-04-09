@@ -25,6 +25,15 @@
         &:hover {
             color: rgb(200, 200, 200);
         }
+        &--active {
+            background-color: colors.$secondary-color;
+            border: 1px solid colors.$secondary-color;
+            color: colors.$primary-text-color;
+            cursor: default;
+            &:hover {
+                color: colors.$primary-text-color;
+            }
+        }
         &:focus {
             background-color: colors.$secondary-color;
             border: 1px solid colors.$secondary-color;
