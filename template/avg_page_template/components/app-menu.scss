@@ -12,13 +12,16 @@
     &__button {
         font-size: calc(1rem + 0.25vw);
         width: 100%;
-        text-align: center;
         background-color:transparent;
         color: colors.$primary-text-color;
         border: 1px solid transparent;
         @include fonts.roboto-medium;
         padding-left: 0.1em;
         padding-right: 0.1em;
+        text-decoration: none;
+        cursor: pointer;
+        text-align: center;
+        padding-top: 0.15em;
         &:hover {
             color: rgb(200, 200, 200);
         }
