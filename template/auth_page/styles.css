@@ -11,9 +11,10 @@
 }
 .logo__glyph {
   padding: 0.5em;
-  background-color: rgba(54, 69, 79, 0.6);
-  border-radius: 2em;
+  border-radius: 3em;
+  border: 1px solid #00c896;
   margin: 0;
+  box-shadow: 1px 1px 1px 0px black;
 }
 .logo__app-name {
   padding-left: 0.5em;
@@ -22,48 +23,52 @@
 
 html, body {
   height: 100%;
+  margin: 0;
 }
 
 body {
-  margin: 0;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
-  background-color: #333333;
+  background-color: rgb(51, 51, 51);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  color: whitesmoke;
+  justify-content: center;
+  align-items: center;
+  color: #f2ecff;
 }
 
 main {
+  margin: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   align-self: center;
 }
 
 .auth {
-  align-self: center;
-  width: 80%;
-  background-color: rgba(54, 69, 79, 0.5);
+  width: 75%;
+  background-color: rgb(51, 51, 51);
   display: flex;
   flex-direction: column;
   padding: 2em;
   align-items: center;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  box-shadow: 0px 5px 5px 0px black;
+  box-shadow: 0px 1px 3px 0px black;
+  font-size: calc(1rem + 0.2vw);
 }
 .auth__form {
-  width: 95%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-style: normal;
+  font-size: calc(1rem + 0.1vw);
 }
 .auth__form__fieldset {
+  background-color: rgb(49, 49, 49);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -80,48 +85,41 @@ main {
   flex-wrap: nowrap;
 }
 .auth__form__button {
-  align-self: center;
+  background-color: rgb(49, 49, 49);
   width: 70%;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
+  align-self: center;
   font-size: large;
-  background-color: rgba(54, 69, 79, 0.5);
-  border-radius: 0.5em;
-  border: 1px solid whitesmoke;
-  color: whitesmoke;
+  box-shadow: 0px 1px 3px 0px black;
+  border: 1px solid rgb(49, 49, 49);
+  color: #f2ecff;
   padding: 0.5em;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
 }
 .auth__form__button:hover, .auth__form__button:active {
-  background-color: #0066b2;
-  border-color: #0066b2;
-}
-
-footer {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: small;
-  background-color: rgba(54, 69, 79, 0.5);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-top-left-radius: 1em;
-  border-top-right-radius: 1em;
-  padding: 0.5em;
+  background-color: #00c896;
+  border-color: #00c896;
 }
 
 .text-input {
-  background-color: rgba(54, 69, 79, 0.5);
-  color: whitesmoke;
+  background-color: rgb(49, 49, 49);
+  color: #f2ecff;
   height: 2em;
+}
+.text-input :valid {
+  background-color: rgb(49, 49, 49);
+  color: #f2ecff;
 }
 
 @media (orientation: landscape) {
-  .auth__form {
+  .auth {
     width: 50%;
+  }
+  .auth__form {
+    width: 60%;
   }
 }
 
