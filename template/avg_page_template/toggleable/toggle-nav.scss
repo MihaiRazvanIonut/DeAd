@@ -2,7 +2,7 @@
 @use '../../reuseable_components/fonts.scss';
 
 .hidden-nav {
-    visibility: collapse;
+    display: none;
 }
 
 .shown-nav {

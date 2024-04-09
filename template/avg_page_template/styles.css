@@ -194,7 +194,7 @@
 }
 
 .hidden-nav {
-  visibility: collapse;
+  display: none;
 }
 
 .shown-nav {
