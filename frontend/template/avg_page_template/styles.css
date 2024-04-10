@@ -342,6 +342,27 @@
     width: 90%;
   }
 }
+.search-box {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  justify-self: flex-end;
+  align-self: flex-end;
+  margin-right: 2em;
+}
+.search-box__input {
+  margin: 0;
+  padding: 0;
+  height: 2em;
+  background-color: rgb(49, 49, 49);
+  color: #f2ecff;
+}
+
+@media (orientation: portrait) {
+  .search-box {
+    margin-right: 0.5em;
+  }
+}
 * {
   margin: 0;
   padding: 0;

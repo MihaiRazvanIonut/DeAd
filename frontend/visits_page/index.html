@@ -50,6 +50,15 @@
             <main id="page-main" class="shown-main">
                 <div class="main-content">
                     <div class="main-content__text main-content__text--title">Existing Visits</div>
+                    <form class="search-box">
+                        <select id="filter" class="search-box__input">
+                            <option value="id">ID</option>
+                            <option value="purpose">Purpose</option>
+                            <option value="date">Date</option>
+                        </select>
+                        <input type="text" placeholder="Search" name="search" class="search-box__input">
+                        <button type="submit" class="search-box__input">&#x1F50E;&#xFE0E;</button>
+                    </form>
                     <table class="default-table default-table--big">
                         <tr class = "default-table__header">
                           <th>ID</th>

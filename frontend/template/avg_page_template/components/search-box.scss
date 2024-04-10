@@ -1,0 +1,22 @@
+@use '../../reuseable_components/colors.scss';
+@use '../../reuseable_components/fonts.scss';
+
+.search-box{
+    @include fonts.roboto-light;
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-right: 2em;
+    &__input{
+        margin: 0;
+        padding: 0;
+        height: 2em;
+        background-color: colors.$main-content-color;
+        color: colors.$primary-text-color;
+    }
+    
+}
+@media(orientation: portrait){
+    .search-box{
+        margin-right: 0.5em;       
+    }
+}
