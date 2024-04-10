@@ -23,10 +23,15 @@
         padding: 1em;
         display: flex;
         flex-direction: column;
+        &--rows{
+            display: flex;
+            flex-direction: row;
+        }
     }
     &__button {
         background-color: colors.$main-content-color;
         width: 70%;
+        cursor: pointer;
         @include fonts.roboto-regular;
         align-self: center;
         font-size: large;
@@ -36,11 +41,15 @@
         padding: 0.5em;
         margin-bottom: 0.5em;
         margin-top: 0.5em;
+        &--small{
+            width: auto;
+        }
         &:hover, &:active {
             background-color: colors.$secondary-color;
             border-color: colors.$secondary-color;
         }
     }
+
 }
 @media(orientation: portrait){
     .visit_form{

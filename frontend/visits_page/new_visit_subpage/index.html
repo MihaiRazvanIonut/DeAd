@@ -50,10 +50,6 @@
             <main id="page-main" class="shown-main">
                 <div class="main-content">
                     <div class="main-content__text main-content__text--title">New Visit</div>
-                    <button class="visit_form__button" onclick="addVisitor()">Add Visitor</button>
-                    <button class="visit_form__button" onclick="removeVisitor()">Remove Visitor</button>
-                    <button class="visit_form__button" onclick="addWitness()">Add Witness</button>
-                    <button class="visit_form__button" onclick="removeWitness()">Remove Witness</button>
                     <form action="../index.html" method="POST" class="visit_form"">
                         <label for="prisoner_id">
                             Prisoner ID:
@@ -61,11 +57,17 @@
                         <input type="number" id="prisoner_id" class="visit_form__input">
                         <fieldset id="visitors_fieldset" class="visit_form__fieldset">
                             <legend>Visitor/s</legend>
-                            
+                            <span class="visit_form__fieldset--rows">
+                                <span class="visit_form__button visit_form__button--small" onclick="addVisitor()">+</span>
+                                <span class="visit_form__button visit_form__button--small" onclick="removeVisitor()">-</span>
+                            </span>
                         </fieldset>
                         <fieldset id="witnesses_fieldset" class="visit_form__fieldset">
                             <legend>Witness/es</legend>
-                            
+                            <span class="visit_form__fieldset--rows">
+                                <span class="visit_form__button visit_form__button--small" onclick="addWitness()">+</span>
+                                <span class="visit_form__button visit_form__button--small" onclick="removeWitness()">-</span>      
+                            </span>                 
                         </fieldset>
                         <label for="visitor_relationship">Relationship with the prisoner:</label>
                             <select id="visitor_relationship" class="visit_form__input">
