@@ -7,7 +7,7 @@ function addWitness() {
         alert("You have reached the limit of witnesses. There can be a maximum of " + maxWitnesses);
     } else {
         let newWitness = document.createElement('div');
-        newWitness.className = "visit_form__fieldset";
+        newWitness.className = "default-form__fieldset";
         const witnessNum = witnessesCounter + 1;
         newWitness.innerHTML = 
         `
@@ -15,15 +15,15 @@ function addWitness() {
         <label for="witness_first_name">
             First name:
         </label>
-        <input type="text" id="witness_first_name" class="visit_form__input">    
+        <input type="text" id="witness_first_name" class="default-form__input">    
         <label for="witness_last_name">
            Last name:
         </label>
-        <input type="text" id="witness_last_name" class="visit_form__input">
+        <input type="text" id="witness_last_name" class="default-form__input">
         <label for="witness_ssn">
             SSN:
         </label>
-        <input type="number" id="witness_ssn" class="visit_form__input">
+        <input type="number" id="witness_ssn" class="default-form__input">
         `;
         witnessesFieldset.appendChild(newWitness);
         witnessesCounter++;

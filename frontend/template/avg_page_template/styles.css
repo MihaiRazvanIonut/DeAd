@@ -283,7 +283,7 @@
   padding: 0.5em;
 }
 
-.visit_form {
+.default-form {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -292,28 +292,28 @@
   font-style: normal;
   font-size: calc(1rem + 0.3vw);
 }
-.visit_form * {
+.default-form * {
   margin-top: 0.7em;
 }
-.visit_form__input {
+.default-form__input {
   background-color: rgb(49, 49, 49);
   color: #f2ecff;
   font-size: calc(1rem + 0.2vw);
   height: 2em;
 }
-.visit_form__input--textarea {
+.default-form__input--textarea {
   resize: none;
 }
-.visit_form__fieldset {
+.default-form__fieldset {
   padding: 1em;
   display: flex;
   flex-direction: column;
 }
-.visit_form__fieldset--rows {
+.default-form__fieldset--rows {
   display: flex;
   flex-direction: row;
 }
-.visit_form__button {
+.default-form__button {
   background-color: rgb(49, 49, 49);
   width: 70%;
   cursor: pointer;
@@ -329,16 +329,16 @@
   margin-bottom: 0.5em;
   margin-top: 0.5em;
 }
-.visit_form__button--small {
+.default-form__button--small {
   width: auto;
 }
-.visit_form__button:hover, .visit_form__button:active {
+.default-form__button:hover, .default-form__button:active {
   background-color: #00c896;
   border-color: #00c896;
 }
 
 @media (orientation: portrait) {
-  .visit_form {
+  .visit-form {
     width: 90%;
   }
 }

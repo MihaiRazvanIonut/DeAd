@@ -1,7 +1,7 @@
 @use '../../reuseable_components/colors.scss';
 @use '../../reuseable_components/fonts.scss';
 
-.visit_form{
+.default-form {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@
     * {
         margin-top: 0.7em;
     }
-    &__input{
+    &__input {
         background-color: colors.$main-content-color;
         color: colors.$primary-text-color;
         font-size: calc(1rem + 0.2vw);
@@ -19,7 +19,7 @@
             resize: none;
         }
     }
-    &__fieldset{
+    &__fieldset {
         padding: 1em;
         display: flex;
         flex-direction: column;
@@ -51,8 +51,8 @@
     }
 
 }
-@media(orientation: portrait){
-    .visit_form{
+@media (orientation: portrait) {
+    .visit-form {
         width: 90%;
     }
 }

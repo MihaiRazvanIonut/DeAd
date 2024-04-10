@@ -7,7 +7,7 @@ function addVisitor() {
         alert("You have reached the limit of visitors. There can be a maximum of " + maxVisitors);
     } else {
         let newVisitor = document.createElement('div');
-        newVisitor.className = "visit_form__fieldset";
+        newVisitor.className = "default-form__fieldset";
         const visitorNum = visitorsCounter + 1;
         newVisitor.innerHTML = 
         `
@@ -15,19 +15,19 @@ function addVisitor() {
         <label for="visitor_first_name">
             First name:
         </label>
-        <input type="text" id="visitor_first_name" class="visit_form__input">    
+        <input type="text" id="visitor_first_name" class="default-form__input">    
         <label for="visitor_last_name">
            Last name:
         </label>
-        <input type="text" id="visitor_last_name" class="visit_form__input">
+        <input type="text" id="visitor_last_name" class="default-form__input">
         <label for="visitor_ssn">
             SSN:
         </label>
-        <input type="number" id="visitor_ssn" class="visit_form__input">
+        <input type="number" id="visitor_ssn" class="default-form__input">
         <label for="visitor_image">
             Image:
         </label>
-        <input type="link" id="visitor_image" class="visit_form__input">
+        <input type="link" id="visitor_image" class="default-form__input">
         `;
         visitorsFieldset.appendChild(newVisitor);
         visitorsCounter++;

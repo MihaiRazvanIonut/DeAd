@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../template/avg_page_template/styles.css">
-    <title>DeAd-Template</title>
+    <title>DeAd</title>
 </head>
 <body>
     <div class="page-content">
@@ -50,27 +50,27 @@
             <main id="page-main" class="shown-main">
                 <div class="main-content">
                     <div class="main-content__text main-content__text--title">New Visit</div>
-                    <form action="../index.html" method="POST" class="visit_form"">
+                    <form action="../index.html" method="POST" class="default-form"">
                         <label for="prisoner_id">
                             Prisoner ID:
                         </label>
-                        <input type="number" id="prisoner_id" class="visit_form__input">
-                        <fieldset id="visitors_fieldset" class="visit_form__fieldset">
+                        <input type="number" id="prisoner_id" class="default-form__input">
+                        <fieldset id="visitors_fieldset" class="default-form__fieldset">
                             <legend>Visitor/s</legend>
-                            <span class="visit_form__fieldset--rows">
-                                <span class="visit_form__button visit_form__button--small" onclick="addVisitor()">+</span>
-                                <span class="visit_form__button visit_form__button--small" onclick="removeVisitor()">-</span>
+                            <span class="default-form__fieldset--rows">
+                                <span class="default-form__button default-form__button--small" onclick="addVisitor()">+</span>
+                                <span class="default-form__button default-form__button--small" onclick="removeVisitor()">-</span>
                             </span>
                         </fieldset>
-                        <fieldset id="witnesses_fieldset" class="visit_form__fieldset">
+                        <fieldset id="witnesses_fieldset" class="default-form__fieldset">
                             <legend>Witness/es</legend>
-                            <span class="visit_form__fieldset--rows">
-                                <span class="visit_form__button visit_form__button--small" onclick="addWitness()">+</span>
-                                <span class="visit_form__button visit_form__button--small" onclick="removeWitness()">-</span>      
+                            <span class="default-form__fieldset--rows">
+                                <span class="default-form__button default-form__button--small" onclick="addWitness()">+</span>
+                                <span class="default-form__button default-form__button--small" onclick="removeWitness()">-</span>      
                             </span>                 
                         </fieldset>
                         <label for="visitor_relationship">Relationship with the prisoner:</label>
-                            <select id="visitor_relationship" class="visit_form__input">
+                            <select id="visitor_relationship" class="default-form__input">
                                 <option value="spouse">Spouse</option>
                                 <option value="parent">Parent</option>
                                 <option value="sibling">Sibling</option>
@@ -87,17 +87,17 @@
                         <label for="visit_date">
                             Date of visit:
                         </label>
-                        <input type="date" id="visit_date" class="visit_form__input">
+                        <input type="date" id="visit_date" class="default-form__input">
                         <label for="visit_start_time">
                             Visit start-time:
                         </label>
-                        <input type="time" id="visit_start_time" class="visit_form__input">
+                        <input type="time" id="visit_start_time" class="default-form__input">
                         <label for="visit_end_time">
                             Visit end-time:
                         </label>
-                        <input type="time" id="visit_end_time" class="visit_form__input">
+                        <input type="time" id="visit_end_time" class="default-form__input">
                         <label for="visit_purpose">Visit purpose:</label>
-                            <select id="visitPurpose" class="visit_form__input">
+                            <select id="visitPurpose" class="default-form__input">
                                 <option value="contact">Contact</option>
                                 <option value="non_contact">Non-Contact</option>
                                 <option value="family">Family</option>
@@ -112,35 +112,35 @@
                         <label for="items_given">
                             Items given:
                         </label>
-                        <input type="text" id="items_given" class="visit_form__input">
+                        <input type="text" id="items_given" class="default-form__input">
                         <label for="items_received">
                             Items received:
                         </label>
-                        <input type="text" id="items_received" class="visit_form__input">
+                        <input type="text" id="items_received" class="default-form__input">
                         <label for="resum_of_discution">
                             Resum about the discution:
                         </label>
-                        <textarea id="resum_of_discution" class="visit_form__input visit_form__input--textarea"></textarea>
-                        <fieldset class="visit_form__fieldset">
+                        <textarea id="resum_of_discution" class="default-form__input default-form__input--textarea"></textarea>
+                        <fieldset class="default-form__fieldset">
                             <legend>Mood 1-10</legend>
                             <label for="arousal">
                                 Arousal:
                             </label>
-                            <input type="number" min="1" max="10" id="arousal" class="visit_form__input">
+                            <input type="number" min="1" max="10" id="arousal" class="default-form__input">
                             <label for="flow">
                                 Flow:
                             </label>
-                            <input type="number" min="1" max="10" id="flow" class="visit_form__input">
+                            <input type="number" min="1" max="10" id="flow" class="default-form__input">
                             <label for="control">
                                 Control:
                             </label>
-                            <input type="number" min="1" max="10" id="control" class="visit_form__input">
+                            <input type="number" min="1" max="10" id="control" class="default-form__input">
                             <label for="relaxation">
                                 Relaxation:
                             </label>
-                            <input type="number" min="1" max="10" id="relaxation" class="visit_form__input">
+                            <input type="number" min="1" max="10" id="relaxation" class="default-form__input">
                         </fieldset>
-                        <input type="submit" value="Create Visit" class="visit_form__button">
+                        <input type="submit" value="Create Visit" class="default-form__button">
                     </form>
                 </div>
             </main>
