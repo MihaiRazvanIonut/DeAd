@@ -1,4 +1,10 @@
-let isNavShown = false;
+let isNavShown;
+if (window.innerHeight > window.innerWidth) {
+    isNavShown = false;
+} else {
+    isNavShown = true;
+    document.getElementById("page-nav").setAttribute("class", "shown-nav");
+}
 
 function toggleNav() {
     if (isNavShown == true) {

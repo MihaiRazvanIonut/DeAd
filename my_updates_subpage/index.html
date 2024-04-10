@@ -19,12 +19,12 @@
                 <button class="app-menu__button app-menu__button--sandwich" onclick="toggleNav()">
                     ≡
                 </button>
-                <a class="app-menu__button" href="../index.html">
-                    LATEST
-                </a>
                 <span class="app-menu__button app-menu__button--active">
-                    VISITS
+                    LATEST
                 </span>
+                <a class="app-menu__button" href="../visits_page/index.html">
+                    VISITS
+                </a>
                 <a class="app-menu__button" href="../prisoners_page/index.html">
                     PRISONERS
                 </a>
@@ -37,22 +37,34 @@
             <nav class="hidden-nav" id="page-nav">
                 <div class="nav-menu">
                     <div class="nav-menu__title">
-                        Visits Panel
+                        Latest Panel
                     </div>
-                    <a href="./new_visit_subpage/index.html" class="nav-menu__button">
-                        New Visit
-                    </a>
-                    <a href="./index.html" class="nav-menu__button">
-                        Existing Visits
-                    </a>
-                    <a href="./export_subpage/index.html" class="nav-menu__button">
-                        Export
-                    </a>
+                    <a href="./index.html" class="nav-menu__button">My Updates</a>
+                    <a href="../index.html" class="nav-menu__button">Global Updates</a>
                 </div>
             </nav>
             <main id="page-main" class="shown-main">
                 <div class="main-content">
-                    <div class="main-content__text main-content__text--title">Existing Visits</div>
+                    <div class="main-content__text main-content__text--title">My Updates</div>
+                    <div class="main-content__text main-content__text--header">Hello, Razvan!</div>
+                    <div class="main-content__text">See the latest changes you have done:</div>
+                    <table class="default-table default-table--big">
+                        <tr class = "default-table__header">
+                          <th>Visit ID</th>
+                          <th>Operation</th>
+                          <th>Time</th>
+                        </tr>
+                        <tr class = "default-table__row" tabindex="0">
+                          <td>100</td>
+                          <td>Create</td>
+                          <td>07:26:45</td>
+                        </tr>
+                        <tr class = "default-table__row" tabindex="0">
+                          <td>101</td>
+                          <td>Update</td>
+                          <td>07:02:33</td>
+                        </tr>
+                      </table>
                 </div>
             </main>
         </div>

@@ -19,16 +19,16 @@
                 <button class="app-menu__button app-menu__button--sandwich" onclick="toggleNav()">
                     ≡
                 </button>
-                <a class="app-menu__button" href="../index.html">
+                <a class="app-menu__button" href="../../index.html">
                     LATEST
                 </a>
-                <span class="app-menu__button app-menu__button--active">
+                <a class="app-menu__button" href="../../visits_page/index.html">
                     VISITS
-                </span>
-                <a class="app-menu__button" href="../prisoners_page/index.html">
-                    PRISONERS
                 </a>
-                <a class="app-menu__button app-menu__button--logout" href="../login_page/index.html">
+                <span class="app-menu__button app-menu__button--active">
+                    PRISONERS
+                </span>
+                <a class="app-menu__button app-menu__button--logout" href="../../login_page/index.html">
                     ↪
                 </a>
             </div>
@@ -37,22 +37,22 @@
             <nav class="hidden-nav" id="page-nav">
                 <div class="nav-menu">
                     <div class="nav-menu__title">
-                        Visits Panel
+                        Prisoners Panel
                     </div>
-                    <a href="./new_visit_subpage/index.html" class="nav-menu__button">
-                        New Visit
-                    </a>
                     <a href="./index.html" class="nav-menu__button">
-                        Existing Visits
+                        New Prisoner
                     </a>
-                    <a href="./export_subpage/index.html" class="nav-menu__button">
+                    <a href="../index.html" class="nav-menu__button">
+                        Existing Prisoners
+                    </a>
+                    <a href="../export_subpage/index.html" class="nav-menu__button">
                         Export
                     </a>
                 </div>
             </nav>
             <main id="page-main" class="shown-main">
                 <div class="main-content">
-                    <div class="main-content__text main-content__text--title">Existing Visits</div>
+                    <div class="main-content__text main-content__text--title">New Prisoner</div>
                 </div>
             </main>
         </div>
@@ -68,6 +68,6 @@
             </div>
         </footer>
     </div>
-    <script src="../template/avg_page_template/toggleable/show-nav.js"></script>
+    <script src="../../template/avg_page_template/toggleable/show-nav.js"></script>
 </body>
 </html>

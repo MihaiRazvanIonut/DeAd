@@ -39,25 +39,35 @@
                     <div class="nav-menu__title">
                         Latest Panel
                     </div>
-                    <button class="nav-menu__button">My Updates</button>
-                    <button class="nav-menu__button">Global Updates</button>
+                    <a href="./my_updates_subpage/index.html" class="nav-menu__button">
+                        My Updates
+                    </a>
+                    <a href="./index.html" class="nav-menu__button">
+                        Global Updates
+                    </a>
                 </div>
             </nav>
             <main id="page-main" class="shown-main">
                 <div class="main-content">
-                    <table>
-                        <tr>
+                    <div class="main-content__text main-content__text--title">Global Updates</div>
+                    <div class="main-content__text main-content__text--header">Hello, Razvan!</div>
+                    <div class="main-content__text">See the latest changes done:</div>
+                    <table class="default-table default-table--big">
+                        <tr class = "default-table__header">
                           <th>Visit ID</th>
-                          <th>Edited by</th>
+                          <th>Operation</th>
+                          <th>User</th>
                           <th>Time</th>
                         </tr>
-                        <tr>
-                          <td>233123123123</td>
+                        <tr class = "default-table__row" tabindex="0">
+                          <td>2000000000</td>
+                          <td>Create</td>
                           <td>Maria Anders</td>
                           <td>10:20:34</td>
                         </tr>
-                        <tr>
-                          <td>5636452435425</td>
+                        <tr class = "default-table__row" tabindex="0">
+                          <td>2000000001</td>
+                          <td>Update</td>
                           <td>Francisco Chang</td>
                           <td>09:25:33</td>
                         </tr>

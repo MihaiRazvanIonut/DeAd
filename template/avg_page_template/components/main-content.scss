@@ -6,6 +6,36 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    @include fonts.roboto-light;
     font-size: calc(1rem + 0.3vw);
+    &__text {
+        @include fonts.roboto-light;
+        font-size: calc(1rem + 0.2em);
+        align-self: flex-start;
+        margin-left: 3em;
+        margin-bottom: 0.5em;
+        &--header {
+            @include fonts.roboto-thin;
+            font-size: calc(1rem + 0.7vw);
+            margin-bottom: 1em;
+            margin-left: 2em;
+        }
+        &--title {
+            align-self: center;
+            @include fonts.roboto-medium;
+            font-size: calc(1rem + 1vw);
+            margin-bottom: 2em;
+            margin-left: 0;
+        }
+    }
+}
+
+@media (orientation: portrait) {
+    .main-content {
+        &__text {
+            margin-left: 0.7em;
+            &--title {
+                margin-left: 0em;
+            }
+        }
+    }
 }

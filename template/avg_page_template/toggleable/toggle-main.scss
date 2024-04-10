@@ -2,7 +2,7 @@
 @use '../../reuseable_components/fonts.scss';
 
 .hidden-main {
-    visibility: hidden;
+    display: none;
 }
 
 .shown-main {

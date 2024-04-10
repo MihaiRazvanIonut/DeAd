@@ -1,0 +1,31 @@
+@use '../../reuseable_components/colors.scss';
+@use '../../reuseable_components/fonts.scss';
+
+.default-table {
+    background-color: colors.$main-content-color;
+    box-shadow: 0px 3px 3px 0px colors.$shadow-color;
+    border-collapse: collapse;
+    &--big {
+        width: 95%;
+    }
+    &__header {
+        @include fonts.roboto-medium;
+        font-size: calc(1rem + 0.1vw);
+        text-align: left;
+        border-bottom: 1px solid black;
+    }
+    &__row {
+        @include fonts.roboto-light;
+        font-size: calc(1rem + 0.05vw);
+        border-bottom: 1px solid black;
+        &:hover, &:active {
+            background-color: colors.$primary-color;
+        }
+        &:focus {
+            background-color: colors.$primary-color-lesser;
+        }
+    }
+    td, th {
+        padding: 0.5em;
+    }
+}
