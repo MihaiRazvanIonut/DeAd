@@ -45,14 +45,123 @@
                     <a href="../index.html" class="nav-menu__button">
                         Existing Visits
                     </a>
-                    <a href="../export_subpage/index.html" class="nav-menu__button">
-                        Export
-                    </a>
                 </div>
             </nav>
             <main id="page-main" class="shown-main">
                 <div class="main-content">
                     <div class="main-content__text main-content__text--title">New Visit</div>
+                    <form action="../index.html" method="POST" class="visit_form"">
+                        <label for="prisoner_id">
+                            Prisoner ID:
+                        </label>
+                        <input type="number" id="prisoner_id" class="visit_form__input">
+                        <fieldset class="visit_form__fieldset">
+                            <legend>Visitor</legend>
+                            <label for="visitor_first_name">
+                                First name:
+                            </label>
+                            <input type="text" id="visitor_first_name" class="visit_form__input">    
+                            <label for="visitor_last_name">
+                               Last name:
+                            </label>
+                            <input type="text" id="visitor_last_name" class="visit_form__input">
+                            <label for="visitor_ssn">
+                                SSN:
+                            </label>
+                            <input type="number" id="visitor_ssn" class="visit_form__input">
+                            <label for="visitor_image">
+                                Image:
+                            </label>
+                            <input type="link" id="visitor_image" class="visit_form__input"> 
+                        </fieldset>
+                        <fieldset class="visit_form__fieldset">
+                            <legend>Witness</legend>
+                            <label for="witness_first_name">
+                                First name:
+                            </label>
+                            <input type="text" id="witness_first_name" class="visit_form__input">
+                            <label for="witness_last_name">
+                                Last name:
+                            </label>
+                            <input type="text" id="witness_last_name" class="visit_form__input">
+                            <label for="witness_ssn">
+                                SSN:
+                            </label>
+                            <input type="text" id="witness_snn" class="visit_form__input">
+                        </fieldset>
+                        <label for="visitor_relationship">Relationship with the prisoner:</label>
+                            <select id="visitor_relationship" class="visit_form__input">
+                                <option value="spouse">Spouse</option>
+                                <option value="parent">Parent</option>
+                                <option value="sibling">Sibling</option>
+                                <option value="child">Child</option>
+                                <option value="otherFamily">Other Family Member</option>
+                                <option value="friend">Friend</option>
+                                <option value="legalRep">Legal Representative</option>
+                                <option value="professional">Professional (e.g., counselor, social worker)</option>
+                                <option value="educator">Educator</option>
+                                <option value="community">Community Member</option>
+                                <option value="media">Media Representative</option>
+                                <option value="official">Government Official</option>
+                            </select>
+                        <label for="visit_date">
+                            Date of visit:
+                        </label>
+                        <input type="date" id="visit_date" class="visit_form__input">
+                        <label for="visit_start_time">
+                            Visit start-time:
+                        </label>
+                        <input type="time" id="visit_start_time" class="visit_form__input">
+                        <label for="visit_end_time">
+                            Visit end-time:
+                        </label>
+                        <input type="time" id="visit_end_time" class="visit_form__input">
+                        <label for="visit_purpose">Visit purpose:</label>
+                            <select id="visitPurpose" class="visit_form__input">
+                                <option value="contact">Contact</option>
+                                <option value="non_contact">Non-Contact</option>
+                                <option value="family">Family</option>
+                                <option value="legal">Legal</option>
+                                <option value="professional">Professional</option>
+                                <option value="special">Special</option>
+                                <option value="educational">Educational</option>
+                                <option value="community">Community</option>
+                                <option value="media">Media</option>
+                                <option value="official">Official</option>
+                            </select>
+                        <label for="items_given">
+                            Items given:
+                        </label>
+                        <input type="text" id="items_given" class="visit_form__input">
+                        <label for="items_received">
+                            Items received:
+                        </label>
+                        <input type="text" id="items_received" class="visit_form__input">
+                        <label for="resum_of_discution">
+                            Resum about the discution:
+                        </label>
+                        <textarea id="resum_of_discution" class="visit_form__input visit_form__input--textarea"></textarea>
+                        <fieldset class="visit_form__fieldset">
+                            <legend>Mood 1-10</legend>
+                            <label for="arousal">
+                                Arousal:
+                            </label>
+                            <input type="number" min="1" max="10" id="arousal" class="visit_form__input">
+                            <label for="flow">
+                                Flow:
+                            </label>
+                            <input type="number" min="1" max="10" id="flow" class="visit_form__input">
+                            <label for="control">
+                                Control:
+                            </label>
+                            <input type="number" min="1" max="10" id="control" class="visit_form__input">
+                            <label for="relaxation">
+                                Relaxation:
+                            </label>
+                            <input type="number" min="1" max="10" id="relaxation" class="visit_form__input">
+                        </fieldset>
+                        <input type="submit" value="Create Visit" class="visit_form__button">
+                    </form>
                 </div>
             </main>
         </div>
