@@ -50,44 +50,22 @@
             <main id="page-main" class="shown-main">
                 <div class="main-content">
                     <div class="main-content__text main-content__text--title">New Visit</div>
+                    <button class="visit_form__button" onclick="addVisitor()">Add Visitor</button>
+                    <button class="visit_form__button" onclick="removeVisitor()">Remove Visitor</button>
+                    <button class="visit_form__button" onclick="addWitness()">Add Witness</button>
+                    <button class="visit_form__button" onclick="removeWitness()">Remove Witness</button>
                     <form action="../index.html" method="POST" class="visit_form"">
                         <label for="prisoner_id">
                             Prisoner ID:
                         </label>
                         <input type="number" id="prisoner_id" class="visit_form__input">
-                        <fieldset class="visit_form__fieldset">
-                            <legend>Visitor</legend>
-                            <label for="visitor_first_name">
-                                First name:
-                            </label>
-                            <input type="text" id="visitor_first_name" class="visit_form__input">    
-                            <label for="visitor_last_name">
-                               Last name:
-                            </label>
-                            <input type="text" id="visitor_last_name" class="visit_form__input">
-                            <label for="visitor_ssn">
-                                SSN:
-                            </label>
-                            <input type="number" id="visitor_ssn" class="visit_form__input">
-                            <label for="visitor_image">
-                                Image:
-                            </label>
-                            <input type="link" id="visitor_image" class="visit_form__input"> 
+                        <fieldset id="visitors_fieldset" class="visit_form__fieldset">
+                            <legend>Visitor/s</legend>
+                            
                         </fieldset>
-                        <fieldset class="visit_form__fieldset">
-                            <legend>Witness</legend>
-                            <label for="witness_first_name">
-                                First name:
-                            </label>
-                            <input type="text" id="witness_first_name" class="visit_form__input">
-                            <label for="witness_last_name">
-                                Last name:
-                            </label>
-                            <input type="text" id="witness_last_name" class="visit_form__input">
-                            <label for="witness_ssn">
-                                SSN:
-                            </label>
-                            <input type="text" id="witness_snn" class="visit_form__input">
+                        <fieldset id="witnesses_fieldset" class="visit_form__fieldset">
+                            <legend>Witness/es</legend>
+                            
                         </fieldset>
                         <label for="visitor_relationship">Relationship with the prisoner:</label>
                             <select id="visitor_relationship" class="visit_form__input">
@@ -178,5 +156,7 @@
         </footer>
     </div>
     <script src="../../template/avg_page_template/toggleable/show-nav.js"></script>
+    <script src="./add-remove_visitors.js"></script>
+    <script src="./add-remove_witness.js"></script>
 </body>
 </html>
