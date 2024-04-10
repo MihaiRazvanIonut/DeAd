@@ -338,7 +338,7 @@
 }
 
 @media (orientation: portrait) {
-  .visit-form {
+  .default-form {
     width: 90%;
   }
 }
@@ -348,14 +348,19 @@
   font-style: normal;
   justify-self: flex-end;
   align-self: flex-end;
-  margin-right: 2em;
+  margin-right: 2.5em;
+  margin-bottom: 1em;
+  font-size: calc(1rem + 0.1vw);
+  box-shadow: 0px 3px 3px 0px black;
+  background-color: rgb(49, 49, 49);
 }
 .search-box__input {
   margin: 0;
-  padding: 0;
+  padding-left: 0.5em;
   height: 2em;
   background-color: rgb(49, 49, 49);
   color: #f2ecff;
+  border: 0px;
 }
 
 @media (orientation: portrait) {

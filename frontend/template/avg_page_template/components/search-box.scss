@@ -5,13 +5,18 @@
     @include fonts.roboto-light;
     justify-self: flex-end;
     align-self: flex-end;
-    margin-right: 2em;
+    margin-right: 2.5em;
+    margin-bottom: 1em;
+    font-size: calc(1rem + 0.1vw);
+    box-shadow: 0px 3px 3px 0px colors.$shadow-color;
+    background-color: colors.$main-content-color;
     &__input {
         margin: 0;
-        padding: 0;
+        padding-left: 0.5em;
         height: 2em;
         background-color: colors.$main-content-color;
         color: colors.$primary-text-color;
+        border: 0px;
     }
     
 }

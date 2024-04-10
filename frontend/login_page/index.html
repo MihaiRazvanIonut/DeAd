@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> DeAd - Authentification Page Template </title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../template/form_page_template/styles.css">
 </head>
 <body>
     <main>
-        <div class="auth">
+        <div class="box">
             <div class = "logo">
                 <h3 class="logo__glyph">
                     DeAd
@@ -17,25 +17,25 @@
                     Detention Admin
                 </h2>
             </div>
-            <form action="../index.html" method="POST" class="auth__form"">
-                <fieldset class="auth__form__fieldset">
+            <form action="../index.html" method="POST" class="default-form"">
+                <fieldset class="default-form__fieldset">
                     <legend>Login</legend>
                     <label for="email">
                         Email:
                     </label>
-                    <input type="text" id="email" class="text-input">
+                    <input type="text" id="email" class="default-form__input">
                     <label for="password">
                         Password:
                     </label>
-                    <input type="password" id="password" class="text-input">
-                    <div class="auth_form--rows">
+                    <input type="password" id="password" class="default-form__input">
+                    <div class="default-form__fieldset default-form__fieldset--rows">
                         <input type="checkbox" id="keep_logged">
                         <label for="keep_logged">
                             Remember me
                         </label>
                     </div>
                 </fieldset>
-                <input type="submit" value="Login" class="auth__form__button">
+                <input type="submit" value="Login" class="default-form__button">
             </form>
         </div>
     </main>

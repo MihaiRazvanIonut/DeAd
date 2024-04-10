@@ -1,0 +1,122 @@
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  margin: 0;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.logo__glyph {
+  padding: 0.5em;
+  border-radius: 3em;
+  border: 1px solid #00c896;
+  margin: 0;
+  box-shadow: 1px 1px 1px 0px black;
+}
+.logo__app-name {
+  padding-left: 0.5em;
+  margin: 0;
+}
+
+.default-form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: calc(1rem + 0.3vw);
+}
+.default-form * {
+  margin-top: 0.7em;
+}
+.default-form__input {
+  background-color: rgb(49, 49, 49);
+  color: #f2ecff;
+  font-size: calc(1rem + 0.2vw);
+  height: 2em;
+}
+.default-form__input--textarea {
+  resize: none;
+}
+.default-form__fieldset {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+.default-form__fieldset--rows {
+  display: flex;
+  flex-direction: row;
+}
+.default-form__button {
+  background-color: rgb(49, 49, 49);
+  width: 70%;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  align-self: center;
+  font-size: large;
+  box-shadow: 0px 1px 3px 0px black;
+  border: 1px solid rgb(49, 49, 49);
+  color: #f2ecff;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+.default-form__button--small {
+  width: auto;
+}
+.default-form__button:hover, .default-form__button:active {
+  background-color: #00c896;
+  border-color: #00c896;
+}
+
+@media (orientation: portrait) {
+  .default-form {
+    width: 90%;
+  }
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: rgb(51, 51, 51);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f2ecff;
+}
+
+main {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.box {
+  width: 75%;
+  background-color: rgb(51, 51, 51);
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  align-items: center;
+  box-shadow: 0px 1px 3px 0px black;
+  font-size: calc(1rem + 0.2vw);
+}
+
+/*# sourceMappingURL=styles.css.map */
