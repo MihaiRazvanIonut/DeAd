@@ -16,81 +16,89 @@
                 <h2 class="logo__app-name">
                     Detention Admin
                 </h2>
+            </div>      
+            <div class="main-content__text main-content__text--title">Prisoner #3112</div>
+            <div class="default-form__menu">
+                <button class="default-form__button default-form__button--small" onclick="editForm()">Edit</button>
+                <button class="default-form__button default-form__button--small" onclick="readOnlyForm()">Save Draft</button>
             </div>
-            <form action="../index.html" method="POST" class="default-form"">
+            <form action="../index.html" method="POST" class="default-form" id="prisoners_form">
                 <fieldset class="default-form__fieldset">
                     <legend>Personal Information</legend>
                     <label for="prisoner_first_name">
                         First name:
                     </label>
-                    <input type="text" id="prisoner_first_name" class="default-form__input">    
+                    <input type="text" placeholder="Balan" id="prisoner_first_name" class="default-form__input">    
                     <label for="prisoner_last_name">
                        Last name:
                     </label>
-                    <input type="text" id="prisoner_last_name" class="default-form__input">
+                    <input type="text" placeholder="Calin" id="prisoner_last_name" class="default-form__input">
                     <label for="prisoner_ssn">
                         SSN:
                     </label>
-                    <input type="number" id="prisoner_ssn" class="default-form__input">
+                    <input type="number" placeholder="2001207233455" id="prisoner_ssn" class="default-form__input">
                     <label for="prisoner_birthday">
                         Date of birth:
                     </label>
-                    <input type="date" id="prisoner_birthday" class="default-form__input">
+                    <input type="text" placeholder="06/12/2003" id="prisoner_birthday" class="default-form__input">
                     <label for="prisoner_nationality">
                         Nationality:
                     </label>
-                    <input type="text" id="prisoner_nationality" class="default-form__input">  
+                    <input type="text" placeholder="romanian" id="prisoner_nationality" class="default-form__input">  
                     <label for="prisoner_image">
                         Image:
                     </label>
-                    <input type="link" id="prisoner_image" class="default-form__input">
+                    <input type="link" placeholder="https://scontent.fias1-1.fna.fbcdn.net/v/t1.6435-9/53454911_112486009906511_2320500199291617280_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ac4FBX4wkaMAb72arWo&_nc_ht=scontent.fias1-1.fna&oh=00_AfAKU27BkIM8Dhi-s4pcnG4qe3V9O6UD6jJl74sIAQDuQA&oe=6640CBE2" id="prisoner_image" class="default-form__input">
                     <label for="prisoner_adress">
                         Adress:
                     </label>
-                    <input type="text" id="prisoner_adress" class="default-form__input">
+                    <input type="text" placeholder="Strada Penes Curcanul 18" id="prisoner_adress" class="default-form__input">
                     <label for="prisoner_phone_number">
                         Phone number:
                     </label>
-                    <input type="tel" id="prisoner_phone_number" class="default-form__input">
+                    <input type="tel" placeholder="07223313243" id="prisoner_phone_number" class="default-form__input">
                     <label for="prisoner_email">
                         Email:
                     </label>
-                    <input type="email" id="prisoner_email" class="default-form__input">
+                    <input type="email" placeholder="balan.calin@yahoo.com" id="prisoner_email" class="default-form__input">
                     <label for="emergency_phone_number">
                        Emergency contact number:
                     </label>
-                    <input type="tel" id="emergency_phone_number" class="default-form__input">
+                    <input type="tel" placeholder="0728341298" id="emergency_phone_number" class="default-form__input">
                 </fieldset>
                 <fieldset class="default-form__fieldset">
                     <legend>Legal Information</legend>
                     <label for="arest_date">
                         Arest date:
                     </label>
-                    <input type="date" id="arest_date" class="default-form__input">
+                    <input type="text" placeholder="10/02/2024" id="arest_date" class="default-form__input">
                     <label for="conviction_date">
                         Conviction date:
                     </label>
-                    <input type="date" id="conviction_date" class="default-form__input">
+                    <input type="text" placeholder="12/02/2024" id="conviction_date" class="default-form__input">
                     <label for="crime_commited">
                         Crime commited:
                     </label>
-                    <textarea id="crime_commited" class="default-form__input default-form__input--textarea"></textarea>
+                    <textarea id="crime_commited" placeholder="omorat biti in serie" class="default-form__input default-form__input--textarea"></textarea>
                     <label for="court_case_number">
                         Court case number:
                     </label>
-                    <input type="number" id="court_case_number" class="default-form__input">
+                    <input type="number" placeholder="123554" id="court_case_number" class="default-form__input">
                     <label for="release_date">
                         Release date:
                     </label>
-                    <input type="date" id="release_date" class="default-form__input">
+                    <input type="text" placeholder="10/07/2030" id="release_date" class="default-form__input">
                     <label for="previous_crimes_commited">
                         Previous crimes commited:
                     </label>
-                    <textarea id="previous_crimes_commited" class="default-form__input default-form__input--textarea"></textarea>
+                    <textarea id="previous_crimes_commited" placeholder="accident rutier" class="default-form__input default-form__input--textarea"></textarea>
                 </fieldset>
-                <input type="submit" value="Create Prisoner" class="default-form__button">
+                <div class="default-form__menu">
+                    <input type="submit" value="Update" class="default-form__button">
+                </div>
             </form>
         </div>
     </main>
+    <script src="./edit_prisoner.js"></script>
 </body>
 </html>

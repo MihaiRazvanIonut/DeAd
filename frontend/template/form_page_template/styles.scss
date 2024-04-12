@@ -2,25 +2,14 @@
 @use '../reuseable_components/fonts';
 @use '../reuseable_components/logo';
 @use '../avg_page_template/components/form-styles.scss';
-
-html, body {
-    height: 100%;
-    margin: 0;
-}
-
+@use '../avg_page_template/components/main-content.scss';
 body {
-    height: 100%;
     @include fonts.roboto-regular;
     background-color: colors.$body-background-color;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     color: colors.$primary-text-color;
 }
 
 main {
-    margin: 0;
     width: 100%;
     display: flex;
     flex-direction: column;

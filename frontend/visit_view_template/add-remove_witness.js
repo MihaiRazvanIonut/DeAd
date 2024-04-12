@@ -1,4 +1,4 @@
-let witnessesCounter = 0;
+let witnessesCounter = 1;
 let maxWitnesses = 3;
 const witnessesFieldset = document.getElementById("witnesses_fieldset");
 

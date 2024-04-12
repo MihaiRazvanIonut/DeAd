@@ -1,7 +1,6 @@
-let visitorsCounter = 0;
+let visitorsCounter = 2;
 let maxVisitors = 10;
 const visitorsFieldset = document.getElementById("visitors_fieldset");
-
 function addVisitor() {
     if (visitorsCounter == maxVisitors) {
         alert("You have reached the limit of visitors. There can be a maximum of " + maxVisitors);
@@ -51,11 +50,11 @@ function addVisitor() {
 }
 
 function removeVisitor() {
-    if (visitorsCounter == 0) {
+    if (visitorsFieldset.childElementCount == 0) {
         alert("There are no visitors added!");
     } else {
         visitorsCounter--;
         visitorsFieldset.removeChild(visitorsFieldset.lastElementChild);
-        console.log("Deleted visitor");
+        console.log("Deleted visitor" + visitorsCounter);
     }
 }

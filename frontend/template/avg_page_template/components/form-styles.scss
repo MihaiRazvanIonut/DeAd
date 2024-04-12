@@ -41,15 +41,24 @@
         padding: 0.5em;
         margin-bottom: 0.5em;
         margin-top: 0.5em;
-        &--small{
+        &--small {
             width: auto;
         }
         &:hover, &:active {
             background-color: colors.$secondary-color;
             border-color: colors.$secondary-color;
         }
+        &--warning {
+            &:hover, &:active {
+                background-color: RED;
+                border-color: RED;
+            }
+        }
     }
-
+    &__menu {
+        display: flex;
+        flex-direction: row;
+    }
 }
 @media (orientation: portrait) {
     .default-form {

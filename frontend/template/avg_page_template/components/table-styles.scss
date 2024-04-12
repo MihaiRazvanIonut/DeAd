@@ -25,6 +25,10 @@
             background-color: colors.$primary-color-lesser;
         }
     }
+    &__link {
+        text-decoration: none;
+        color: colors.$secondary-color;
+    }
     td, th {
         padding: 0.5em;
     }

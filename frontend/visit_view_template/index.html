@@ -19,13 +19,86 @@
                     Detention Admin
                 </h2>
             </div>
-            <form action="../index.html" method="POST" class="default-form"">
+            <div class="main-content__text main-content__text--title">Visit #3521</div>
+            <div class="default-form__menu">
+                <button class="default-form__button default-form__button--small" onclick="editForm()">Edit</button>
+                <button class="default-form__button default-form__button--small" onclick="readOnlyForm()">Save Draft</button>
+            </div>
+            <form action="../index.html" method="POST" class="default-form" id="visits_form">
                 <label for=" prisoner_id">
                 Prisoner ID:
                 </label>
-                <input type="number" id="prisoner_id" class="default-form__input">
+                <input type="number" placeholder="4235" id="prisoner_id" class="default-form__input" readonly>
                 <fieldset id="visitors_fieldset" class="default-form__fieldset">
                     <legend>Visitor/s</legend>
+                    <div class="default-form__fieldset">
+                        <label> Visitor 1 </label>
+                        <label for="visitor_first_name">
+                            First name:
+                        </label>
+                        <input type="text" placeholder="Cazacu" id="visitor_first_name" class="default-form__input" readonly>    
+                        <label for="visitor_last_name">
+                        Last name:
+                        </label>
+                        <input type="text" placeholder="Costin" id="visitor_last_name" class="default-form__input" readonly>
+                        <label for="visitor_ssn">
+                            SSN:
+                        </label>
+                        <input type="number" placeholder="1020712773311" id="visitor_ssn" class="default-form__input" readonly>
+                        <label for="visitor_relationship">Relationship with the prisoner:</label>
+                        <select id="visitor_relationship" class="default-form__input" disabled="true">
+                            <option value="spouse">Spouse</option>
+                            <option value="parent">Parent</option>
+                            <option value="sibling">Sibling</option>
+                            <option value="child">Child</option>
+                            <option value="otherFamily">Other Family Member</option>
+                            <option value="friend">Friend</option>
+                            <option value="legalRep" selected>Legal Representative</option>
+                            <option value="professional">Professional (e.g., counselor, social worker)</option>
+                            <option value="educator">Educator</option>
+                            <option value="community">Community Member</option>
+                            <option value="media">Media Representative</option>
+                            <option value="official">Government Official</option>
+                        </select>
+                        <label for="visitor_image">
+                            Image:
+                        </label>
+                        <input type="link" placeholder="https://i.kym-cdn.com/entries/icons/original/000/049/273/cover11.jpg" id="visitor_image" class="default-form__input" readonly>
+                    </div>
+                    <div class="default-form__fieldset">
+                        <label> Visitor 2 </label>
+                        <label for="visitor_first_name">
+                            First name:
+                        </label>
+                        <input type="text" placeholder="Mihai" id="visitor_first_name" class="default-form__input" readonly>    
+                        <label for="visitor_last_name">
+                        Last name:
+                        </label>
+                        <input type="text" placeholder="Razvan" id="visitor_last_name" class="default-form__input" readonly>
+                        <label for="visitor_ssn">
+                            SSN:
+                        </label>
+                        <input type="number" placeholder="1010222652231" id="visitor_ssn" class="default-form__input" readonly>
+                        <label for="visitor_relationship">Relationship with the prisoner:</label>
+                        <select id="visitor_relationship" class="default-form__input" disabled="true">
+                            <option value="spouse">Spouse</option>
+                            <option value="parent">Parent</option>
+                            <option value="sibling">Sibling</option>
+                            <option value="child">Child</option>
+                            <option value="otherFamily">Other Family Member</option>
+                            <option value="friend">Friend</option>
+                            <option value="legalRep" selected>Legal Representative</option>
+                            <option value="professional">Professional (e.g., counselor, social worker)</option>
+                            <option value="educator">Educator</option>
+                            <option value="community">Community Member</option>
+                            <option value="media">Media Representative</option>
+                            <option value="official">Government Official</option>
+                        </select>
+                        <label for="visitor_image">
+                            Image:
+                        </label>
+                        <input type="link" placeholder="https://preview.redd.it/zdo10qa8e85b1.jpg?width=1080&crop=smart&auto=webp&s=049e911bf08c80eab3772b5a16e8e33832b9ff04" id="visitor_image" class="default-form__input" readonly>
+                    </div>    
                 </fieldset>
                 <span class="default-form__fieldset--rows">
                     <span class="default-form__button default-form__button--small" onclick="addVisitor()">+</span>
@@ -33,44 +106,44 @@
                 </span>
                 <fieldset id="witnesses_fieldset" class="default-form__fieldset">
                     <legend>Witness/es</legend>
+                    <div class="default-form__fieldset">
+                        <label> Witness 1 </label>
+                        <label for="witness_first_name">
+                            First name:
+                        </label>
+                        <input type="text" placeholder="Mitreanu" id="witness_first_name" class="default-form__input" readonly>    
+                        <label for="witness_last_name">
+                        Last name:
+                        </label>
+                        <input type="text" placeholder="Alexandru" id="witness_last_name" class="default-form__input" readonly>
+                        <label for="witness_ssn">
+                            SSN:
+                        </label>
+                        <input type="number" placeholder="4129922124323" id="witness_ssn" class="default-form__input" readonly>
+                    </div> 
                 </fieldset>
                 <span class="default-form__fieldset--rows">
                     <span class="default-form__button default-form__button--small" onclick="addWitness()">+</span>
                     <span class="default-form__button default-form__button--small" onclick="removeWitness()">-</span>
                 </span>
-                <label for="visitor_relationship">Relationship with the prisoner:</label>
-                <select id="visitor_relationship" class="default-form__input">
-                    <option value="spouse">Spouse</option>
-                    <option value="parent">Parent</option>
-                    <option value="sibling">Sibling</option>
-                    <option value="child">Child</option>
-                    <option value="otherFamily">Other Family Member</option>
-                    <option value="friend">Friend</option>
-                    <option value="legalRep">Legal Representative</option>
-                    <option value="professional">Professional (e.g., counselor, social worker)</option>
-                    <option value="educator">Educator</option>
-                    <option value="community">Community Member</option>
-                    <option value="media">Media Representative</option>
-                    <option value="official">Government Official</option>
-                </select>
                 <label for="visit_date">
                     Date of visit:
                 </label>
-                <input type="date" id="visit_date" class="default-form__input">
+                <input type="text" placeholder="10/07/2023" id="visit_date" class="default-form__input" readonly>
                 <label for="visit_start_time">
                     Visit start-time:
                 </label>
-                <input type="time" id="visit_start_time" class="default-form__input">
+                <input type="text" placeholder="10:15 AM" id="visit_start_time" class="default-form__input" readonly>
                 <label for="visit_end_time">
                     Visit end-time:
                 </label>
-                <input type="time" id="visit_end_time" class="default-form__input">
+                <input type="text" placeholder="10:45 AM" id="visit_end_time" class="default-form__input" readonly>
                 <label for="visit_purpose">Visit purpose:</label>
-                <select id="visitPurpose" class="default-form__input">
+                <select id="visitPurpose" class="default-form__input" disabled="true">
                     <option value="contact">Contact</option>
                     <option value="non_contact">Non-Contact</option>
                     <option value="family">Family</option>
-                    <option value="legal">Legal</option>
+                    <option value="legal" selected>Legal</option>
                     <option value="professional">Professional</option>
                     <option value="special">Special</option>
                     <option value="educational">Educational</option>
@@ -81,38 +154,44 @@
                 <label for="items_given">
                     Items given:
                 </label>
-                <input type="text" id="items_given" class="default-form__input">
+                <input type="text" placeholder="pijamas" id="items_given" class="default-form__input" readonly>
                 <label for="items_received">
                     Items received:
                 </label>
-                <input type="text" id="items_received" class="default-form__input">
+                <input type="text" placeholder="pijamas, toothbrush" id="items_received" class="default-form__input" readonly>
                 <label for="resum_of_discution">
                     Resum about the discution:
                 </label>
-                <textarea id="resum_of_discution" class="default-form__input default-form__input--textarea"></textarea>
+                <textarea id="resum_of_discution" placeholder="A fost o intalnire pe cinste!" class="default-form__input default-form__input--textarea" readonly></textarea>
                 <fieldset class="default-form__fieldset">
                     <legend>Mood 1-10</legend>
                     <label for="arousal">
                         Arousal:
                     </label>
-                    <input type="number" min="1" max="10" id="arousal" class="default-form__input">
+                    <input type="number" placeholder="5" min="1" max="10" id="arousal" class="default-form__input" readonly>
                     <label for="flow">
                         Flow:
                     </label>
-                    <input type="number" min="1" max="10" id="flow" class="default-form__input">
+                    <input type="number" placeholder="6" min="1" max="10" id="flow" class="default-form__input" readonly>
                     <label for="control">
                         Control:
                     </label>
-                    <input type="number" min="1" max="10" id="control" class="default-form__input">
+                    <input type="number" placeholder="5" min="1" max="10" id="control" class="default-form__input" readonly>
                     <label for="relaxation">
                         Relaxation:
                     </label>
-                    <input type="number" min="1" max="10" id="relaxation" class="default-form__input">
+                    <input type="number" placeholder="5" min="1" max="10" id="relaxation" class="default-form__input" readonly>
                 </fieldset>
-                <input type="submit" value="Create Visit" class="default-form__button">
+                <div class="default-form__menu">
+                    <input type="submit" value="Update" class="default-form__button">
+                    <input type="submit" value="Delete" class="default-form__button default-form__button--warning">
+                </div>
             </form>
         </div>
     </main>
+    <script src="./add-remove_visitors.js"></script>
+    <script src="./add-remove_witness.js"></script>
+    <script src="./edit_visit.js"></script>
 </body>
 
 </html>
