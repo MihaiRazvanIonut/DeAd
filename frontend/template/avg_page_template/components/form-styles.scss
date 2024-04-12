@@ -34,7 +34,7 @@
         cursor: pointer;
         @include fonts.roboto-regular;
         align-self: center;
-        font-size: large;
+        font-size: calc(1rem + 0.3vw);
         box-shadow: 0px 1px 3px 0px colors.$shadow-color;
         border: 1px solid colors.$main-content-color;
         color: colors.$primary-text-color;
@@ -58,6 +58,11 @@
     &__menu {
         display: flex;
         flex-direction: row;
+    }
+    &__text {
+        @include fonts.roboto-light;
+        font-size: calc(1rem + 0.2vw);
+        color: colors.$primary-text-color;
     }
 }
 @media (orientation: portrait) {

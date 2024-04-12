@@ -59,7 +59,7 @@
   font-weight: 400;
   font-style: normal;
   align-self: center;
-  font-size: large;
+  font-size: calc(1rem + 0.3vw);
   box-shadow: 0px 1px 3px 0px black;
   border: 1px solid rgb(49, 49, 49);
   color: #f2ecff;
@@ -81,6 +81,13 @@
 .default-form__menu {
   display: flex;
   flex-direction: row;
+}
+.default-form__text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: calc(1rem + 0.2vw);
+  color: #f2ecff;
 }
 
 @media (orientation: portrait) {
