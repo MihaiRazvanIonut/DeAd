@@ -34,6 +34,7 @@
   margin-top: 0.7em;
 }
 .default-form__input {
+  width: 100%;
   background-color: rgb(49, 49, 49);
   color: #f2ecff;
   font-size: calc(1rem + 0.2vw);
