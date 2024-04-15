@@ -37,37 +37,55 @@
         <h2>Introduction</h2>
         <section id="purpose">
             <h3>Purpose</h3>
-            <!-- Describe the purpose of the project here -->
             <p>
-                Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the system or a single subsystem.
+                The purpose of the Detention Admin Project is to build a web 
+                application for managing visits for people that were convicted 
+                and are part of a prison or a correctional house. This project
+                also aims to manage the prisoners aswell as the information that
+                can be gathered by monitoring these people closely in a manner
+                that is friendly towards the user of the application. 
             </p>
         </section>
         <section id="doc-convention">
             <h3>Document Conventions</h3>
-            <!-- Describe document conventions here -->
             <p>
-                Describe any standards or typographical conventions that were followed when writing this SRS.
+                todo!()
             </p>
         </section>
         <section id="intended-audience">
             <h3>Intended Audience and Reading Suggestions</h3>
-            <!-- Describe intended audience and reading suggestions here -->
             <p>
-                Describe the different types of readers that the document is intended for, such as developers, project managers, marketing staff, users, testers, and documentation writers. Describe what the rest of this SRS contains and how it is organized. Suggest a sequence for reading the document, beginning with the overview sections and proceeding through the sections that are most pertinent to each reader type.
+                todo!()
             </p>
         </section>
         <section id="product-scope">
             <h3>Product Scope</h3>
-            <!-- Describe product scope here -->
-            <p>
-                Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.
-            </p>
+            <ul role="list">
+                <li>
+                    Developing a web based application that has an easy to
+                    use user interface for managing prisoner visits.
+                </li>
+                <li>
+                    Providing useful statistics about the prisoners and
+                    their visits.
+                </li>
+                <li>
+                    The ability to export the generated statistics in the 
+                    following formats: HTML, CSV, JSON.
+                </li>
+                <li>
+                    Being a user friendly layer on top of the harder to
+                    manage data base.
+                </li>
+                <li>
+                    Being a useful tool for the employees of a prison.
+                </li>
+            </ul>
         </section>
         <section id="references">
             <h3>References</h3>
-            <!-- List references here -->
             <p>
-                List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.
+                todo!()
             </p>
         </section>
     </section>
@@ -76,44 +94,137 @@
         <h2>Overall Description</h2>
         <section id="product-perspective">
             <h3>Product Perspective</h3>
-            <!-- Describe product perspective here -->
             <p>
-                Describe the context and origin of the product being specified in this SRS.
+                The Detention Admin Project aims to develop a simple to use tool
+                for managing all kinds of information about prisoners and their
+                visits. This information should be easy to access, manage and to
+                be used for generating statistics. 
+            </p>
+            <p>
+                The following are major components in the Detention Admin Project:
+                <ul role="list">
+                    <li>
+                        Frontend: The component that the user sees and interacts
+                        with. This component is built using HTML, CSS and JS.
+                    </li>
+                    <li>
+                        API REST/GraphQL: A component that will be used by other
+                        applications, or the frontend component to communicate
+                        with the backend component. This application programming
+                        interface will be implemented as a Rest or GraphQL API. 
+                    </li>
+                    <li>
+                        Backend: The component that manages requests, parses data,
+                        builds statistics, manages the database, provides utility
+                        for the API and Frontend component.
+                    </li>
+                    <li>
+                        Database: The component that stores information about
+                        visits and prisoners. 
+                    </li>
+                </ul>
+                These major components combined provide the full funtionality that
+                the Detention Admin Project aims to supply to its users.
             </p>
         </section>
         <section id="product-functions">
             <h3>Product Functions</h3>
-            <!-- Describe product functions here -->
             <p>
-                Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS.
+                This application aims to be an interactive and easy to use 
+                graphic user interface system for managing a prison's database.
+                That being said these are the core functions that the Detention
+                Admin Project aims to provide to its users:
+            <ul role="list">
+                <li>
+                    The user can see global updates on what they and their peers have
+                    done throughout a given time span. 
+                </li>
+                <li>
+                    The application will provide its users with the ability to
+                    view, update or delete existing visits or to add a new visit
+                    for a specific prisoner. This functionality will be also
+                    present regarding information about prisoners.
+                </li>
+                <li>
+                    The user will be able to generate and export statistics about
+                    each individual prisoner.
+                </li>
+            </ul>
             </p>
         </section>
         <section id="user-classes">
             <h3>User Classes and Characteristics</h3>
-            <!-- Describe user classes and characteristics here -->
             <p>
-                Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.
+                This application has in mind the following target audience:
+                <ul role="list">
+                    <li>
+                        Researchers and Data Analysts: This type of user could 
+                        generate useful case studies on inmates and their life
+                        in prison. These users will use the generating and 
+                        exporting component of the application to do their work.
+                    </li>
+                    <li>
+                        The Prison Warden and his subordinates: This type of user
+                        is the main target audience of this application. These users
+                        are expected to have minimal knowledge about computers.
+                        This application should be easy enough to be understood
+                        by this type of user and should provide its full functionality
+                        without any higher level computer knowledge.
+                    </li>
+                </ul>
             </p>
         </section>
         <section id="operating-environment">
             <h3>Operating Environment</h3>
-            <!-- Describe operating environment here -->
             <p>
-                Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.
+                The environment in which this application is meant to be
+                operating is purely a web based environment for easier accessibility
+                and cross-compatibility between devices being an application
+                that was designed with a responsive user interface.  
             </p>
         </section>
         <section id="design-constraints">
             <h3>Design and Implementation Constraints</h3>
-            <!-- Describe design and implementation constraints here -->
             <p>
-                Describe any items or issues that will limit the options available to the developers.
+                <ul role="list">
+                    <li>
+                        Security Constraints: being an application that manages
+                        a prison's sensitive data, the Detention Admin Project
+                        aims to handle its user information in a safe and 
+                        protected manner conforming to the prison's legal 
+                        policies storing and working only with data that is deemed
+                        appropiate. 
+                    </li>
+                    <li>
+                        Interface Constraints: because this application aims to
+                        be a user friendly way to interact with databases at its
+                        core, it is constrained by this fact and should not 
+                        implement hard to grasp concepts that its user might not
+                        understand. These concepts once understood might be easier
+                        to use but this application wants to keep its learning
+                        curve in a liniar pattern.
+                    </li>
+                    <li>
+                        Technologies and Tools Constraints: this application will
+                        not use existing solutions for its servers in the backend
+                        component or powerfull tools on the frontend component
+                        being constrained to vanilla HTML, CSS and JS by its
+                        product owner. This application is also constrained to
+                        build its API using a Rest/GraphQL architecture.
+                    </li>
+                    <li>
+                        Hardware Constraints: while this application aims to be
+                        lightweight and fast, this target could be constrained 
+                        by modern day browsers that could slow down and be taxing
+                        on the users device. 
+                    </li>
+                </ul>
             </p>
         </section>
         <section id="user-documentation">
             <h3>User Documentation</h3>
-            <!-- Describe user documentation here -->
             <p>
-                List the user documentation components that will be delivered along with the software. Identify any known user documentation delivery formats or standards.
+                
             </p>
         </section>
         <section id="assumptions-dependencies">
