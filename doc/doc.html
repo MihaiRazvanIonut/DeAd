@@ -8,7 +8,6 @@
     <script src="./project_doc_files/scholarly.min.js"></script>
 </head>
 <body>
-
     <header>
         <h1>Detention Admin Project Specification</h1>
     </header>
@@ -31,9 +30,8 @@
           </dd>
         </dl>
       </div>
-      
-
-    <section id="introduction">
+    
+    <section id="introduction" role="doc-intro">
         <h2>Introduction</h2>
         <section id="purpose">
             <h3>Purpose</h3>
@@ -398,52 +396,130 @@
 
     <section id="system-features">
         <h2>System Features</h2>
-
+        <section id="managing-existing-visits">
+            <h3>Managing Existing Visits</h3>
+            <p>
+                This feature allows users to search, update or delete a visit or
+                multiple visits. At its core it is the most important feature of the
+                application.
+            </p>
+        </section>
+        <section id="adding-new-visits">
+            <h3>Adding New Visits</h3>
+            <p>
+                A user can add information about an upcoming visit to a prisoner
+                using this feature. This feature allows the user to implement a 
+                detailed log on what happened before, during and after a visit.
+                This information should be as detailed as it can be so that when
+                the <a href="#exporting-stats">Exporting Statistics</a> feature
+                is used it will produce useful statistics.
+            </p>
+        </section>
+        <section id="managing-existing-prisoners">
+            <h3>Managing Existing Prisoners</h3>
+            <p>
+                The feature allows users to search or update information regarding
+                a specific prisoner.
+            </p>
+        </section>
+        <section id="adding-new-prisoners">
+            <h3>Adding New Prisoners</h3>
+            <p>
+                As the <a href="#adding-new-visits">Adding New Visits</a> section
+                explains but for an individual prisoner.
+            </p>
+        </section>
+        <section id="exporting-stats">
+            <h3>Exporting Statistics</h3>
+            <p>
+                This feature allows the user to generate and export statistics about
+                each individual prisoner in the following formats: HTML, CSV, JSON.
+                These statistics should mirror exactly what happens in the prison
+                and should indicate if there are any issues with the prisoners or the
+                staff of the prison.
+            </p>
+        </section>
+        <section id="view-global-updates">
+            <h3>View Global Updates</h3>
+            <p>
+                This feature provides a way to see in realtime what the users of
+                the application are doing at all times.
+            </p>
+        </section>
+        <section id="view-my-updates">
+            <h3>View My Updates</h3>
+            <p>
+                If a user want to keep track or to remember that they have done
+                previously this feature will allow him to do so.
+            </p>
+        </section>
+        <section id="login">
+            <h3>Login</h3>
+            <p>
+                As explained in the <a href="#user-documentation">User Documentation</a>
+                section this component is the only feature of the application that
+                allows the user to access any information about the prison.
+            </p>
+        </section>
     </section>
 
     <section id="other-nonfunctional-requirements">
         <h2>Other Nonfunctional Requirements</h2>
-        <section id="performance-requirements">
-            <h3>Performance Requirements</h3>
-            <!-- Describe performance requirements here -->
-            <p>
-                If there are performance requirements for the product under various circumstances, state them here and explain their rationale.
-            </p>
-        </section>
         <section id="safety-requirements">
             <h3>Safety Requirements</h3>
-            <!-- Describe safety requirements here -->
             <p>
-                Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product.
+                Mistakes are bound to happen while managing a database at any level
+                of proficiency with computers as such the application will keep
+                backups of the database while also being very strict about 
+                deleting any kind of data.
             </p>
         </section>
         <section id="security-requirements">
             <h3>Security Requirements</h3>
-            <!-- Describe security requirements here -->
             <p>
-                Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product.
-            </p>
-        </section>
-        <section id="software-quality-attributes">
-            <h3>Software Quality Attributes</h3>
-            <!-- Describe software quality attributes here -->
-            <p>
-                Specify any additional quality characteristics for the product that will be important to either the customers or the developers.
-            </p>
-        </section>
-        <section id="business-rules">
-            <h3>Business Rules</h3>
-            <!-- Describe business rules here -->
-            <p>
-                List any operating principles about the product, such as which individuals or roles can perform which functions under specific circumstances.
+                This application should conform to the prison's legal policies
+                while also being careful with the data that it operates on.
+                If a given visit is bound by any kind of confidentiality the data
+                that is being collected by the user or the application should reflect
+                this right and not log any data that is considered to be breaking
+                this bound.
             </p>
         </section>
     </section>
-
-    <section id="other-requirements">
-        <h2>Other Requirements</h2>
-        <!-- Add content for Other Requirements here -->
+    <section id="biblio-references">
+        <h2>References</h2>
+        <ol>
+            <li>
+                <a href="https://www.redhat.com/en/topics/api/what-is-a-rest-api">
+                    What is a REST API?
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/w3c/scholarly-html/tree/gh-pages">
+                    ScholarlyHTML
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/rick4470/IEEE-SRS-Tempate">
+                    IEEE Software Requirements Specification
+                </a>
+            </li>
+            <li>
+                <a href="https://anp.gov.ro/penitenciarul-iasi/">
+                    Penitenciarul Iasi
+                </a>
+            </li>
+            <li>
+                <a href="https://edu.info.uaic.ro/web-technologies/">
+                    WEB Technologies FII
+                </a>
+            </li>
+            <li>
+                <a href="https://tehnologii-web.vercel.app/">
+                    Tehnologii WEB
+                </a>
+            </li>
+        </ol>
     </section>
-
 </body>
 </html>
