@@ -11,6 +11,10 @@
         @include fonts.roboto-light;
         font-size: calc(1rem + 0.05vw);
         text-align: center;
+        &--link {
+            text-decoration: none;
+            color: colors.$primary-text-color;
+        }
     }
 }
 

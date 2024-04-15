@@ -227,6 +227,10 @@
   font-size: calc(1rem + 0.05vw);
   text-align: center;
 }
+.footer-content__info--link {
+  text-decoration: none;
+  color: #f2ecff;
+}
 
 .content-devider {
   margin-top: 1em;
