@@ -49,13 +49,41 @@
         <section id="doc-convention">
             <h3>Document Conventions</h3>
             <p>
-                todo!()
+                The abbreviation API means application programmable interface, 
+                which can be thought of as a contract of service between two
+                applications.
+            </p>
+            <p>
+                A REST API implies that the API is developed so that it follows
+                the architectural constrains that the REST architecture suggests. 
             </p>
         </section>
         <section id="intended-audience">
             <h3>Intended Audience and Reading Suggestions</h3>
             <p>
-                todo!()
+                <ul role="list">
+                    <li>
+                        The average user will find the <a href="#user-documentation">
+                            User Documentation
+                        </a> section to be exactly what they need to get started
+                        on using the application.
+                    </li>
+                    <li>
+                        Researchers or Data Analysts that may want to use this
+                        application's data may want to read the 
+                        <a href="#product-perspective">Product Perspective</a>
+                        section and the
+                        <a href="#design-constraints">Design Constraints</a>
+                        section.
+                    </li>
+                    <li>    
+                        Newly come developers or testers may want to consult the
+                        following sections:
+                        <a href="#product-perspective">Product Perspective</a>,
+                        <a href="#design-constraints">Design Constraints</a>,
+                        <a href="#user-interfaces">User Interfaces</a>.
+                    </li>
+                </ul>
             </p>
         </section>
         <section id="product-scope">
@@ -81,12 +109,6 @@
                     Being a useful tool for the employees of a prison.
                 </li>
             </ul>
-        </section>
-        <section id="references">
-            <h3>References</h3>
-            <p>
-                todo!()
-            </p>
         </section>
     </section>
 
@@ -224,14 +246,64 @@
         <section id="user-documentation">
             <h3>User Documentation</h3>
             <p>
-                
+                This application can not be used by guest users or other types
+                of users that are not part of the prison's staff. The only
+                exception to this rule are researchers or data analysts that the
+                prison has allowed to use a part of this application for case
+                studies.
+            </p>
+            <p>
+                If a given user is not logged in to this application he will not
+                be able to use any of its functionality other than the login
+                form.
+            </p>
+            <p>
+                If the prison needs to add one of its staff members to the list
+                of users that can use this application, the person in charge of
+                this application will generate an account for this user.
+            </p>
+            <p>
+                While this behavior might seem to be against its users, this 
+                application needs to be as secure and transparent as it can be.
+            </p>
+            <p>
+                After the login process, a user will be greeted by the Global
+                Updates page where the application shows the latest updates to
+                the database, these updates contain information about the 
+                user that has updated the database in any way indicating the time,
+                the person who has done this action, the action type and the id of
+                the updated piece of information.
+            </p>
+            <p>
+                This application also provides a way to see a user's own updates
+                to the database as a way to keep track of his work.
+            </p>
+            <p>
+                In the Visits page, a user can add a new visit to the database, 
+                providing for this visit every single piece of important information.
+                This page also provides a way to see all the visits that are stored
+                in the database being able to search for a specific visit by using 
+                the visit id, the date it was added or the purpose of the visit.
+            </p>
+            <p>
+                The Prisoners page provides the same functionality as the 
+                Visits page but for each individual prisoner. In this page
+                a user can generate and export statistics suited to their
+                needs.
             </p>
         </section>
         <section id="assumptions-dependencies">
             <h3>Assumptions and Dependencies</h3>
-            <!-- Describe assumptions and dependencies here -->
             <p>
-                List any assumed factors that could affect the requirements stated in the SRS. Also identify any dependencies the project has on external factors.
+                While this application is built without using existing solutions,
+                it has a dependency that every web application has, that being
+                the web environment itself. By this we mean browsers and their
+                ways of displaying specific CSS attributes.
+            </p>
+            <p>
+                This application assumes the fact that the smallest device that
+                it will be used on is the IPhone SE second generation. It also
+                assumes that it will be used on well known web browsers.
             </p>
         </section>
     </section>
@@ -240,37 +312,93 @@
         <h2>External Interface Requirements</h2>
         <section id="user-interfaces">
             <h3>User Interfaces</h3>
-            <!-- Describe user interfaces here -->
             <p>
-                Describe the logical characteristics of each interface between the software product and the users.
+                This component of the application aims to be simple and easy to
+                be used while providing all the functionality its target audience
+                needs. The user should not be overwhelmed by the sheer amount of
+                data that this application manages or by the contents of its user
+                interface pages. 
+            </p>
+            <p>
+                The layout and the contents of the pages described in the
+                <a href="#user-documentation">User Documentation</a> section
+                should be easy to read and follow indicating their specific 
+                functionality in a manner that can be understood by the 
+                target audience. 
+            </p>
+            <p>
+                The color theme plays an important role in the day to day use of
+                this application's users. These colors and background were chosen
+                so that the application is not harmful on the user's eyesight.
+            </p>
+            <p>
+                The methods in which this application displays its data or the way
+                that it handles a new input into the database is meant to mimic
+                how people used to handle such cases using tables and forms.
+                This aproach should render this application to be easy to use by
+                people that do not have high level skills using computers.
             </p>
         </section>
         <section id="hardware-interfaces">
             <h3>Hardware Interfaces</h3>
-            <!-- Describe hardware interfaces here -->
             <p>
-                Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system.
+                The Detention Admin Project wants to profit from the fact that 
+                the web architecture offers a cross-compatibility feature that 
+                can not be found anywhere else.
+            </p>
+            <p>
+                This application should be available on any device that has an
+                internet connection and access to a web browser.
             </p>
         </section>
         <section id="software-interfaces">
             <h3>Software Interfaces</h3>
-            <!-- Describe software interfaces here -->
             <p>
-                Describe the connections between this product and other specific software components, including databases, operating systems, tools, libraries, and integrated commercial components.
+                This application will use an internal REST/GraphQL API for 
+                streamlining the communication between the server and the client
+            </p>
+            <p>
+                The backend component of this application will be a solution completly
+                buit from scratch that will be server and backbone of the entire
+                application
+            </p>
+            <p>
+                The database that stores information about visits and prisoners
+                and the database that handles user data are two software 
+                interfaces should be engineered using known normalisation
+                techniques.  
             </p>
         </section>
         <section id="communications-interfaces">
             <h3>Communications Interfaces</h3>
-            <!-- Describe communications interfaces here -->
             <p>
-                Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on.
+                The following are communications interfaces in the Detention Admin
+                Project:
+                <ul>
+                    <li>
+                        Communications through the web browser which mainly imply
+                        the use of the user interface and the ability to access it.
+                    </li>
+                    <li>
+                        Communications through the REST/GraphQL internal API to 
+                        access the information provided by the backend component.
+                    </li>
+                    <li>
+                        The HTTPS protocol used for sending queries and receiveing
+                        answers to these queries from the web server.
+                    </li>
+                    <li>
+                        The use of HTML forms to wrap and send desired information
+                        so that the backend can process it more easily.
+                    </li>
+                </ul>
             </p>
         </section>
     </section>
 
     <section id="system-features">
         <h2>System Features</h2>
-        <!-- Add subsections of System Features here -->
+
     </section>
 
     <section id="other-nonfunctional-requirements">
