@@ -65,6 +65,11 @@ class Prisoners:
         repeated_felon BOOLEAN NOT NULL
         )
     """
+    TABLE_COLUMNS: list[str] = (
+        "id", "nin", "first_name", "last_name", "date_of_birth", "nationality", "image", "address", "phone_number",
+        "email", "emergency_contact", "arrest_date", "conviction_date", "crime_committed", "case_number",
+        "release_date", "repeated_felon"
+    )
 
 
 class MoodIndexes:
@@ -112,6 +117,7 @@ class Users:
         admin BOOLEAN NOT NULL
         )
     """
+    TABLE_COLUMNS: list[str] = ("id", "username", "hash", "salt", "first_name", "last_name", "admin")
 
 
 class Invites:
