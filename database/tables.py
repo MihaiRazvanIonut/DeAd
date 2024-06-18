@@ -84,7 +84,7 @@ class MoodIndexes:
     TABLE_NAME = "mood_indexes"
     TABLE_CREATE = f"""
         CREATE TABLE {TABLE_NAME} (
-        id SERIAL PRIMARY KEY,
+        id VARCHAR PRIMARY KEY,
         prisoner_id VARCHAR NOT NULL,
         visit_id VARCHAR NOT NULL,
         arousal INTEGER NOT NULL,
@@ -95,13 +95,17 @@ class MoodIndexes:
         CONSTRAINT fk_mood_visit FOREIGN KEY (visit_id) REFERENCES visits(id)
         )
     """
+    TABLE_COLUMNS: list[str] = (
+        "id", "prisoner_id", "visit_id", "arousal",
+        "flow", "control", "relaxation"
+    )
 
 
 class Items:
     TABLE_NAME = "items"
     TABLE_CREATE = f"""
         CREATE TABLE {TABLE_NAME} (
-        id SERIAL PRIMARY KEY,
+        id VARCHAR PRIMARY KEY,
         prisoner_id VARCHAR NOT NULL,
         visit_id VARCHAR NOT NULL,
         name VARCHAR NOT NULL,
@@ -110,6 +114,9 @@ class Items:
         CONSTRAINT fk_item_visit FOREIGN KEY (visit_id) REFERENCES visits(id)
         )
     """
+    TABLE_COLUMNS: list[str] = (
+        "id", "prisoner_id", "visit_id", "name", "action"
+    )
 
 
 class Users:

@@ -9,6 +9,7 @@ from faker import Faker
 from faker.providers import ssn, address
 
 import constants
+import providers
 import tables
 import utils
 
@@ -25,6 +26,7 @@ cursor = connection.cursor()
 faker = Faker()
 faker.add_provider(ssn)
 faker.add_provider(address)
+faker.add_provider(providers.CustomProvider)
 
 entries_counter = 1
 
@@ -32,7 +34,7 @@ user_ids: list[str] = []
 prisoner_ids: list[str] = []
 visitor_ids: list[str] = []
 visit_ids: list[str] = []
-visitations: list[(str, str)] = []
+visit_prisoner_entries: list[(str, str)] = []
 
 
 def drop_table(table_name: str) -> str:
@@ -61,7 +63,7 @@ def populate_prisoners():
                 prisoner_ids[-1], faker.ssn(), faker.first_name(), faker.last_name(),
                 faker.date_time(), faker.country(), uuid.uuid4(),
                 faker.address(), faker.phone_number(), faker.email(),
-                faker.phone_number(), faker.date_time(), faker.date_time(), faker.text()[0:9],
+                faker.phone_number(), faker.date_time(), faker.date_time(), faker.crime(),
                 random.random() * 1000 + 1, faker.date_time(), faker.boolean(chance_of_getting_true=70)
             )
         )
@@ -95,40 +97,57 @@ def populate_visits():
     for _ in range(0, constants.VISITS_NUMBER):
         visit_ids.append(generate_id())
         random_prisoner_id = prisoner_ids[int(random.random() * constants.PRISONERS_NUMBER)]
-        visitations.append((visit_ids[-1], random_prisoner_id))
+        visit_prisoner_entries.append((visit_ids[-1], random_prisoner_id))
         restricted_visit = faker.boolean(chance_of_getting_true=5)
         summary = faker.text() if restricted_visit else None
         cursor.execute(
             query=insert_into_table(tables.Visits.TABLE_NAME, len(tables.Visits.TABLE_COLUMNS)),
             params=(
                 visit_ids[-1], random_prisoner_id, faker.date(), faker.date_time(), faker.date_time(),
-                faker.text(), restricted_visit, summary
+                faker.visit_purpose(), restricted_visit, summary
             )
         )
 
 
 def populate_visitations():
-    for visitation in visitations:
+    for visit_prisoner_entry in visit_prisoner_entries:
         visitors_num = int(random.random() * constants.MAX_VISITORS_PER_VISIT_NUMBER)
         visitors: list[str] = []
         for index in range(0, visitors_num):
             visitors.append(visitor_ids[int(random.random() * constants.VISITORS_NUMBER)])
         for visitor in visitors:
-            visit_role = 0 if faker.boolean(30) else 1
+            visit_role = int(faker.boolean(chance_of_getting_true=70))
             cursor.execute(
                 query=insert_into_table(tables.Visitations.TABLE_NAME, len(tables.Visitations.TABLE_COLUMNS)),
                 params=(
-                    generate_id(), visitor, visitation[0], visit_role
+                    generate_id(), visitor, visit_prisoner_entry[0], visit_role
                 )
             )
 
 
 def populate_mood_indexes():
-    pass
+    for visit_prisoner_entry in visit_prisoner_entries:
+        cursor.execute(
+            query=insert_into_table(tables.MoodIndexes.TABLE_NAME, len(tables.MoodIndexes.TABLE_COLUMNS)),
+            params=(
+                generate_id(), visit_prisoner_entry[1], visit_prisoner_entry[0],
+                int(random.random() * 10 + 1),
+                int(random.random() * 10 + 1),
+                int(random.random() * 10 + 1),
+                int(random.random() * 10 + 1)
+            )
+        )
 
 
 def populate_items():
-    pass
+    for visit_prisoner_entry in visit_prisoner_entries:
+        cursor.execute(
+            query=insert_into_table(tables.Items.TABLE_NAME, len(tables.Items.TABLE_COLUMNS)),
+            params=(
+                generate_id(), visit_prisoner_entry[1], visit_prisoner_entry[0],
+                faker.prisoner_item(), int(faker.boolean(chance_of_getting_true=70))
+            )
+        )
 
 
 def populate_invites():
