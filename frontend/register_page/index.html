@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> DeAd - Login </title>
+    <title> DeAd - Register </title>
     <link rel="stylesheet" href="../template/form_page_template/styles.css">
 </head>
 <body>
@@ -19,7 +19,15 @@
             </div>
             <form action="../index.html" method="POST" class="default-form"">
                 <fieldset class="default-form__fieldset">
-                    <legend>Login</legend>
+                    <legend>Register</legend>
+                    <label for="worker_id">
+                        Worker ID:
+                    </label>
+                    <input type="number" id="worker_id" class="default-form__input">
+                    <label for="invite_code">
+                        Invite code:
+                    </label>
+                    <input type="text" id="invite_code" class="default-form__input">
                     <label for="username">
                         Username:
                     </label>
@@ -28,14 +36,12 @@
                         Password:
                     </label>
                     <input type="password" id="password" class="default-form__input">
-                    <div class="default-form__fieldset default-form__fieldset--rows">
-                        <input type="checkbox" id="keep_logged">
-                        <label for="keep_logged">
-                            Remember me
-                        </label>
-                    </div>
+                    <label for="confirm_password">
+                        Confirm password:
+                    </label>
+                    <input type="password" id="confirm_password" class="default-form__input">
                 </fieldset>
-                <input type="submit" value="Login" class="default-form__button">
+                <input type="submit" value="Register" class="default-form__button">
             </form>
         </div>
     </main>
