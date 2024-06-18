@@ -13,20 +13,27 @@ class Visits:
         CONSTRAINT fk_visit_prisoner FOREIGN KEY (prisoner_id) REFERENCES prisoners(id)
         )
     """
+    TABLE_COLUMNS: list[str] = (
+        "id", "prisoner_id", "date", "start_time", "end_time", "purpose",
+        "restricted", "summary"
+    )
 
 
 class Visitations:
     TABLE_NAME = "visitations"
     TABLE_CREATE = f"""
         CREATE TABLE {TABLE_NAME} (
-        id SERIAL PRIMARY KEY,
-        nin VARCHAR NOT NULL,
+        id VARCHAR PRIMARY KEY,
+        visitor_id VARCHAR NOT NULL,
         visit_id VARCHAR NOT NULL,
         visit_role INTEGER NOT NULL,
-        CONSTRAINT fk_visitation_visitor FOREIGN KEY (nin) REFERENCES visitors(nin),
+        CONSTRAINT fk_visitation_visitor FOREIGN KEY (visitor_id) REFERENCES visitors(nin),
         CONSTRAINT fk_visitation_visit FOREIGN KEY (visit_id) REFERENCES visits(id)
         )
     """
+    TABLE_COLUMNS: list[str] = (
+        "id", "visitor_id", "visit_id", "visit_role"
+    )
 
 
 class Visitors:

@@ -1,4 +1,3 @@
-import base64
 import datetime
 import os
 import random
@@ -11,6 +10,7 @@ from faker.providers import ssn, address
 
 import constants
 import tables
+import utils
 
 faker = Faker()
 faker.add_provider(ssn)
@@ -26,7 +26,13 @@ faker = Faker()
 faker.add_provider(ssn)
 faker.add_provider(address)
 
-entries_counter = 0
+entries_counter = 1
+
+user_ids: list[str] = []
+prisoner_ids: list[str] = []
+visitor_ids: list[str] = []
+visit_ids: list[str] = []
+visitations: list[(str, str)] = []
 
 
 def drop_table(table_name: str) -> str:
@@ -40,10 +46,7 @@ def insert_into_table(table_name: str, fields_num: int):
 def generate_id():
     global entries_counter
     generated = (
-        base64.b32encode(entries_counter.to_bytes(length=4).lstrip((0).to_bytes(1)))
-        .decode('utf-8')
-        .replace('=', '')
-        .lower()
+        utils.base36encode(entries_counter).lower()
     )
     entries_counter += 1
     return generated
@@ -51,49 +54,73 @@ def generate_id():
 
 def populate_prisoners():
     for _ in range(0, constants.PRISONERS_NUMBER):
+        prisoner_ids.append(generate_id())
         cursor.execute(
             query=insert_into_table(tables.Prisoners.TABLE_NAME, len(tables.Prisoners.TABLE_COLUMNS)),
             params=(
-                generate_id(), faker.ssn(), faker.first_name(), faker.last_name(),
+                prisoner_ids[-1], faker.ssn(), faker.first_name(), faker.last_name(),
                 faker.date_time(), faker.country(), uuid.uuid4(),
                 faker.address(), faker.phone_number(), faker.email(),
                 faker.phone_number(), faker.date_time(), faker.date_time(), faker.text()[0:9],
                 random.random() * 1000 + 1, faker.date_time(), faker.boolean(chance_of_getting_true=70)
             )
         )
-    connection.commit()
 
 
 def populate_users():
     for _ in range(0, constants.USERS_NUMBER):
+        user_ids.append(generate_id())
         cursor.execute(
             query=insert_into_table(tables.Users.TABLE_NAME, len(tables.Users.TABLE_COLUMNS)),
             params=(
-                generate_id(),
+                user_ids[-1],
                 faker.user_name(), faker.sha256(), faker.sha256(), faker.first_name(),
                 faker.last_name(), faker.boolean(chance_of_getting_true=5)
             )
         )
-    connection.commit()
 
 
 def populate_visitors():
     for _ in range(0, constants.VISITORS_NUMBER):
+        visitor_ids.append(generate_id())
         cursor.execute(
             query=insert_into_table(tables.Visitors.TABLE_NAME, len(tables.Visitors.TABLE_COLUMNS)),
             params=(
-                generate_id(), faker.first_name(), faker.last_name(), faker.text(), uuid.uuid4()
+                visitor_ids[-1], faker.first_name(), faker.last_name(), faker.text(), uuid.uuid4()
             )
         )
-    connection.commit()
 
 
 def populate_visits():
-    pass
+    for _ in range(0, constants.VISITS_NUMBER):
+        visit_ids.append(generate_id())
+        random_prisoner_id = prisoner_ids[int(random.random() * constants.PRISONERS_NUMBER)]
+        visitations.append((visit_ids[-1], random_prisoner_id))
+        restricted_visit = faker.boolean(chance_of_getting_true=5)
+        summary = faker.text() if restricted_visit else None
+        cursor.execute(
+            query=insert_into_table(tables.Visits.TABLE_NAME, len(tables.Visits.TABLE_COLUMNS)),
+            params=(
+                visit_ids[-1], random_prisoner_id, faker.date(), faker.date_time(), faker.date_time(),
+                faker.text(), restricted_visit, summary
+            )
+        )
 
 
 def populate_visitations():
-    pass
+    for visitation in visitations:
+        visitors_num = int(random.random() * constants.MAX_VISITORS_PER_VISIT_NUMBER)
+        visitors: list[str] = []
+        for index in range(0, visitors_num):
+            visitors.append(visitor_ids[int(random.random() * constants.VISITORS_NUMBER)])
+        for visitor in visitors:
+            visit_role = 0 if faker.boolean(30) else 1
+            cursor.execute(
+                query=insert_into_table(tables.Visitations.TABLE_NAME, len(tables.Visitations.TABLE_COLUMNS)),
+                params=(
+                    generate_id(), visitor, visitation[0], visit_role
+                )
+            )
 
 
 def populate_mood_indexes():
@@ -167,7 +194,7 @@ try:
     print("Populating tables...")
     populate()
     finish = datetime.datetime.now(datetime.UTC)
-    print(f"Populating script finished in {(finish - start).microseconds / 1000}ms")
+    print(f"Populating script finished in {(finish - start).seconds}s")
 
     connection.commit()
 except BaseException as e:
