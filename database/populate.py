@@ -77,7 +77,7 @@ def populate_users():
             params=(
                 user_ids[-1],
                 faker.user_name(), faker.sha256(), faker.sha256(), faker.first_name(),
-                faker.last_name(), faker.boolean(chance_of_getting_true=5)
+                faker.last_name(), len(user_ids) == 1
             )
         )
 
@@ -104,7 +104,7 @@ def populate_visits():
             query=insert_into_table(tables.Visits.TABLE_NAME, len(tables.Visits.TABLE_COLUMNS)),
             params=(
                 visit_ids[-1], random_prisoner_id, faker.date(), faker.date_time(), faker.date_time(),
-                faker.visit_purpose(), restricted_visit, summary
+                faker.visit_purpose(), restricted_visit, summary, False
             )
         )
 
@@ -151,11 +151,40 @@ def populate_items():
 
 
 def populate_invites():
-    pass
+    for user_id in user_ids[1:]:
+        cursor.execute(
+            query=insert_into_table(tables.Invites.TABLE_NAME, len(tables.Invites.TABLE_COLUMNS)),
+            params=(
+                uuid.uuid4(), user_ids[0], user_id, 1, None
+            )
+        )
+    for _ in range(0, constants.WAITING_USERS):
+        cursor.execute(
+            query=insert_into_table(tables.Invites.TABLE_NAME, len(tables.Invites.TABLE_COLUMNS)),
+            params=(
+                uuid.uuid4(), user_ids[0], generate_id(), 0, faker.date_time()
+            )
+        )
 
 
 def populate_actions():
-    pass
+    for visit_id in visit_ids:
+        random_user_id_index = int(random.random() * constants.USERS_NUMBER)
+        cursor.execute(
+            query=insert_into_table(tables.Actions.TABLE_NAME, len(tables.Actions.TABLE_COLUMNS)),
+            params=(
+                generate_id(), "create", user_ids[random_user_id_index], visit_id, faker.date_time()
+            )
+        )
+    for _ in range(0, constants.ACTIONS_NUMBER):
+        random_user_id = user_ids[int(random.random() * constants.USERS_NUMBER)]
+        random_visit_id = visit_ids[int(random.random() * constants.VISITS_NUMBER)]
+        cursor.execute(
+            query=insert_into_table(tables.Actions.TABLE_NAME, len(tables.Actions.TABLE_COLUMNS)),
+            params=(
+                generate_id(), "update", random_user_id, random_visit_id, faker.date_time()
+            )
+        )
 
 
 def populate():
@@ -213,7 +242,7 @@ try:
     print("Populating tables...")
     populate()
     finish = datetime.datetime.now(datetime.UTC)
-    print(f"Populating script finished in {(finish - start).seconds}s")
+    print(f"Populating script finished in {(finish - start).total_seconds()}s")
 
     connection.commit()
 except BaseException as e:

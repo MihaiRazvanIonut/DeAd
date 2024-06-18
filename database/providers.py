@@ -35,3 +35,9 @@ class CustomProvider(BaseProvider):
             "smuggling", "forgery", "counterfeiting", "espionage"
         ]
         return self.random_element(crimes)
+
+    def crud_operation(self):
+        crud_operations = [
+            "create", "update", "delete"
+        ]
+        return self.random_element(crud_operations)

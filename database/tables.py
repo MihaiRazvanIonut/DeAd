@@ -10,12 +10,13 @@ class Visits:
         purpose VARCHAR NOT NULL,
         restricted BOOLEAN NOT NULL,
         summary TEXT,
+        decommissioned BOOLEAN NOT NULL,
         CONSTRAINT fk_visit_prisoner FOREIGN KEY (prisoner_id) REFERENCES prisoners(id)
         )
     """
     TABLE_COLUMNS: list[str] = (
         "id", "prisoner_id", "date", "start_time", "end_time", "purpose",
-        "restricted", "summary"
+        "restricted", "summary", "decommissioned"
     )
 
 
@@ -143,10 +144,14 @@ class Invites:
         creator_id VARCHAR NOT NULL,
         invitee_id VARCHAR NOT NULL,
         status INTEGER NOT NULL,
-        expiry_date DATE NOT NULL,
+        expiry_date DATE,
         CONSTRAINT fk_invites_creator FOREIGN KEY (creator_id) REFERENCES users(id)
         )
     """
+    TABLE_COLUMNS: list[str] = (
+        "id", "creator_id", "invitee_id",
+        "status", "expiry_date"
+    )
 
 
 class Actions:
@@ -154,7 +159,7 @@ class Actions:
     TABLE_CREATE = f"""
         CREATE TABLE {TABLE_NAME} (
         id VARCHAR PRIMARY KEY,
-        type INTEGER NOT NULL,
+        type VARCHAR NOT NULL,
         user_id VARCHAR NOT NULL,
         visit_id VARCHAR NOT NULL,
         time DATE NOT NULL,
@@ -162,6 +167,9 @@ class Actions:
         CONSTRAINT fk_actions_visit FOREIGN KEY (visit_id) REFERENCES visits(id)
         )
     """
+    TABLE_COLUMNS: list[str] = (
+        "id", "type", "user_id", "visit_id", "time"
+    )
 
 
 DB_TABLES = (
