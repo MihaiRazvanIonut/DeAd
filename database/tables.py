@@ -40,6 +40,7 @@ class Visitors:
         image VARCHAR
         )
     """
+    TABLE_COLUMNS: list[str] = ("nin", "first_name", "last_name", "relationship", "image")
 
 
 class Prisoners:

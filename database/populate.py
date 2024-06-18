@@ -1,3 +1,4 @@
+import base64
 import datetime
 import os
 import random
@@ -8,8 +9,12 @@ from dotenv import load_dotenv
 from faker import Faker
 from faker.providers import ssn, address
 
+import constants
 import tables
-from constants import *
+
+faker = Faker()
+faker.add_provider(ssn)
+faker.add_provider(address)
 
 load_dotenv()
 DB_NAME = os.getenv("DB_NAME", "detention_admin")
@@ -21,6 +26,8 @@ faker = Faker()
 faker.add_provider(ssn)
 faker.add_provider(address)
 
+entries_counter = 0
+
 
 def drop_table(table_name: str) -> str:
     return f"DROP TABLE IF EXISTS {table_name} CASCADE"
@@ -30,27 +37,26 @@ def insert_into_table(table_name: str, fields_num: int):
     return f"INSERT INTO {table_name} values ({"%s" + ", %s" * (fields_num - 1)})"
 
 
-def populate_users():
-    for _ in range(0, USERS_NUMBER):
-        columns_number = len(tables.Users.TABLE_COLUMNS)
-        cursor.execute(
-            query=insert_into_table(tables.Users.TABLE_NAME, columns_number),
-            params=(
-                uuid.uuid4(), faker.user_name(), faker.sha256(), faker.sha256(), faker.first_name(),
-                faker.last_name(), faker.boolean(chance_of_getting_true=5)
-            )
-        )
-    connection.commit()
+def generate_id():
+    global entries_counter
+    generated = (
+        base64.b32encode(entries_counter.to_bytes(length=4).lstrip((0).to_bytes(1)))
+        .decode('utf-8')
+        .replace('=', '')
+        .lower()
+    )
+    entries_counter += 1
+    return generated
 
 
 def populate_prisoners():
-    for _ in range(0, PRISONERS_NUMBER):
-        columns_number = len(tables.Prisoners.TABLE_COLUMNS)
+    for _ in range(0, constants.PRISONERS_NUMBER):
         cursor.execute(
-            query=insert_into_table(tables.Prisoners.TABLE_NAME, columns_number),
+            query=insert_into_table(tables.Prisoners.TABLE_NAME, len(tables.Prisoners.TABLE_COLUMNS)),
             params=(
-                uuid.uuid4(), faker.ssn(), faker.first_name(), faker.last_name(), faker.date_time(),
-                faker.country(), uuid.uuid4(), faker.address(), faker.phone_number(), faker.email(),
+                generate_id(), faker.ssn(), faker.first_name(), faker.last_name(),
+                faker.date_time(), faker.country(), uuid.uuid4(),
+                faker.address(), faker.phone_number(), faker.email(),
                 faker.phone_number(), faker.date_time(), faker.date_time(), faker.text()[0:9],
                 random.random() * 1000 + 1, faker.date_time(), faker.boolean(chance_of_getting_true=70)
             )
@@ -58,8 +64,28 @@ def populate_prisoners():
     connection.commit()
 
 
+def populate_users():
+    for _ in range(0, constants.USERS_NUMBER):
+        cursor.execute(
+            query=insert_into_table(tables.Users.TABLE_NAME, len(tables.Users.TABLE_COLUMNS)),
+            params=(
+                generate_id(),
+                faker.user_name(), faker.sha256(), faker.sha256(), faker.first_name(),
+                faker.last_name(), faker.boolean(chance_of_getting_true=5)
+            )
+        )
+    connection.commit()
+
+
 def populate_visitors():
-    pass
+    for _ in range(0, constants.VISITORS_NUMBER):
+        cursor.execute(
+            query=insert_into_table(tables.Visitors.TABLE_NAME, len(tables.Visitors.TABLE_COLUMNS)),
+            params=(
+                generate_id(), faker.first_name(), faker.last_name(), faker.text(), uuid.uuid4()
+            )
+        )
+    connection.commit()
 
 
 def populate_visits():
