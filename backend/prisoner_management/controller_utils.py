@@ -1,7 +1,11 @@
+import re
+
 import http_verbs
+import exceptions
 
 
-def send_response(request_handler, response: str, status_code: int = 200, headers: list[(str, str)] | None = None):
+def send_response(request_handler, response: str | None = None, status_code: int = 200,
+                  headers: list[(str, str)] | None = None):
     if headers is None:
         headers = [("Content-type", "application/json")]
 
@@ -20,6 +24,13 @@ def request(rtype: http_verbs.HTTPVerbs, path_regex: str):
         return func
 
     return decorator
+
+
+def get_id_from_path(path: str) -> str:
+    try:
+        return re.search(f"{PathRegEx.ID_REGEX}$", path).group()
+    except BaseException:
+        raise exceptions.ServiceException(400, "Id cannot be parsed")
 
 
 class PathRegEx:

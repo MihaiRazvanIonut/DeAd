@@ -1,6 +1,8 @@
 import psycopg
 from psycopg.rows import dict_row
 
+import exceptions
+
 
 class BasePostgresRepository:
     _connection = None
@@ -17,23 +19,20 @@ class BasePostgresRepository:
     def rollback(self):
         self._connection.rollback()
 
-    def __del__(self):
-        self._client.close()
-        self._connection.close()
-
 
 class PostgresRepository(BasePostgresRepository):
     TABLE_NAME: str = ""
 
-    def find(self, columns: str | None = None, condition: str | None = None):
-        if not columns:
-            columns = "*"
-        if not condition:
-            sql = f"SELECT {columns} FROM {self.TABLE_NAME}"
-        else:
-            sql = f"SELECT {columns} FROM {self.TABLE_NAME} WHERE {condition}"
+    def find_by_id(self, columns: str = '*', condition_value: str | None = None):
+        try:
+            if not condition_value:
+                sql = f"SELECT {columns} FROM {self.TABLE_NAME}"
+            else:
+                sql = f"SELECT {columns} FROM {self.TABLE_NAME} WHERE id = %s"
 
-        return self._client.execute(sql).fetchall()
+            return self._client.execute(sql, (condition_value,)).fetchone()
+        except BaseException as e:
+            raise exceptions.ServiceException(500, f'Database error: {e}')
 
     def update(self, update_values: dict[str, str], columns: str | None = None, condition: str | None = None):
         pass
