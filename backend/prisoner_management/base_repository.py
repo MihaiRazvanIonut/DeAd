@@ -23,14 +23,11 @@ class BasePostgresRepository:
 class PostgresRepository(BasePostgresRepository):
     TABLE_NAME: str = ""
 
-    def find_by_id(self, columns: str = '*', id_value: str | None = None):
+    def find_by_id(self, id_value: str, columns: str = '*'):
+        sql = f"SELECT {columns} FROM {self.TABLE_NAME} WHERE id = %s"
         try:
-            if not id_value:
-                sql = f"SELECT {columns} FROM {self.TABLE_NAME}"
-            else:
-                sql = f"SELECT {columns} FROM {self.TABLE_NAME} WHERE id = %s"
-
             return self._client.execute(sql, (id_value,)).fetchone()
+
         except BaseException as e:
             raise exceptions.ServiceException(500, f'Database error: {e}')
 
