@@ -39,3 +39,10 @@ class PostgresRepository(BasePostgresRepository):
 
     def delete(self, condition: str):
         pass
+
+    def insert(self, fields: str, values: list):
+        sql = f"INSERT INTO {self.TABLE_NAME} ({fields}) VALUES ({'%s' + (', %s' * (len(values) - 1))})"
+        try:
+            self._client.execute(sql, values)
+        except BaseException as e:
+            raise exceptions.ServiceException(500, f'Database error: {e}')

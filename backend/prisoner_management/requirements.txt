@@ -1,2 +1,4 @@
 psycopg~=3.1.19
+uuid6~=2024.1.12
+sqids~=0.4.1
 python-dotenv

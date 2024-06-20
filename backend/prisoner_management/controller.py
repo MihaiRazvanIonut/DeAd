@@ -1,10 +1,13 @@
 import json
-import logging
+
+import sqids
 
 import service
 from controller_utils import *
 from exceptions import ServiceException
 from http_verbs import *
+
+short_id = sqids.Sqids(min_length=8)
 
 
 class Controller:
@@ -23,5 +26,20 @@ class Controller:
             send_response(request_handler, json.dumps(response))
 
         except ServiceException as e:
-            send_response(request_handler, e.message, e.status_code, [("Content-type", "text/html")])
-            self.logger.error(f"Error encountered: {e.message}")
+            send_error_response(self.logger, request_handler, e)
+
+    @request(rtype=HTTPVerbs.POST, path_regex=f"")
+    def new_prisoner(self, request_handler):
+        try:
+            try:
+                content_length = int(request_handler.headers.get('Content-Length'))
+                post_body = json.loads(request_handler.rfile.read(content_length))
+
+            except BaseException as e:
+                raise ServiceException(400, f'Bad request: {e}')
+
+            new_resource_url = service.new_prisoner(post_body)
+            send_response(request_handler, new_resource_url, 201, [("Content-type", "text/uri-list")])
+
+        except ServiceException as e:
+            send_error_response(self.logger, request_handler, e)

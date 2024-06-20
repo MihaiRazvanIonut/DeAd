@@ -1,7 +1,8 @@
+import logging
 import re
 
-import http_verbs
 import exceptions
+import http_verbs
 
 
 def send_response(request_handler, response: str | None = None, status_code: int = 200,
@@ -33,6 +34,11 @@ def get_id_from_path(path: str) -> str:
         raise exceptions.ServiceException(400, "Id cannot be parsed")
 
 
+def send_error_response(logger: logging.Logger, request_handler, e: exceptions.ServiceException):
+    send_response(request_handler, e.message, e.status_code, [("Content-type", "text/html")])
+    logger.error(f"Error encountered: {e.message}")
+
+
 class PathRegEx:
-    ID_REGEX = r"[0-9a-z]+"
+    ID_REGEX = r"[0-9a-zA-z]+"
     QUERY_REGEX = r"\?.+"
