@@ -34,14 +34,25 @@ class PostgresRepository(BasePostgresRepository):
         except BaseException as e:
             raise exceptions.ServiceException(500, f'Database error: {e}')
 
-    def update(self, update_values: dict[str, str], columns: str | None = None, condition: str | None = None):
+    def update_by_id(self, prisoner_id: str, entry: dict):
+        fields = list(entry.keys())
+        values = list(entry.values())
+        pairs = f'fields'
+        for field in fields[1:]:
+            pass
+        sql = f'UPDATE {self.TABLE_NAME} SET {pairs} WHERE id = %s'
         pass
 
     def delete(self, condition: str):
         pass
 
-    def insert(self, fields: str, values: list):
-        sql = f"INSERT INTO {self.TABLE_NAME} ({fields}) VALUES ({'%s' + (', %s' * (len(values) - 1))})"
+    def insert(self, entry: dict):
+        fields = list(entry.keys())
+        values = list(entry.values())
+        flat_fields = str(fields[0])
+        for field in fields[1:]:
+            flat_fields += f', {field}'
+        sql = f"INSERT INTO {self.TABLE_NAME} ({flat_fields}) VALUES ({'%s' + (', %s' * (len(values) - 1))})"
         try:
             self._client.execute(sql, values)
         except BaseException as e:

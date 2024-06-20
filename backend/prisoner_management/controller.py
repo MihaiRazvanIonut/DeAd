@@ -33,13 +33,33 @@ class Controller:
         try:
             try:
                 content_length = int(request_handler.headers.get('Content-Length'))
-                post_body = json.loads(request_handler.rfile.read(content_length))
+                body = json.loads(request_handler.rfile.read(content_length))
 
             except BaseException as e:
                 raise ServiceException(400, f'Bad request: {e}')
 
-            new_resource_url = service.new_prisoner(post_body)
+            new_resource_url = service.new_prisoner(body)
             send_response(request_handler, new_resource_url, 201, [("Content-type", "text/uri-list")])
 
         except ServiceException as e:
             send_error_response(self.logger, request_handler, e)
+
+    @request(rtype=HTTPVerbs.PUT, path_regex=f"{PathRegEx.ID_REGEX}")
+    def update_prisoner(self, request_handler):
+        try:
+            try:
+                content_length = int(request_handler.headers.get('Content-Length'))
+                body = json.loads(request_handler.rfile.read(content_length))
+
+            except BaseException as e:
+                raise ServiceException(400, f'Bad request: {e}')
+
+            new_resource_url = service.new_prisoner(body)
+            send_response(request_handler, new_resource_url, 201, [("Content-type", "text/uri-list")])
+
+        except ServiceException as e:
+            send_error_response(self.logger, request_handler, e)
+
+    @request(rtype=HTTPVerbs.GET, path_regex=f"{PathRegEx.QUERY_REGEX}")
+    def get_prisoners(self, request_handler):
+        pass
