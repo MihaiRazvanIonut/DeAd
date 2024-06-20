@@ -14,7 +14,7 @@ prisoner_repository = PrisonerRepository(f'dbname={constants.DB_NAME}')
 
 def get_prisoner(prisoner_id: str):
     prisoner_id = utils.decode_id(prisoner_id)
-    prisoner = prisoner_repository.find_by_id(condition_value=prisoner_id)
+    prisoner = prisoner_repository.find_by_id(id_value=prisoner_id)
 
     if not prisoner:
         raise exceptions.ServiceException(404, 'Service error: No results found!')
@@ -25,10 +25,25 @@ def get_prisoner(prisoner_id: str):
     return prisoner
 
 
+def update_prisoner(prisoner_id: str, prisoner_dto: dict):
+    prisoner_id = utils.decode_id(prisoner_id)
+    utils.validate_dto(prisoner_dto, schemas.PrisonerSchema())
+    prisoner_vars = vars(schemas.Prisoner)
+    for field, value in prisoner_dto.items():
+        normalised_value = value
+        if isinstance(prisoner_vars[field], datetime.date):
+            normalised_value = datetime.datetime.strptime(value, "%Y-%m-%d").date()
+
+        prisoner_dto[field] = normalised_value
+
+    prisoner_repository.update_by_id(prisoner_id, prisoner_dto)
+    prisoner_repository.commit()
+
+
 def new_prisoner(prisoner_dto: dict) -> str:
     prisoner_schema = schemas.PrisonerSchema()
     prisoner = schemas.Prisoner()
-    utils.map_schema(prisoner_dto, prisoner_schema)
+    utils.schema_from_dto(prisoner_dto, prisoner_schema)
     new_id = uuid6.uuid7().int % sys.maxsize
     prisoner.id = str(new_id)
     prisoner_vars = vars(prisoner)

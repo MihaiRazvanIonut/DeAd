@@ -16,12 +16,19 @@ def normalise_row(row: dict):
         row[key] = normalised_value
 
 
-def map_schema(request_data: dict, schema):
+def schema_from_dto(dto: dict, schema):
     for field in vars(schema).keys():
-        if not request_data.get(field):
+        if not dto.get(field):
             raise exceptions.ServiceException(400, f'Bad request: {field} does not exist')
         else:
-            vars(schema)[field] = request_data[field]
+            vars(schema)[field] = dto[field]
+
+
+def validate_dto(dto: dict, schema):
+    schema_keys = list(vars(schema).keys())
+    for field in dto.keys():
+        if field not in schema_keys:
+            raise exceptions.ServiceException(400, f'Bad request: unrecognised field {field}')
 
 
 def decode_id(entry_id: str):
