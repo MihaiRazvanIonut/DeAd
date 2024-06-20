@@ -392,6 +392,15 @@
     margin-right: 0.5em;
   }
 }
+.person-photo img {
+  margin: 10px auto;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid #fff;
+  justify-self: auto;
+}
+
 * {
   margin: 0;
   padding: 0;
