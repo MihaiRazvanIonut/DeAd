@@ -143,7 +143,7 @@ class Invites:
         id VARCHAR PRIMARY KEY,
         creator_id VARCHAR NOT NULL,
         status INTEGER NOT NULL,
-        expiry_date DATE,
+        expiry_date TIMESTAMP,
         CONSTRAINT fk_invites_creator FOREIGN KEY (creator_id) REFERENCES users(id)
         )
     """
