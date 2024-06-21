@@ -1,9 +1,11 @@
 import datetime
 import os
 import random
+import sys
 import uuid
 
 import psycopg
+import uuid6
 from dotenv import load_dotenv
 from faker import Faker
 from faker.providers import ssn, address
@@ -11,7 +13,6 @@ from faker.providers import ssn, address
 import constants
 import providers
 import tables
-import utils
 
 faker = Faker()
 faker.add_provider(ssn)
@@ -46,12 +47,7 @@ def insert_into_table(table_name: str, fields_num: int):
 
 
 def generate_id():
-    global entries_counter
-    generated = (
-        utils.base36encode(entries_counter).lower()
-    )
-    entries_counter += 1
-    return generated
+    return str(uuid6.uuid7().int % sys.maxsize)
 
 
 def populate_prisoners():
