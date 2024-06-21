@@ -1,13 +1,9 @@
 import json
 
-import sqids
-
 import service
 from controller_utils import *
 from exceptions import ServiceException
 from http_verbs import *
-
-short_id = sqids.Sqids(min_length=8)
 
 
 class Controller:

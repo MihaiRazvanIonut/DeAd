@@ -83,6 +83,7 @@ def get_prisoners(query_params: dict) -> dict:
 
     for result in results:
         utils.normalise_row(result)
+        result['id'] = utils.encode_id(result['id'])
         prisoners['prisoners'].append(result)
 
     return prisoners
