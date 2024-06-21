@@ -1,6 +1,7 @@
 let visitorsCounter = 2;
 let maxVisitors = 10;
 const visitorsFieldset = document.getElementById("visitors_fieldset");
+
 function addVisitor() {
     if (visitorsCounter == maxVisitors) {
         alert("You have reached the limit of visitors. There can be a maximum of " + maxVisitors);
@@ -11,20 +12,25 @@ function addVisitor() {
         newVisitor.innerHTML = 
         `
         <label> Visitor ` + visitorNum + ` </label>
-        <label for="visitor_first_name">
+        <label for="visitor_image_` + visitorNum + `">
+            Image:
+        </label>
+        <div id="visitor_image_preview_` + visitorNum + `" class="person-photo"></div>
+        <input type="file" id="visitor_image_` + visitorNum + `" class="default-form__input" accept="image/*" onchange="loadVisitorImage(this, 'visitor_image_preview_` + visitorNum + `')">
+        <label for="visitor_first_name_` + visitorNum + `">
             First name:
         </label>
-        <input type="text" id="visitor_first_name" class="default-form__input">    
-        <label for="visitor_last_name">
+        <input type="text" id="visitor_first_name_` + visitorNum + `" class="default-form__input">    
+        <label for="visitor_last_name_` + visitorNum + `">
            Last name:
         </label>
-        <input type="text" id="visitor_last_name" class="default-form__input">
-        <label for="visitor_ssn">
+        <input type="text" id="visitor_last_name_` + visitorNum + `" class="default-form__input">
+        <label for="visitor_ssn_` + visitorNum + `">
             SSN:
         </label>
-        <input type="number" id="visitor_ssn" class="default-form__input">
-        <label for="visitor_relationship">Relationship with the prisoner:</label>
-            <select id="visitor_relationship" class="default-form__input">
+        <input type="number" id="visitor_ssn_` + visitorNum + `" class="default-form__input">
+        <label for="visitor_relationship_` + visitorNum + `">Relationship with the prisoner:</label>
+            <select id="visitor_relationship_` + visitorNum + `" class="default-form__input">
                 <option value="spouse">Spouse</option>
                 <option value="parent">Parent</option>
                 <option value="sibling">Sibling</option>
@@ -38,23 +44,35 @@ function addVisitor() {
                 <option value="media">Media Representative</option>
                 <option value="official">Government Official</option>
             </select>
-        <label for="visitor_image">
-            Image:
-        </label>
-        <input type="link" id="visitor_image" class="default-form__input">
         `;
         visitorsFieldset.appendChild(newVisitor);
         visitorsCounter++;
-        console.log("Added visitor" + visitorsCounter);
+        console.log("Added visitor " + visitorsCounter);
     }
 }
 
 function removeVisitor() {
-    if (visitorsFieldset.childElementCount == 0) {
+    if (visitorsCounter == 0) {
         alert("There are no visitors added!");
     } else {
         visitorsCounter--;
         visitorsFieldset.removeChild(visitorsFieldset.lastElementChild);
-        console.log("Deleted visitor" + visitorsCounter);
+        console.log("Deleted visitor");
+    }
+}
+
+function loadVisitorImage(input, previewId) {
+    const preview = document.getElementById(previewId);
+    preview.innerHTML = "";
+    const file = input.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+        const img = document.createElement("img");
+        img.src = e.target.result;
+        img.className = "person-photo";
+        preview.appendChild(img);
+        };
+    reader.readAsDataURL(file);
     }
 }

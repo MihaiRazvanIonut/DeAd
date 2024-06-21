@@ -3,6 +3,7 @@
 @use '../reuseable_components/logo';
 @use '../avg_page_template/components/form-styles.scss';
 @use '../avg_page_template/components/main-content.scss';
+@use '../avg_page_template/components/image-styles.scss';
 body {
     @include fonts.roboto-regular;
     background-color: colors.$body-background-color;

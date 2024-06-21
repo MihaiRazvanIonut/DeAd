@@ -56,6 +56,11 @@
                     <form action="../index.html" method="POST" class="default-form"">
                         <fieldset class="default-form__fieldset">
                             <legend>Personal Information</legend>
+                            <label for="prisoner_image">
+                                Image:
+                            </label>
+                            <div id="prisoner_image_preview" class="person-photo"></div>
+                            <input type="file" id="prisoner_image" class="default-form__input" accept="image/*" onchange="loadPrisonerImage(this)">
                             <label for="prisoner_first_name">
                                 First name:
                             </label>
@@ -76,10 +81,6 @@
                                 Nationality:
                             </label>
                             <input type="text" id="prisoner_nationality" class="default-form__input">  
-                            <label for="prisoner_image">
-                                Image:
-                            </label>
-                            <input type="link" id="prisoner_image" class="default-form__input">
                             <label for="prisoner_adress">
                                 Adress:
                             </label>
@@ -145,5 +146,6 @@
         </footer>
     </div>
     <script src="../../template/avg_page_template/toggleable/show-nav.js"></script>
+    <script src="./add-photo_prisoner.js"></script>
 </body>
 </html>

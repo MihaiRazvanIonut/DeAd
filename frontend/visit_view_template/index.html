@@ -26,13 +26,16 @@
             </div>
             <form action="../index.html" method="POST" class="default-form" id="visits_form">
                 <label for=" prisoner_id">
-                Prisoner ID:
+                    Prisoner ID:
                 </label>
                 <input type="number" placeholder="4235" id="prisoner_id" class="default-form__input" readonly>
                 <fieldset id="visitors_fieldset" class="default-form__fieldset">
                     <legend>Visitor/s</legend>
                     <div class="default-form__fieldset">
                         <label> Visitor 1 </label>
+                        <label for="visitor_image">
+                            Image:
+                        </label>
                         <label for="visitor_first_name">
                             First name:
                         </label>
@@ -60,13 +63,12 @@
                             <option value="media">Media Representative</option>
                             <option value="official">Government Official</option>
                         </select>
-                        <label for="visitor_image">
-                            Image:
-                        </label>
-                        <input type="link" placeholder="https://i.kym-cdn.com/entries/icons/original/000/049/273/cover11.jpg" id="visitor_image" class="default-form__input" readonly>
                     </div>
                     <div class="default-form__fieldset">
                         <label> Visitor 2 </label>
+                        <label for="visitor_image">
+                            Image:
+                        </label>
                         <label for="visitor_first_name">
                             First name:
                         </label>
@@ -94,10 +96,6 @@
                             <option value="media">Media Representative</option>
                             <option value="official">Government Official</option>
                         </select>
-                        <label for="visitor_image">
-                            Image:
-                        </label>
-                        <input type="link" placeholder="https://preview.redd.it/zdo10qa8e85b1.jpg?width=1080&crop=smart&auto=webp&s=049e911bf08c80eab3772b5a16e8e33832b9ff04" id="visitor_image" class="default-form__input" readonly>
                     </div>    
                 </fieldset>
                 <span class="default-form__fieldset--rows">

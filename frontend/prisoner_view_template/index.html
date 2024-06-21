@@ -25,6 +25,11 @@
             <form action="../index.html" method="POST" class="default-form" id="prisoners_form">
                 <fieldset class="default-form__fieldset">
                     <legend>Personal Information</legend>
+                    <label for="prisoner_image">
+                        Image:
+                    </label>
+                    <div id="prisoner_image_preview" class="person-photo"></div>
+                    <input type="file" id="prisoner_image" class="default-form__input" accept="image/*" onchange="loadPrisonerImage(this)">
                     <label for="prisoner_first_name">
                         First name:
                     </label>
@@ -45,10 +50,6 @@
                         Nationality:
                     </label>
                     <input type="text" placeholder="romanian" id="prisoner_nationality" class="default-form__input">  
-                    <label for="prisoner_image">
-                        Image:
-                    </label>
-                    <input type="link" placeholder="https://scontent.fias1-1.fna.fbcdn.net/v/t1.6435-9/53454911_112486009906511_2320500199291617280_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ac4FBX4wkaMAb72arWo&_nc_ht=scontent.fias1-1.fna&oh=00_AfAKU27BkIM8Dhi-s4pcnG4qe3V9O6UD6jJl74sIAQDuQA&oe=6640CBE2" id="prisoner_image" class="default-form__input">
                     <label for="prisoner_adress">
                         Adress:
                     </label>
@@ -100,5 +101,6 @@
         </div>
     </main>
     <script src="./edit_prisoner.js"></script>
+    <script src="./add-photo_prisoner.js"></script>
 </body>
 </html>
