@@ -23,7 +23,7 @@ class BasePostgresRepository:
 class PostgresRepository(BasePostgresRepository):
     TABLE_NAME: str = ""
 
-    def find(self, conditions: dict, columns: str = '*'):
+    def find_by_conditions(self, conditions: dict, columns: str = '*'):
         fields = list(conditions.keys())
         values = list(conditions.values())
         pairs = f'{fields[0]} = %s'
@@ -36,6 +36,14 @@ class PostgresRepository(BasePostgresRepository):
         except BaseException as e:
             raise exceptions.ServiceException(500, f'Database error: {e}')
 
+    def find(self, columns: str = '*'):
+        sql = f'SELECT {columns} FROM {self.TABLE_NAME}'
+        try:
+            return self._client.execute(sql).fetchall()
+
+        except BaseException as e:
+            raise exceptions.ServiceException(500, f'Database error: {e}')
+
     def find_by_id(self, id_value: str, columns: str = '*'):
         sql = f"SELECT {columns} FROM {self.TABLE_NAME} WHERE id = %s"
         try:
@@ -44,10 +52,10 @@ class PostgresRepository(BasePostgresRepository):
         except BaseException as e:
             raise exceptions.ServiceException(500, f'Database error: {e}')
 
-    def update_by_id(self, prisoner_id: str, entry: dict):
+    def update_by_id(self, entry_id: str, entry: dict):
         fields = list(entry.keys())
         values = list(entry.values())
-        values.append(prisoner_id)
+        values.append(entry_id)
         pairs = f'{fields[0]} = %s'
         for field in fields[1:]:
             pairs += f', {field} = %s'

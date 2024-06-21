@@ -61,7 +61,7 @@ def new_prisoner(prisoner_dto: dict) -> str:
     return constants.SERVICE_URI + f'/{utils.encode_id(prisoner.id)}' + '\n'
 
 
-def get_prisoners(query_params: dict) -> dict:
+def get_prisoners_search(query_params: dict) -> dict:
     prisoners = {'prisoners': []}
     utils.validate_dto(query_params, schemas.PrisonersSchema)
     if query_params.get('id'):
@@ -79,7 +79,20 @@ def get_prisoners(query_params: dict) -> dict:
         raise exceptions.ServiceException(400, 'Bad request: invalid query param value type')
 
     columns = utils.get_flat_fields_from_schema(schemas.PrisonersColumns())
-    results = prisoner_repository.find(query_params, columns)
+    results = prisoner_repository.find_by_conditions(query_params, columns)
+
+    for result in results:
+        utils.normalise_row(result)
+        result['id'] = utils.encode_id(result['id'])
+        prisoners['prisoners'].append(result)
+
+    return prisoners
+
+
+def get_prisoners() -> dict:
+    prisoners = {'prisoners': []}
+    columns = utils.get_flat_fields_from_schema(schemas.PrisonersColumns())
+    results = prisoner_repository.find(columns)
 
     for result in results:
         utils.normalise_row(result)

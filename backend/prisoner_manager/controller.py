@@ -24,7 +24,7 @@ class Controller:
         except ServiceException as e:
             send_error_response(self.logger, request_handler, e)
 
-    @request(rtype=HTTPVerbs.PUT, path_regex=f"{PathRegEx.ID_REGEX}")
+    @request(rtype=HTTPVerbs.PUT, path_regex=f"/{PathRegEx.ID_REGEX}")
     def update_prisoner(self, request_handler):
         try:
             prisoner_id = get_id_from_path(request_handler.path)
@@ -58,7 +58,7 @@ class Controller:
             send_error_response(self.logger, request_handler, e)
 
     @request(rtype=HTTPVerbs.GET, path_regex=f"{PathRegEx.QUERY_REGEX}")
-    def get_prisoners(self, request_handler):
+    def get_prisoners_search(self, request_handler):
         try:
             try:
                 query_params = get_query_params_from_path(request_handler.path)
@@ -69,7 +69,15 @@ class Controller:
             except BaseException:
                 raise ServiceException(400, 'Bad request: invalid query params')
 
-            prisoners = service.get_prisoners(query_params)
+            prisoners = service.get_prisoners_search(query_params)
+            send_response(request_handler, json.dumps(prisoners), 200)
+        except ServiceException as e:
+            send_error_response(self.logger, request_handler, e)
+
+    @request(rtype=HTTPVerbs.GET, path_regex='/')
+    def get_prisoners(self, request_handler):
+        try:
+            prisoners = service.get_prisoners()
             send_response(request_handler, json.dumps(prisoners), 200)
         except ServiceException as e:
             send_error_response(self.logger, request_handler, e)
