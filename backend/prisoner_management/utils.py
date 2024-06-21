@@ -31,6 +31,15 @@ def validate_dto(dto: dict, schema):
             raise exceptions.ServiceException(400, f'Bad request: unrecognised field {field}')
 
 
+def get_flat_fields_from_schema(schema) -> str:
+    schema_vars = list(vars(schema).keys())
+    flat_fields = f'{schema_vars[0]}'
+    for var in schema_vars:
+        flat_fields += f', {var}'
+
+    return flat_fields
+
+
 def decode_id(entry_id: str):
     try:
         return str(shortener.decode(entry_id)[0])

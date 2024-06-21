@@ -23,6 +23,19 @@ class BasePostgresRepository:
 class PostgresRepository(BasePostgresRepository):
     TABLE_NAME: str = ""
 
+    def find(self, conditions: dict, columns: str = '*'):
+        fields = list(conditions.keys())
+        values = list(conditions.values())
+        pairs = f'{fields[0]} = %s'
+        for field in fields[1:]:
+            pairs += f', {field} = %s'
+        sql = f'SELECT {columns} FROM {self.TABLE_NAME} WHERE {pairs}'
+        try:
+            return self._client.execute(sql, values).fetchall()
+
+        except BaseException as e:
+            raise exceptions.ServiceException(500, f'Database error: {e}')
+
     def find_by_id(self, id_value: str, columns: str = '*'):
         sql = f"SELECT {columns} FROM {self.TABLE_NAME} WHERE id = %s"
         try:

@@ -23,6 +23,23 @@ class PrisonerSchema:
 
 
 @dataclass
+class PrisonersSchema:
+    id: str = ""
+    first_name: str = ""
+    nin: str = ""
+    case_number: int = 0
+    release_date: str = ""
+
+
+@dataclass
+class PrisonersColumns:
+    id: str = ""
+    first_name: str = ""
+    case_number: int = 0
+    release_date: str = ""
+
+
+@dataclass
 class Prisoner:
     id: str = ""
     nin: str = ""

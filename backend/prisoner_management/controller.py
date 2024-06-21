@@ -63,4 +63,17 @@ class Controller:
 
     @request(rtype=HTTPVerbs.GET, path_regex=f"{PathRegEx.QUERY_REGEX}")
     def get_prisoners(self, request_handler):
-        pass
+        try:
+            try:
+                query_params = get_query_params_from_path(request_handler.path)
+                query_params[query_params['field']] = query_params['value']
+                query_params.pop('field')
+                query_params.pop('value')
+
+            except BaseException:
+                raise ServiceException(400, 'Bad request: invalid query params')
+
+            prisoners = service.get_prisoners(query_params)
+            send_response(request_handler, json.dumps(prisoners), 200)
+        except ServiceException as e:
+            send_error_response(self.logger, request_handler, e)

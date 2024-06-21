@@ -27,6 +27,20 @@ def request(rtype: http_verbs.HTTPVerbs, path_regex: str):
     return decorator
 
 
+def get_query_params_from_path(path: str) -> dict:
+    query_params = dict()
+    try:
+        unparsed_query_params = re.search(PathRegEx.QUERY_REGEX, path).group().replace('?', '').split('&')
+        for unparsed_query_param in unparsed_query_params:
+            query = unparsed_query_param.split('=')
+            query_params[query[0]] = query[1]
+
+    except BaseException:
+        raise exceptions.ServiceException(400, f'Bad request: invalid query params')
+
+    return query_params
+
+
 def get_id_from_path(path: str) -> str:
     try:
         return re.search(f"{PathRegEx.ID_REGEX}$", path).group()
