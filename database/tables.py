@@ -5,8 +5,8 @@ class Visits:
         id VARCHAR PRIMARY KEY,
         prisoner_id VARCHAR NOT NULL,
         date Date NOT NULL,
-        start_time DATE NOT NULL,
-        end_time DATE NOT NULL,
+        start_time TIMESTAMP NOT NULL,
+        end_time TIMESTAMP NOT NULL,
         purpose VARCHAR NOT NULL,
         restricted BOOLEAN NOT NULL,
         summary TEXT,
@@ -142,14 +142,13 @@ class Invites:
         CREATE TABLE {TABLE_NAME} (
         id VARCHAR PRIMARY KEY,
         creator_id VARCHAR NOT NULL,
-        invitee_id VARCHAR NOT NULL,
         status INTEGER NOT NULL,
         expiry_date DATE,
         CONSTRAINT fk_invites_creator FOREIGN KEY (creator_id) REFERENCES users(id)
         )
     """
     TABLE_COLUMNS: list[str] = (
-        "id", "creator_id", "invitee_id",
+        "id", "creator_id",
         "status", "expiry_date"
     )
 

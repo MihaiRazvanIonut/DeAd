@@ -147,18 +147,18 @@ def populate_items():
 
 
 def populate_invites():
-    for user_id in user_ids[1:]:
+    for _ in user_ids[1:]:
         cursor.execute(
             query=insert_into_table(tables.Invites.TABLE_NAME, len(tables.Invites.TABLE_COLUMNS)),
             params=(
-                uuid.uuid4(), user_ids[0], user_id, 1, None
+                uuid.uuid4(), user_ids[0], 1, None
             )
         )
     for _ in range(0, constants.WAITING_USERS):
         cursor.execute(
             query=insert_into_table(tables.Invites.TABLE_NAME, len(tables.Invites.TABLE_COLUMNS)),
             params=(
-                uuid.uuid4(), user_ids[0], generate_id(), 0, faker.date_time()
+                uuid.uuid4(), user_ids[0], 0, faker.date_time()
             )
         )
 
