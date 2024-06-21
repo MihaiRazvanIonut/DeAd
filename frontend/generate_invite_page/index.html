@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../template/avg_page_template/styles.css">
-    <title>DeAd-Template</title>
+    <title>DeAd</title>
 </head>
+
 <body>
     <div class="page-content">
         <header>
             <div class="header-content">
-                <div class = "logo">
+                <div class="logo">
                     <div class="logo__glyph">DeAd</div>
                     <div class="logo__app-name">Detention Admin</div>
                 </div>
@@ -19,9 +21,9 @@
                 <button class="app-menu__button app-menu__button--sandwich" onclick="toggleNav()">
                     ≡
                 </button>
-                <span class="app-menu__button app-menu__button--active">
+                <a class="app-menu__button app-menu__button--active" href="../index.html">
                     LATEST
-                </span>
+                </a>
                 <a class="app-menu__button" href="../visits_page/index.html">
                     VISITS
                 </a>
@@ -39,31 +41,45 @@
                     <div class="nav-menu__title">
                         Latest Panel
                     </div>
-                    <a href="./index.html" class="nav-menu__button">My Updates</a>
-                    <a href="../index.html" class="nav-menu__button">Global Updates</a>
-                    <a href="../generate_invite_page/index.html" class="nav-menu__button">Generate Invite</a>
+                    <a href="../my_updates_subpage/index.html" class="nav-menu__button">
+                        My Updates
+                    </a>
+                    <a href="../index.html" class="nav-menu__button">
+                        Global Updates
+                    </a>
+                    <a href="./index.html" class="nav-menu__button">
+                        Generate Invite
+                    </a>
                 </div>
             </nav>
             <main id="page-main" class="shown-main">
                 <div class="main-content">
-                    <div class="main-content__text main-content__text--title">My Updates</div>
-                    <div class="main-content__text main-content__text--header">Hello, Razvan!</div>
-                    <div class="main-content__text">See the latest changes you have done:</div>
+                    <div class="main-content__text main-content__text--title">Generate Invite</div>
+                    <br>
+                    <form action="./index.html" method="POST" class="default-form"">
+                        <label for="worker_id">
+                        Worker ID:
+                        </label>
+                        <input type="number" id="worker_id" class="default-form__input">
+                        </fieldset>
+                        <input type="submit" value="Generate Invite" class="default-form__button">
+                    </form>
+                    <br><br><br>
                     <table class="default-table default-table--big">
                         <tr class = "default-table__header">
-                          <th>Visit ID</th>
-                          <th>Operation</th>
-                          <th>Time</th>
+                          <th>Worker ID</th>
+                          <th>Code</th>
+                          <th>Expiring Time</th>
                         </tr>
                         <tr class = "default-table__row" tabindex="0">
-                          <td>100</td>
-                          <td>Create</td>
-                          <td>07:26:45</td>
+                          <td>1</td>
+                          <td>6543</td>
+                          <td>10:20:34</td>
                         </tr>
                         <tr class = "default-table__row" tabindex="0">
-                          <td>101</td>
-                          <td>Update</td>
-                          <td>07:02:33</td>
+                          <td>2</td>
+                          <td>1231</td>
+                          <td>09:25:33</td>
                         </tr>
                       </table>
                 </div>
@@ -72,18 +88,19 @@
         <footer>
             <div class="content-devider"><br></div>
             <div class="footer-content">
-            <span class="footer-content__info">
-                © Detention Admin · 2024
-            </span>
-            <span class="footer-content__info">
-                Application made by Mihai Razvan-Ionut & Cazacu Costin Gabriel
-            </span>
-            <a href="../../doc/doc.html" class="footer-content__info--link">
-                Software Requierments Specification
-            </a>
+                <span class="footer-content__info">
+                    © Detention Admin · 2024
+                </span>
+                <span class="footer-content__info">
+                    Application made by Mihai Razvan-Ionut & Cazacu Costin Gabriel
+                </span>
+                <a href="../../doc/doc.html" class="footer-content__info--link">
+                    Software Requierments Specification
+                </a>
             </div>
         </footer>
     </div>
     <script src="../template/avg_page_template/toggleable/show-nav.js"></script>
 </body>
+
 </html>

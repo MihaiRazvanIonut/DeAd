@@ -108,11 +108,16 @@
                             Items received:
                         </label>
                         <input type="text" id="items_received" class="default-form__input">
-                        <label for="resum_of_discution">
-                            Resum about the discution:
+                        <div class="default-form__fieldsetc">
+                            <label for="restricted_visit_checkbox">
+                                Restricted visit?
+                            </label>
+                            <input type="checkbox" id="restricted_visit_checkbox" class="default-form__button--small">
+                        </div>
+                        <label for="summary" id="summary_label">
+                            Summary:
                         </label>
-                        <textarea id="resum_of_discution"
-                            class="default-form__input default-form__input--textarea"></textarea>
+                        <textarea id="summary" class="default-form__input default-form__input--textarea"></textarea>
                         <fieldset class="default-form__fieldset">
                             <legend>Mood 1-10</legend>
                             <label for="arousal">
@@ -155,6 +160,7 @@
     <script src="../../template/avg_page_template/toggleable/show-nav.js"></script>
     <script src="./add-remove_visitors.js"></script>
     <script src="./add-remove_witness.js"></script>
+    <script src="./hide-unhide_summary.js"></script>
 </body>
 
 </html>
