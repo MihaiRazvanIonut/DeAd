@@ -11,7 +11,7 @@ users_repository = repository.UserRepository(f'dbname={constants.DB_NAME}')
 invites_repository = repository.InviteRepository(f'dbname={constants.DB_NAME}')
 
 
-def new_invite(user_id: str) -> str:
+def new_invite(user_id: str) -> dict:
     if not users_repository.find_by_id(user_id, 'admin').get('admin'):
         raise exceptions.ServiceException(403, 'Forbidden: User is not an admin')
 
@@ -36,7 +36,7 @@ def new_invite(user_id: str) -> str:
     else:
         invites_repository.commit()
 
-    return constants.SERVICE_URI + f'/{invite_code}'
+    return {'invite_code': invite_code}
 
 
 def get_invites(user_id: str) -> dict:
@@ -46,7 +46,7 @@ def get_invites(user_id: str) -> dict:
     raw_invites = list(invites_repository.find_by_conditions({'creator_id': user_id}))
     for raw_invite in raw_invites:
         raw_invite.pop('creator_id')
-        raw_invite = utils.normalise_row(raw_invite)
+        utils.normalise_row(raw_invite)
 
     invites = {'invites': raw_invites}
 

@@ -17,9 +17,9 @@ class Controller:
     def new_invite(self, request_handler):
         try:
             user_id = request_handler.headers.get('x-user-id')
-            new_invite_url = service.new_invite(user_id)
+            new_invite = service.new_invite(user_id)
 
-            send_response(request_handler, new_invite_url, 201, [("Content-type", "text/uri-list")])
+            send_response(request_handler, json.dumps(new_invite), 201)
 
         except ServiceException as e:
             send_error_response(self.logger, request_handler, e)
