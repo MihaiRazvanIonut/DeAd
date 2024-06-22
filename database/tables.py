@@ -127,13 +127,10 @@ class Users:
         id VARCHAR PRIMARY KEY,
         username VARCHAR NOT NULL,
         hash VARCHAR NOT NULL,
-        salt VARCHAR NOT NULL,
-        first_name VARCHAR NOT NULL,
-        last_name VARCHAR NOT NULL,
         admin BOOLEAN NOT NULL
         )
     """
-    TABLE_COLUMNS: list[str] = ("id", "username", "hash", "salt", "first_name", "last_name", "admin")
+    TABLE_COLUMNS: list[str] = ("id", "username", "hash", "admin")
 
 
 class Invites:
