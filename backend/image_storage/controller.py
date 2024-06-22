@@ -16,7 +16,7 @@ class Controller:
         self.logger.setLevel(logging.INFO)
         self.logger.addHandler(logging.StreamHandler())
 
-    @request(rtype=HTTPVerbs.GET, path_regex=f'/{PathRegEx.UUID_REGEX}')
+    @request(rtype=HTTPVerbs.GET, path_regex=f'^/{PathRegEx.UUID_REGEX}$')
     def get_image(self, request_handler):
         try:
             image_uuid = get_id_from_path(request_handler.path)
@@ -40,7 +40,7 @@ class Controller:
         except ServiceException as e:
             send_error_response(self.logger, request_handler, e)
 
-    @request(rtype=HTTPVerbs.DELETE, path_regex=f'/{PathRegEx.UUID_REGEX}')
+    @request(rtype=HTTPVerbs.DELETE, path_regex=f'^/{PathRegEx.UUID_REGEX}$')
     def delete_image(self, request_handler):
         try:
             image_uuid = get_id_from_path(request_handler.path)
@@ -62,7 +62,7 @@ class Controller:
         except ServiceException as e:
             send_error_response(self.logger, request_handler, e)
 
-    @request(rtype=HTTPVerbs.POST, path_regex='/')
+    @request(rtype=HTTPVerbs.POST, path_regex='^/$')
     def new_image(self, request_handler):
         try:
             try:

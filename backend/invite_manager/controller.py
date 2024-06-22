@@ -13,7 +13,7 @@ class Controller:
         self.logger.setLevel(logging.INFO)
         self.logger.addHandler(logging.StreamHandler())
 
-    @request(rtype=HTTPVerbs.POST, path_regex='/')
+    @request(rtype=HTTPVerbs.POST, path_regex='^/$')
     def new_invite(self, request_handler):
         try:
             user_id = request_handler.headers.get('x-user-id')
@@ -24,7 +24,7 @@ class Controller:
         except ServiceException as e:
             send_error_response(self.logger, request_handler, e)
 
-    @request(rtype=HTTPVerbs.GET, path_regex=f'/{PathRegEx.ID_REGEX}')
+    @request(rtype=HTTPVerbs.GET, path_regex=f'^/{PathRegEx.ID_REGEX}$')
     def get_invites(self, request_handler):
         try:
             user_id = get_id_from_path(request_handler.path)
