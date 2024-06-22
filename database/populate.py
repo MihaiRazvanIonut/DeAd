@@ -4,6 +4,7 @@ import random
 import sys
 import uuid
 
+import argon2
 import psycopg
 import uuid6
 from dotenv import load_dotenv
@@ -66,14 +67,32 @@ def populate_prisoners():
 
 
 def populate_users():
-    for _ in range(0, constants.USERS_NUMBER):
+    ph = argon2.PasswordHasher()
+    admin_password = 'admin'
+    hashed_admin_password = ph.hash(admin_password)
+    print(f'Generated password for admin: {hashed_admin_password}')
+    try:
+        ph.verify(hashed_admin_password, admin_password)
+        print("Password verification successful.")
+    except argon2.exceptions.VerifyMismatchError:
+        print("Password verification failed.")
+
+    user_ids.append(generate_id())
+
+    cursor.execute(
+        query=insert_into_table(tables.Users.TABLE_NAME, len(tables.Users.TABLE_COLUMNS)),
+        params=(
+            user_ids[-1],
+            faker.user_name(), hashed_admin_password, True
+        )
+    )
+    for _ in range(1, constants.USERS_NUMBER):
         user_ids.append(generate_id())
         cursor.execute(
             query=insert_into_table(tables.Users.TABLE_NAME, len(tables.Users.TABLE_COLUMNS)),
             params=(
                 user_ids[-1],
-                faker.user_name(), faker.sha256(), faker.sha256(), faker.first_name(),
-                faker.last_name(), len(user_ids) == 1
+                faker.user_name(), faker.sha256(), False
             )
         )
 
