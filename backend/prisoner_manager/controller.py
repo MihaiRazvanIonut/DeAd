@@ -13,7 +13,7 @@ class Controller:
         self.logger.setLevel(logging.INFO)
         self.logger.addHandler(logging.StreamHandler())
 
-    @request(rtype=HTTPVerbs.GET, path_regex=f"/{PathRegEx.ID_REGEX}")
+    @request(rtype=HTTPVerbs.GET, path_regex=f"^/{PathRegEx.ID_REGEX}$")
     def get_prisoner(self, request_handler):
         try:
             prisoner_id = get_id_from_path(request_handler.path)
@@ -24,7 +24,7 @@ class Controller:
         except ServiceException as e:
             send_error_response(self.logger, request_handler, e)
 
-    @request(rtype=HTTPVerbs.PUT, path_regex=f"/{PathRegEx.ID_REGEX}")
+    @request(rtype=HTTPVerbs.PUT, path_regex=f"^/{PathRegEx.ID_REGEX}$")
     def update_prisoner(self, request_handler):
         try:
             prisoner_id = get_id_from_path(request_handler.path)
@@ -41,7 +41,7 @@ class Controller:
         except ServiceException as e:
             send_error_response(self.logger, request_handler, e)
 
-    @request(rtype=HTTPVerbs.POST, path_regex=f"")
+    @request(rtype=HTTPVerbs.POST, path_regex=f"^/$")
     def new_prisoner(self, request_handler):
         try:
             try:
@@ -57,7 +57,7 @@ class Controller:
         except ServiceException as e:
             send_error_response(self.logger, request_handler, e)
 
-    @request(rtype=HTTPVerbs.GET, path_regex=f"{PathRegEx.QUERY_REGEX}")
+    @request(rtype=HTTPVerbs.GET, path_regex=f"^{PathRegEx.QUERY_REGEX}$")
     def get_prisoners_search(self, request_handler):
         try:
             try:
@@ -74,7 +74,7 @@ class Controller:
         except ServiceException as e:
             send_error_response(self.logger, request_handler, e)
 
-    @request(rtype=HTTPVerbs.GET, path_regex='/')
+    @request(rtype=HTTPVerbs.GET, path_regex='^/$')
     def get_prisoners(self, request_handler):
         try:
             prisoners = service.get_prisoners()

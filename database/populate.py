@@ -183,6 +183,16 @@ def populate_actions():
         )
 
 
+def populate_sessions():
+    for user_id in user_ids:
+        cursor.execute(
+            query=insert_into_table(tables.Sessions.TABLE_NAME, len(tables.Sessions.TABLE_COLUMNS)),
+            params=(
+                str(uuid6.uuid7()), user_id, (datetime.datetime.now(datetime.UTC) + datetime.timedelta(days=1))
+            )
+        )
+
+
 def populate():
     print("Populating users...", end='')
     populate_users()
@@ -218,6 +228,10 @@ def populate():
 
     print("Populating actions...", end='')
     populate_actions()
+    print("Done")
+
+    print("Populating sessions...", end='')
+    populate_sessions()
     print("Done")
 
 

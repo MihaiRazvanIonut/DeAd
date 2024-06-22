@@ -161,7 +161,7 @@ class Actions:
         type VARCHAR NOT NULL,
         user_id VARCHAR NOT NULL,
         visit_id VARCHAR NOT NULL,
-        time DATE NOT NULL,
+        time TIMESTAMP NOT NULL,
         CONSTRAINT fk_actions_user FOREIGN KEY (user_id) REFERENCES users(id),
         CONSTRAINT fk_actions_visit FOREIGN KEY (visit_id) REFERENCES visits(id)
         )
@@ -171,8 +171,23 @@ class Actions:
     )
 
 
+class Sessions:
+    TABLE_NAME = 'sessions'
+    TABLE_CREATE = f"""
+        CREATE TABLE {TABLE_NAME} (
+        id VARCHAR PRIMARY KEY,
+        user_id VARCHAR NOT NULL,
+        expiry_date TIMESTAMP NOT NULL,
+        CONSTRAINT fk_sessions_user FOREIGN KEY (user_id) REFERENCES users(id)
+        )
+    """
+    TABLE_COLUMNS: list[str] = (
+        "id", "user_id", "expiry_date"
+    )
+
+
 DB_TABLES = (
     Users(), Prisoners(), Visitors(),
     Visits(), Visitations(), MoodIndexes(),
-    Items(), Invites(), Actions()
+    Items(), Invites(), Actions(), Sessions()
 )
