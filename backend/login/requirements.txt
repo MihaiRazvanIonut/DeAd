@@ -1,0 +1,5 @@
+psycopg~=3.1.19
+uuid6~=2024.1.12
+sqids~=0.4.1
+argon2-cffi~=23.1.0
+python-dotenv
