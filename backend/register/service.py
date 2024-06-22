@@ -1,3 +1,4 @@
+import datetime
 import sys
 
 import argon2
@@ -19,7 +20,12 @@ def register(body: dict):
         if key not in register_schema:
             raise exceptions.ServiceException(400, f'Bad request: invalid field {key}')
 
-    if not invite_repository.find_by_id(body['invite_code']):
+    invite = invite_repository.find_by_id(body['invite_code'])
+
+    if not invite:
+        raise exceptions.ServiceException(401, 'Unauthorized access')
+
+    if invite['status'] == 1:
         raise exceptions.ServiceException(401, 'Unauthorized access')
 
     if user_repository.find_by_conditions({'username': body['username']}):
@@ -28,18 +34,22 @@ def register(body: dict):
     hashed_pass = ph.hash(body['password'])
 
     try:
-        invite_repository.update_by_id(body['invite_code'], {'status': 1, 'expiry_date': None})
+        invite['expiry_date'] = invite['expiry_date'].replace(tzinfo=datetime.UTC)
+        if datetime.datetime.now(datetime.UTC) > invite['expiry_date']:
+            invite_repository.delete_by_conditions({'id': body['invite_code'], 'creator_id': invite['creator_id']})
+            invite_repository.commit()
+            raise exceptions.ServiceException(400, f'Bad request: Expired invite code')
 
-        user_repository.insert(
-            {
-                'id': uuid6.uuid7().int % sys.maxsize,
-                'username': body['username'],
-                'hash': hashed_pass,
-                'admin': body['admin']
-            }
-        )
-
-        user_repository.commit()
+        else:
+            invite_repository.update_by_id(body['invite_code'], {'status': 1, 'expiry_date': None})
+            user_repository.insert(
+                {
+                    'id': uuid6.uuid7().int % sys.maxsize,
+                    'username': body['username'],
+                    'hash': hashed_pass,
+                    'admin': body['admin']
+                }
+            )
 
     except exceptions.ServiceException as e:
         invite_repository.rollback()

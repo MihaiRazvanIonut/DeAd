@@ -70,10 +70,10 @@ class PostgresRepository(BasePostgresRepository):
         values = list(conditions.values())
         pairs = f'{fields[0]} = %s'
         for field in fields[1:]:
-            pairs += f', {field} = %s'
+            pairs += f' and {field} = %s'
         sql = f'DELETE FROM {self.TABLE_NAME} WHERE {pairs}'
         try:
-            return self._client.execute(sql, values).fetchall()
+            return self._client.execute(sql, values)
 
         except BaseException as e:
             raise exceptions.ServiceException(500, f'Database error: {e}')
