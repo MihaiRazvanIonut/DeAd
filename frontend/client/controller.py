@@ -55,6 +55,10 @@ class Controller:
     def get_register_page(self, request_handler):
         request_handler.path = '../register_page/index.html'
 
+    @request(rtype=HTTPVerbs.GET, path_regex='^/statistics$')
+    def get_stats_page(self, request_handler):
+        request_handler.path = '../prisoners_page/export_subpage/index.html'
+
     # js
 
     @request(rtype=HTTPVerbs.GET, path_regex=f'/prisoners/add-photo_prisoner.js')
