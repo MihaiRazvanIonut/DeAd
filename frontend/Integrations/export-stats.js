@@ -6,8 +6,12 @@ document.addEventListener('DOMContentLoaded', function(){
             const prisonerId = document.getElementById('prisoner_id').value;
             const statisticType = document.querySelector('input[name="statistic_type"]:checked').value;
             const exportFormat = document.querySelector('input[name="export_format"]:checked').value;
-
-            const url = `http://localhost:12303/${statisticType}?format=${exportFormat}&prisoner_id=${prisonerId}`;
+            let url;
+            if(prisonerId != null){
+                url = `http://localhost:12303/${statisticType}/${prisonerId}?format=${exportFormat}`;
+            } else{
+                url = `http://localhost:12303/${statisticType}?format=${exportFormat}`;
+            }
 
             fetch(url)
                 .then(response => {
