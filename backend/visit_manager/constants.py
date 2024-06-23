@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 HOST = os.getenv("HOST", "localhost")
-PORT = int(os.getenv("PORT", 12999))
+PORT = int(os.getenv("PORT", 12304))
 
 SERVICE_URI = f'http://{HOST}:{PORT}'
 
-SESSION_ID_IDENTIFIER = 'seshhid-ddeeaadd'
+DB_NAME = os.getenv("DB_NAME", "detention_admin")

@@ -3,42 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> DeAd - Login </title>
+    <title>DeAd - Login</title>
     <link rel="stylesheet" href="../template/form_page_template/styles.css">
 </head>
 <body>
     <main>
         <div class="box">
-            <div class = "logo">
-                <h3 class="logo__glyph">
-                    DeAd
-                </h3>
-                <h2 class="logo__app-name">
-                    Detention Admin
-                </h2>
+            <div class="logo">
+                <h3 class="logo__glyph">DeAd</h3>
+                <h2 class="logo__app-name">Detention Admin</h2>
             </div>
-            <form action="../index.html" method="POST" class="default-form"">
+            <form id="loginForm" class="default-form">
                 <fieldset class="default-form__fieldset">
                     <legend>Login</legend>
-                    <label for="username">
-                        Username:
-                    </label>
+                    <label for="username">Username:</label>
                     <input type="text" id="username" class="default-form__input">
-                    <label for="password">
-                        Password:
-                    </label>
+                    <label for="password">Password:</label>
                     <input type="password" id="password" class="default-form__input">
-                    <div class="default-form__fieldset default-form__fieldset--rows">
-                        <input type="checkbox" id="keep_logged">
-                        <label for="keep_logged">
-                            Remember me
-                        </label>
-                    </div>
                 </fieldset>
-                <p>Don't have an account? <a href="../register_page/index.html">Register here</a></p>
-                <input type="submit" value="Login" class="default-form__button">
+                <p>Don't have an account? <a href="../register">Register here</a></p>
+                <button type="submit" class="default-form__button">Login</button>
             </form>
         </div>
     </main>
+    <script src="../integration/login_page.js"></script>
 </body>
 </html>

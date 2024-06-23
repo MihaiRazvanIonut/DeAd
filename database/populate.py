@@ -58,7 +58,7 @@ def populate_prisoners():
             query=insert_into_table(tables.Prisoners.TABLE_NAME, len(tables.Prisoners.TABLE_COLUMNS)),
             params=(
                 prisoner_ids[-1], faker.ssn(), faker.first_name(), faker.last_name(),
-                faker.date_time(), faker.country(), uuid.uuid4(),
+                faker.date_time(), faker.country(), constants.DEFAULT_IMAGE_URI,
                 faker.address(), faker.phone_number(), faker.email(),
                 faker.phone_number(), faker.date_time(), faker.date_time(), faker.crime(),
                 random.random() * 1000 + 1, faker.date_time(), faker.boolean(chance_of_getting_true=70)
@@ -103,7 +103,7 @@ def populate_visitors():
         cursor.execute(
             query=insert_into_table(tables.Visitors.TABLE_NAME, len(tables.Visitors.TABLE_COLUMNS)),
             params=(
-                visitor_ids[-1], faker.first_name(), faker.last_name(), faker.text(), uuid.uuid4()
+                visitor_ids[-1], faker.ssn(), faker.first_name(), faker.last_name(), faker.visitor_relation()
             )
         )
 
@@ -119,7 +119,7 @@ def populate_visits():
             query=insert_into_table(tables.Visits.TABLE_NAME, len(tables.Visits.TABLE_COLUMNS)),
             params=(
                 visit_ids[-1], random_prisoner_id, faker.date(), faker.date_time(), faker.date_time(),
-                faker.visit_purpose(), restricted_visit, summary, False
+                faker.visit_purpose(), restricted_visit, summary
             )
         )
 
@@ -170,14 +170,15 @@ def populate_invites():
         cursor.execute(
             query=insert_into_table(tables.Invites.TABLE_NAME, len(tables.Invites.TABLE_COLUMNS)),
             params=(
-                uuid.uuid4(), user_ids[0], 1, None
+                uuid.uuid4(), user_ids[0], 1, None, False
             )
         )
     for _ in range(0, constants.WAITING_USERS):
         cursor.execute(
             query=insert_into_table(tables.Invites.TABLE_NAME, len(tables.Invites.TABLE_COLUMNS)),
             params=(
-                uuid.uuid4(), user_ids[0], 0, faker.date_time()
+                uuid.uuid4(), user_ids[0], 0, datetime.datetime.now(datetime.UTC) + datetime.timedelta(days=1),
+                faker.boolean(chance_of_getting_true=20)
             )
         )
 

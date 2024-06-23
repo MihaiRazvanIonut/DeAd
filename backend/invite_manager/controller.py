@@ -13,11 +13,12 @@ class Controller:
         self.logger.setLevel(logging.INFO)
         self.logger.addHandler(logging.StreamHandler())
 
-    @request(rtype=HTTPVerbs.POST, path_regex='^/$')
+    @request(rtype=HTTPVerbs.POST, path_regex=f'^/{PathRegEx.QUERY_REGEX}$')
     def new_invite(self, request_handler):
         try:
             user_id = request_handler.headers.get('x-user-id')
-            new_invite = service.new_invite(user_id)
+            query_param = get_query_params_from_path(request_handler.path)
+            new_invite = service.new_invite(user_id, query_param)
 
             send_response(request_handler, json.dumps(new_invite), 201)
 

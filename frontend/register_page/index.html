@@ -3,47 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> DeAd - Register </title>
+    <title>DeAd - Register</title>
     <link rel="stylesheet" href="../template/form_page_template/styles.css">
 </head>
 <body>
     <main>
         <div class="box">
-            <div class = "logo">
-                <h3 class="logo__glyph">
-                    DeAd
-                </h3>
-                <h2 class="logo__app-name">
-                    Detention Admin
-                </h2>
+            <div class="logo">
+                <h3 class="logo__glyph">DeAd</h3>
+                <h2 class="logo__app-name">Detention Admin</h2>
             </div>
-            <form action="../login_page/index.html" method="POST" class="default-form"">
+            <form id="registerForm" class="default-form">
                 <fieldset class="default-form__fieldset">
                     <legend>Register</legend>
-                    <label for="worker_id">
-                        Worker ID:
-                    </label>
-                    <input type="number" id="worker_id" class="default-form__input">
-                    <label for="invite_code">
-                        Invite code:
-                    </label>
-                    <input type="text" id="invite_code" class="default-form__input">
-                    <label for="username">
-                        Username:
-                    </label>
-                    <input type="text" id="username" class="default-form__input">
-                    <label for="password">
-                        Password:
-                    </label>
-                    <input type="password" id="password" class="default-form__input">
-                    <label for="confirm_password">
-                        Confirm password:
-                    </label>
-                    <input type="password" id="confirm_password" class="default-form__input">
+                    <label for="invite_code">Invite code:</label>
+                    <input type="text" id="invite_code" class="default-form__input" required>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" class="default-form__input" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" class="default-form__input" required>
+                    <label for="confirm_password">Confirm password:</label>
+                    <input type="password" id="confirm_password" class="default-form__input" required>
                 </fieldset>
                 <input type="submit" value="Register" class="default-form__button">
             </form>
         </div>
     </main>
+
+    <script src="../integration/register_page.js"></script>
 </body>
 </html>
