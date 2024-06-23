@@ -56,31 +56,24 @@
                     <form class="search-box">
                         <select id="filter" class="search-box__input">
                             <option value="id">ID</option>
-                            <option value="court_case_number">Court case number</option>
+                            <option value="case_number">Court case number</option>
                             <option value="release_date">Release date</option>
                         </select>
                         <input type="text" placeholder="Search" name="search" class="search-box__input">
                         <button type="submit" class="search-box__input">&#x1F50E;&#xFE0E;</button>
                     </form>
                     <table class="default-table default-table--big">
+                        <thead>
                         <tr class = "default-table__header">
-                          <th>ID</th>
-                          <th>Profile</th>
-                          <th>Court case number</th>
-                          <th>Release date</th>
+                            <th>ID</th>
+                            <th>Profile</th>
+                            <th>Court case number</th>
+                            <th>Release date</th>
                         </tr>
-                        <tr class = "default-table__row" tabindex="0">
-                          <td>23</td>
-                          <td><a href="../prisoner_view_template/index.html" class="default-table__link">Link</a></td>
-                          <td>12345</td>
-                          <td>01-04-2023</td>
-                        </tr>
-                        <tr class = "default-table__row" tabindex="0">
-                          <td>24</td>
-                          <td><a href="../prisoner_view_template/index.html" class="default-table__link">Link</a></td>
-                          <td>123124</td>
-                          <td>07-03-2024</td>
-                        </tr>
+                        </thead>
+                        <tbody id="prisonersTableBody">
+
+                        </tbody>
                       </table>
                 </div>
             </main>
@@ -101,5 +94,6 @@
         </footer>
     </div>
     <script src="../template/avg_page_template/toggleable/show-nav.js"></script>
+    <script src="../Integrations/existing-visitors.js"></script>
 </body>
 </html>
