@@ -16,7 +16,7 @@ def send_response(request_handler, response: str | None = None, status_code: int
 
     request_handler.send_header('Access-Control-Allow-Origin', '*')
     request_handler.send_header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
-    request_handler.send_header('Access-Control-Allow-Headers', 'Content-Type')
+    request_handler.send_header('Access-Control-Allow-Headers', 'Content-Type, x-user-id')
     request_handler.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
     request_handler.end_headers()
     request_handler.wfile.write(response.encode('utf-8'))

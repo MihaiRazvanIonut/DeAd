@@ -11,7 +11,7 @@ class Controller:
 
     # html
 
-    @request(rtype=HTTPVerbs.GET, path_regex=f'^/actions/{PathRegEx.ID_REGEX}')
+    @request(rtype=HTTPVerbs.GET, path_regex=f'^/user$')
     def get_action_page_for_user(self, request_handler):
         request_handler.path = '../my_updates_subpage/index.html'
 
