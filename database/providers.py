@@ -41,3 +41,10 @@ class CustomProvider(BaseProvider):
             "create", "update", "delete"
         ]
         return self.random_element(crud_operations)
+
+    def visitor_relation(self):
+        relations = [
+            "spouse", "parent", "sibling", "child", "other family", "friend", "legal representative",
+            "professional", "educator", "community member", "media", "government official"
+        ]
+        return self.random_element(relations)

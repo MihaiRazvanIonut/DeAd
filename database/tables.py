@@ -10,13 +10,12 @@ class Visits:
         purpose VARCHAR NOT NULL,
         restricted BOOLEAN NOT NULL,
         summary TEXT,
-        decommissioned BOOLEAN NOT NULL,
         CONSTRAINT fk_visit_prisoner FOREIGN KEY (prisoner_id) REFERENCES prisoners(id)
         )
     """
     TABLE_COLUMNS: list[str] = (
         "id", "prisoner_id", "date", "start_time", "end_time", "purpose",
-        "restricted", "summary", "decommissioned"
+        "restricted", "summary"
     )
 
 
@@ -28,7 +27,7 @@ class Visitations:
         visitor_id VARCHAR NOT NULL,
         visit_id VARCHAR NOT NULL,
         visit_role INTEGER NOT NULL,
-        CONSTRAINT fk_visitation_visitor FOREIGN KEY (visitor_id) REFERENCES visitors(nin),
+        CONSTRAINT fk_visitation_visitor FOREIGN KEY (visitor_id) REFERENCES visitors(id),
         CONSTRAINT fk_visitation_visit FOREIGN KEY (visit_id) REFERENCES visits(id)
         )
     """
@@ -41,14 +40,14 @@ class Visitors:
     TABLE_NAME = "visitors"
     TABLE_CREATE = f"""
         CREATE TABLE {TABLE_NAME} (
-        nin VARCHAR PRIMARY KEY,
+        id VARCHAR PRIMARY KEY,
+        nin VARCHAR NOT NULL,
         first_name VARCHAR NOT NULL,
         last_name VARCHAR NOT NULL,
-        relationship VARCHAR,
-        image VARCHAR
+        relationship VARCHAR
         )
     """
-    TABLE_COLUMNS: list[str] = ("nin", "first_name", "last_name", "relationship", "image")
+    TABLE_COLUMNS: list[str] = ('id', "nin", "first_name", "last_name", "relationship")
 
 
 class Prisoners:
