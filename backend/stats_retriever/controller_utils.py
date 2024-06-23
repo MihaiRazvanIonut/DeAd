@@ -1,4 +1,3 @@
-import io
 import logging
 import re
 
@@ -14,6 +13,11 @@ def send_response(request_handler, response: str | None = None, status_code: int
     request_handler.send_response(status_code)
     for header in headers:
         request_handler.send_header(*header)
+
+    request_handler.send_header('Access-Control-Allow-Origin', '*')
+    request_handler.send_header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+    request_handler.send_header('Access-Control-Allow-Headers', 'Content-Type')
+    request_handler.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
 
     request_handler.end_headers()
     request_handler.wfile.write(response.encode('utf-8'))
@@ -32,6 +36,11 @@ def export_file(request_handler, stats: bytes, file_format: str):
             content_type = 'text/html'
 
     request_handler.send_response(200)
+    request_handler.send_header('Access-Control-Allow-Origin', '*')
+    request_handler.send_header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+    request_handler.send_header('Access-Control-Allow-Headers', 'Content-Type')
+    request_handler.send_header('Access-Control-Expose-Headers', 'Content-Disposition')
+    request_handler.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
     request_handler.send_header('Content-Type', content_type)
     request_handler.send_header('Content-Disposition', f'attachment; filename="DeAd_stats.{file_format}"')
     request_handler.send_header('Content-Length', str(len(stats)))
