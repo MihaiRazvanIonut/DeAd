@@ -11,6 +11,10 @@ class Controller:
 
     # html
 
+    @request(rtype=HTTPVerbs.GET, path_regex=f'^/docs$')
+    def get_docs(self, request_handler):
+        request_handler.path = '../../doc/doc.html'
+
     @request(rtype=HTTPVerbs.GET, path_regex=f'^/user$')
     def get_action_page_for_user(self, request_handler):
         request_handler.path = '../my_updates_subpage/index.html'
@@ -105,7 +109,15 @@ class Controller:
     def get_nav_js(self, request_handler):
         request_handler.path = '../template/avg_page_template/toggleable/show-nav.js'
 
+    @request(rtype=HTTPVerbs.GET, path_regex=r'/project_doc_files/scholarly.min.js')
+    def get_docs_styles(self, request_handler):
+        request_handler.path = '../../doc/project_doc_files/scholarly.min.js'
+
     # css
+
+    @request(rtype=HTTPVerbs.GET, path_regex=r'/project_doc_files/scholarly.min.css')
+    def get_docs_styles(self, request_handler):
+        request_handler.path = '../../doc/project_doc_files/scholarly.min.css'
 
     @request(rtype=HTTPVerbs.GET, path_regex=r'/template/avg_page_template/styles.css')
     def get_template_styles(self, request_handler):
