@@ -3,16 +3,17 @@ document.addEventListener('DOMContentLoaded', function(){
     if(exportForm){
         exportForm.addEventListener('submit', function(event){
             event.preventDefault();
-            const prisonerId = document.getElementById('prisoner_id').value;
+            const prisonerId = document.getElementById('prisoner_id').value.trim();
             const statisticType = document.querySelector('input[name="statistic_type"]:checked').value;
             const exportFormat = document.querySelector('input[name="export_format"]:checked').value;
+            console.log(`: ${exportFormat}`);
             let url;
-            if(prisonerId != null){
+            if(prisonerId){
                 url = `http://localhost:12303/${statisticType}/${prisonerId}?format=${exportFormat}`;
             } else{
                 url = `http://localhost:12303/${statisticType}?format=${exportFormat}`;
             }
-
+            console.log(`${url}`);
             fetch(url)
                 .then(response => {
                     const disposition = response.headers.get('Content-Disposition');
