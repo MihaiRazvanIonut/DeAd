@@ -61,6 +61,10 @@ class Controller:
 
     # js
 
+    @request(rtype=HTTPVerbs.GET, path_regex=f'^/integration')
+    def get_integration_scripts(self, request_handler):
+        request_handler.path = f'..' + request_handler.path
+
     @request(rtype=HTTPVerbs.GET, path_regex=f'/prisoners/add-photo_prisoner.js')
     def get_specific_prisoner_photo(self, request_handler):
         request_handler.path = '../prisoner_view_template/add-photo_prisoner.js'

@@ -38,12 +38,12 @@ def login(body: dict):
         session = session_repository.find_by_conditions({'user_id': user['id']})
         new_session_flag = True
         if not session:
-            response['session_id'] = uuid6.uuid7()
+            response['session_id'] = str(uuid6.uuid7())
         else:
             session = session[0]
             session['expiry_date'] = session['expiry_date'].replace(tzinfo=datetime.UTC)
             if datetime.datetime.now(datetime.UTC) > session['expiry_date']:
-                response['session_id'] = uuid6.uuid7()
+                response['session_id'] = str(uuid6.uuid7())
                 session_repository.delete_by_conditions({'id': session['id'], 'user_id': user['id']})
             else:
                 new_session_flag = False

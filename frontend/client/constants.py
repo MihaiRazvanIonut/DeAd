@@ -9,4 +9,4 @@ PORT = int(os.getenv("PORT", 12999))
 
 SERVICE_URI = f'http://{HOST}:{PORT}'
 
-DB_NAME = os.getenv("DB_NAME", "detention_admin")
+SESSION_ID_IDENTIFIER = 'seshhid-ddeeaadd'
