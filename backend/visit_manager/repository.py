@@ -8,9 +8,9 @@ class VisitRepository(PostgresRepository):
 class VisitationsRepository(PostgresRepository):
     TABLE_NAME = 'visitations'
 
-    def join_find_by_visit_id(self, visit_id: str):
+    def join_find_by_visit_id(self, visit_id: str, columns: str):
         sql = f"""
-            SELECT visit_role, nin, first_name, last_name, relationship
+            SELECT {columns}
             FROM {self.TABLE_NAME} vis
             JOIN visits vt ON vt.id = vis.visit_id
             JOIN visitors vs ON vs.id = vis.visitor_id

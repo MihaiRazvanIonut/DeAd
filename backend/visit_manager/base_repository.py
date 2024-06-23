@@ -65,8 +65,18 @@ class PostgresRepository(BasePostgresRepository):
         except BaseException as e:
             raise exceptions.ServiceException(500, f'Database error: {e}')
 
-    def delete(self, condition: str):
-        pass
+    def delete_by_conditions(self, conditions: dict):
+        fields = list(conditions.keys())
+        values = list(conditions.values())
+        pairs = f'{fields[0]} = %s'
+        for field in fields[1:]:
+            pairs += f' and {field} = %s'
+        sql = f'DELETE FROM {self.TABLE_NAME} WHERE {pairs}'
+        try:
+            return self._client.execute(sql, values)
+
+        except BaseException as e:
+            raise exceptions.ServiceException(500, f'Database error: {e}')
 
     def insert(self, entry: dict):
         fields = list(entry.keys())
