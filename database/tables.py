@@ -141,12 +141,13 @@ class Invites:
         creator_id VARCHAR NOT NULL,
         status INTEGER NOT NULL,
         expiry_date TIMESTAMP,
+        admin BOOLEAN NOT NULL,
         CONSTRAINT fk_invites_creator FOREIGN KEY (creator_id) REFERENCES users(id)
         )
     """
     TABLE_COLUMNS: list[str] = (
         "id", "creator_id",
-        "status", "expiry_date"
+        "status", "expiry_date", "admin"
     )
 
 

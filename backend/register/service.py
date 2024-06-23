@@ -14,7 +14,7 @@ ph = argon2.PasswordHasher()
 
 
 def register(body: dict):
-    register_schema = ('admin', 'username', 'invite_code', 'password')
+    register_schema = ('username', 'invite_code', 'password')
 
     for key in body.keys():
         if key not in register_schema:
@@ -47,7 +47,7 @@ def register(body: dict):
                     'id': uuid6.uuid7().int % sys.maxsize,
                     'username': body['username'],
                     'hash': hashed_pass,
-                    'admin': body['admin']
+                    'admin': invite['admin']
                 }
             )
 

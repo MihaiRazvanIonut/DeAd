@@ -170,14 +170,15 @@ def populate_invites():
         cursor.execute(
             query=insert_into_table(tables.Invites.TABLE_NAME, len(tables.Invites.TABLE_COLUMNS)),
             params=(
-                uuid.uuid4(), user_ids[0], 1, None
+                uuid.uuid4(), user_ids[0], 1, None, False
             )
         )
     for _ in range(0, constants.WAITING_USERS):
         cursor.execute(
             query=insert_into_table(tables.Invites.TABLE_NAME, len(tables.Invites.TABLE_COLUMNS)),
             params=(
-                uuid.uuid4(), user_ids[0], 0, faker.date_time()
+                uuid.uuid4(), user_ids[0], 0, datetime.datetime.now(datetime.UTC) + datetime.timedelta(days=1),
+                faker.boolean(chance_of_getting_true=20)
             )
         )
 
