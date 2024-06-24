@@ -4,6 +4,19 @@ document.getElementById('prisonerForm').addEventListener('submit', async functio
     const form = event.target;
     const formData = new FormData(form);
     
+    const requiredFields = form.querySelectorAll('input[required], textarea[required]');
+    let allFieldsFilled = true;
+    requiredFields.forEach(field => {
+        if (!field.value) {
+            allFieldsFilled = false;
+        }
+    });
+
+    if (!allFieldsFilled) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+
     const imageFile = formData.get('prisoner_image');
     let imageUrl = '';
     if (imageFile && imageFile.size > 0) {
