@@ -21,16 +21,16 @@
                 <button class="app-menu__button app-menu__button--sandwich" onclick="toggleNav()">
                     ≡
                 </button>
-                <a class="app-menu__button" href="../../index.html">
+                <a class="app-menu__button" href="../../actions">
                     LATEST
                 </a>
                 <span class="app-menu__button app-menu__button--active">
                     VISITS
                 </span>
-                <a class="app-menu__button" href="../../prisoners_page/index.html">
+                <a class="app-menu__button" href="../../prisoners">
                     PRISONERS
                 </a>
-                <a class="app-menu__button app-menu__button--logout" href="../../login_page/index.html">
+                <a class="app-menu__button app-menu__button--logout" href="../../login" id="logoutButton">
                     ↪
                 </a>
             </div>
@@ -41,10 +41,10 @@
                     <div class="nav-menu__title">
                         Visits Panel
                     </div>
-                    <a href="./index.html" class="nav-menu__button">
+                    <a href="../../forms/visits" class="nav-menu__button">
                         New Visit
                     </a>
-                    <a href="../index.html" class="nav-menu__button">
+                    <a href="../../visits" class="nav-menu__button">
                         Existing Visits
                     </a>
                 </div>
@@ -52,43 +52,31 @@
             <main id="page-main" class="shown-main">
                 <div class="main-content">
                     <div class="main-content__text main-content__text--title">New Visit</div>
-                    <form action="../index.html" method="POST" class="default-form"">
-                            <label for=" prisoner_id">
-                        Prisoner ID:
-                        </label>
-                        <input type="number" id="prisoner_id" class="default-form__input">
+                    <form action="../index.html" method="POST" class="default-form">
+                        <label for="prisoner_id">Prisoner ID:</label>
+                        <input type="text" id="prisoner_id" class="default-form__input" required>
                         <fieldset id="visitors_fieldset" class="default-form__fieldset">
                             <legend>Visitor/s</legend>
                         </fieldset>
                         <span class="default-form__fieldset--rows">
-                            <span class="default-form__button default-form__button--small"
-                                onclick="addVisitor()">+</span>
-                            <span class="default-form__button default-form__button--small"
-                                onclick="removeVisitor()">-</span>
+                            <span class="default-form__button default-form__button--small" onclick="addVisitor()">+</span>
+                            <span class="default-form__button default-form__button--small" onclick="removeVisitor()">-</span>
                         </span>
                         <fieldset id="witnesses_fieldset" class="default-form__fieldset">
                             <legend>Witness/es</legend>
                         </fieldset>
                         <span class="default-form__fieldset--rows">
-                            <span class="default-form__button default-form__button--small"
-                                onclick="addWitness()">+</span>
-                            <span class="default-form__button default-form__button--small"
-                                onclick="removeWitness()">-</span>
+                            <span class="default-form__button default-form__button--small" onclick="addWitness()">+</span>
+                            <span class="default-form__button default-form__button--small" onclick="removeWitness()">-</span>
                         </span>
-                        <label for="visit_date">
-                            Date of visit:
-                        </label>
-                        <input type="date" id="visit_date" class="default-form__input">
-                        <label for="visit_start_time">
-                            Visit start-time:
-                        </label>
-                        <input type="time" id="visit_start_time" class="default-form__input">
-                        <label for="visit_end_time">
-                            Visit end-time:
-                        </label>
-                        <input type="time" id="visit_end_time" class="default-form__input">
+                        <label for="visit_date">Date of visit:</label>
+                        <input type="date" id="visit_date" class="default-form__input" required>
+                        <label for="visit_start_time">Visit start-time:</label>
+                        <input type="time" id="visit_start_time" class="default-form__input" required>
+                        <label for="visit_end_time">Visit end-time:</label>
+                        <input type="time" id="visit_end_time" class="default-form__input" required>
                         <label for="visit_purpose">Visit purpose:</label>
-                        <select id="visitPurpose" class="default-form__input">
+                        <select id="visitPurpose" class="default-form__input" required>
                             <option value="contact">Contact</option>
                             <option value="non_contact">Non-Contact</option>
                             <option value="family">Family</option>
@@ -100,45 +88,29 @@
                             <option value="media">Media</option>
                             <option value="official">Official</option>
                         </select>
-                        <label for="items_given">
-                            Items given:
-                        </label>
-                        <input type="text" id="items_given" class="default-form__input">
-                        <label for="items_received">
-                            Items received:
-                        </label>
-                        <input type="text" id="items_received" class="default-form__input">
+                        <label for="items_given">Items given:</label>
+                        <input type="text" id="items_given" class="default-form__input" required>
+                        <label for="items_received">Items received:</label>
+                        <input type="text" id="items_received" class="default-form__input" required>
                         <div class="default-form__fieldsetc">
-                            <label for="restricted_visit_checkbox">
-                                Restricted visit?
-                            </label>
+                            <label for="restricted_visit_checkbox">Restricted visit?</label>
                             <input type="checkbox" id="restricted_visit_checkbox" class="default-form__button--small">
                         </div>
-                        <label for="summary" id="summary_label">
-                            Summary:
-                        </label>
+                        <label for="summary" id="summary_label">Summary:</label>
                         <textarea id="summary" class="default-form__input default-form__input--textarea"></textarea>
                         <fieldset class="default-form__fieldset">
                             <legend>Mood 1-10</legend>
-                            <label for="arousal">
-                                Arousal:
-                            </label>
-                            <input type="number" min="1" max="10" id="arousal" class="default-form__input">
-                            <label for="flow">
-                                Flow:
-                            </label>
-                            <input type="number" min="1" max="10" id="flow" class="default-form__input">
-                            <label for="control">
-                                Control:
-                            </label>
-                            <input type="number" min="1" max="10" id="control" class="default-form__input">
-                            <label for="relaxation">
-                                Relaxation:
-                            </label>
-                            <input type="number" min="1" max="10" id="relaxation" class="default-form__input">
+                            <label for="arousal">Arousal:</label>
+                            <input type="number" min="1" max="10" id="arousal" class="default-form__input" required>
+                            <label for="flow">Flow:</label>
+                            <input type="number" min="1" max="10" id="flow" class="default-form__input" required>
+                            <label for="control">Control:</label>
+                            <input type="number" min="1" max="10" id="control" class="default-form__input" required>
+                            <label for="relaxation">Relaxation:</label>
+                            <input type="number" min="1" max="10" id="relaxation" class="default-form__input" required>
                         </fieldset>
                         <input type="submit" value="Create Visit" class="default-form__button">
-                    </form>
+                    </form>                    
                 </div>
             </main>
         </div>
@@ -151,7 +123,7 @@
                 <span class="footer-content__info">
                     Application made by Mihai Razvan-Ionut & Cazacu Costin Gabriel
                 </span>
-                <a href="../../../doc/doc.html" class="footer-content__info--link">
+                <a href="../../docs" class="footer-content__info--link">
                     Software Requierments Specification
                 </a>
             </div>
@@ -161,6 +133,7 @@
     <script src="./add-remove_visitors.js"></script>
     <script src="./add-remove_witness.js"></script>
     <script src="./hide-unhide_summary.js"></script>
+    <script src="../../integration/new_visit_page.js"></script>
 </body>
 
 </html>

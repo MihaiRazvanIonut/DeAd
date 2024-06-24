@@ -23,7 +23,7 @@ async function fetchVisits(field = null, value = null) {
         }
         const data = await response.json();
         if (data.visits && Array.isArray(data.visits)) {
-            data.visits.sort((a, b) => new Date(a.date) - new Date(b.date));
+            data.visits.sort((a, b) => new Date(b.date) - new Date(a.date));
             displayVisits(data.visits);
         }
     } catch (error) {

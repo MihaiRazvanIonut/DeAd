@@ -15,19 +15,19 @@ function addWitness() {
         <label for="witness_first_name">
             First name:
         </label>
-        <input type="text" id="witness_first_name" class="default-form__input">    
+        <input type="text" id="witness_first_name" class="default-form__input" required>    
         <label for="witness_last_name">
            Last name:
         </label>
-        <input type="text" id="witness_last_name" class="default-form__input">
+        <input type="text" id="witness_last_name" class="default-form__input" required>
         <label for="witness_ssn">
             SSN:
         </label>
-        <input type="number" id="witness_ssn" class="default-form__input">
+        <input type="number" id="witness_ssn" class="default-form__input" required>
         `;
         witnessesFieldset.appendChild(newWitness);
         witnessesCounter++;
-        console.log("Added witness" + witnessesCounter);
+        console.log("Added witness " + witnessesCounter);
     }
 }
 

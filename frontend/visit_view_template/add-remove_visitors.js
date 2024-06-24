@@ -15,17 +15,17 @@ function addVisitor() {
         <label for="visitor_first_name_` + visitorNum + `">
             First name:
         </label>
-        <input type="text" id="visitor_first_name_` + visitorNum + `" class="default-form__input">    
+        <input type="text" id="visitor_first_name_` + visitorNum + `" class="default-form__input" required>    
         <label for="visitor_last_name_` + visitorNum + `">
            Last name:
         </label>
-        <input type="text" id="visitor_last_name_` + visitorNum + `" class="default-form__input">
+        <input type="text" id="visitor_last_name_` + visitorNum + `" class="default-form__input" required>
         <label for="visitor_ssn_` + visitorNum + `">
             SSN:
         </label>
-        <input type="number" id="visitor_ssn_` + visitorNum + `" class="default-form__input">
+        <input type="number" id="visitor_ssn_` + visitorNum + `" class="default-form__input" required>
         <label for="visitor_relationship_` + visitorNum + `">Relationship with the prisoner:</label>
-            <select id="visitor_relationship_` + visitorNum + `" class="default-form__input">
+            <select id="visitor_relationship_` + visitorNum + `" class="default-form__input" required>
                 <option value="spouse">Spouse</option>
                 <option value="parent">Parent</option>
                 <option value="sibling">Sibling</option>
