@@ -2,8 +2,8 @@ let maxWitnesses = 3;
 const witnessesFieldset = document.getElementById("witnesses_fieldset");
 
 function addWitness() {
-    witnessesCounter = witnessesFieldset.children.length - 1
-    if (witnessesCounter == maxWitnesses) {
+    witnessesCounter = witnessesFieldset.children.length - 2
+    if (witnessesCounter + 1 == maxWitnesses) {
         alert("You have reached the limit of witnesses. There can be a maximum of " + maxWitnesses);
     } else {
         let newWitness = document.createElement('div');
@@ -11,19 +11,19 @@ function addWitness() {
         const witnessNum = witnessesCounter + 1;
         newWitness.innerHTML = 
         `
-        <label> Witness ` + witnessNum + ` </label>
-        <label for="witness_first_name">
+        <label> Witness ` + (1 + witnessNum) + ` </label>
+        <label for="witness_first_name_${witnessNum}">
             First name:
         </label>
-        <input type="text" id="witness_first_name" class="default-form__input" required>    
-        <label for="witness_last_name">
+        <input type="text" id="witness_first_name_${witnessNum}" class="default-form__input" required>    
+        <label for="witness_last_name_${witnessNum}">
            Last name:
         </label>
-        <input type="text" id="witness_last_name" class="default-form__input" required>
-        <label for="witness_ssn">
+        <input type="text" id="witness_last_name_${witnessNum}" class="default-form__input" required>
+        <label for="witness_ssn_${witnessNum}">
             SSN:
         </label>
-        <input type="number" id="witness_ssn" class="default-form__input" required>
+        <input type="number" id="witness_ssn_${witnessNum}" class="default-form__input" required>
         `;
         witnessesFieldset.appendChild(newWitness);
         witnessesCounter++;

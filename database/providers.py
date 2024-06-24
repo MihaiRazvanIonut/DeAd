@@ -17,7 +17,7 @@ class CustomProvider(BaseProvider):
 
     def visit_purpose(self):
         options = [
-            "contact", "non_contact", "family", "legal", "professional",
+            "contact", "non contact", "family", "legal", "professional",
             "special", "educational", "community", "media", "official"
         ]
         return self.random_element(options)

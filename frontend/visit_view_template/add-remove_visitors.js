@@ -2,9 +2,9 @@ let maxVisitors = 10;
 const visitorsFieldset = document.getElementById("visitors_fieldset");
 
 function addVisitor() {
-    let visitorsCounter = visitorsFieldset.children.length - 1;
+    let visitorsCounter = visitorsFieldset.children.length - 2;
 
-    if (visitorsCounter >= maxVisitors) {
+    if (visitorsCounter + 1 == maxVisitors) {
         alert("You have reached the limit of visitors. There can be a maximum of " + maxVisitors);
     } else {
         let newVisitor = document.createElement('div');
@@ -12,7 +12,7 @@ function addVisitor() {
         const visitorNum = visitorsCounter + 1;
         newVisitor.innerHTML = 
         `
-        <label> Visitor ` + visitorNum + ` </label>
+        <label> Visitor ` + (1 + visitorNum) + ` </label>
         <label for="visitor_first_name_` + visitorNum + `">
             First name:
         </label>
