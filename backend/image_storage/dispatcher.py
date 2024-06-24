@@ -39,3 +39,11 @@ class Dispatcher(BaseHTTPRequestHandler):
 
     def do_DELETE(self):
         self.__generic_request_mathing(HTTPVerbs.DELETE)
+
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
+        self.end_headers()

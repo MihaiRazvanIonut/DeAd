@@ -1,0 +1,44 @@
+#!/bin/bash
+
+BACKEND_DIR="./backend"
+FRONTEND_DIR="./frontend/client"
+
+install_requirements() {
+    echo "Installing requirements..."
+    for dir in "$BACKEND_DIR"/*/ ; do
+        if [ -f "$dir/requirements.txt" ]; then
+            (cd "$dir" && pip install -r requirements.txt)
+        fi
+    done
+    if [ -f "$FRONTEND_DIR/requirements.txt" ]; then
+        (cd "$FRONTEND_DIR" && pip install -r requirements.txt)
+    fi
+}
+
+start_backend() {
+    echo "Starting backend APIs..."
+    for dir in "$BACKEND_DIR"/*/ ; do
+        if [ -f "$dir/main.py" ]; then
+            (cd "$dir" && python3 main.py &)
+            echo "Started API in $dir"
+        fi
+    done
+}
+
+start_frontend() {
+    echo "Starting client..."
+    if [ -f "$FRONTEND_DIR/main.py" ]; then
+        (cd "$FRONTEND_DIR" && python3 main.py &)
+        echo "Client started."
+    else
+        echo "Client main.py not found."
+    fi
+}
+
+install_requirements
+
+start_backend
+
+start_frontend
+
+echo "DeAd app is running."

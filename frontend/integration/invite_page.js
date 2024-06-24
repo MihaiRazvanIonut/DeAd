@@ -31,6 +31,7 @@ async function fetchAndDisplayInvites() {
         data = await response.json();
         const invites = data.invites;
 
+        invites.sort((a, b) => new Date(b.expiry_date) - new Date(a.expiry_date));
 
         const tableBody = document.getElementById('invitesTableBody');
         tableBody.innerHTML = ''
@@ -42,7 +43,7 @@ async function fetchAndDisplayInvites() {
 
             row.innerHTML = `
                 <td>${invite.id}</td>
-                <td>${invite.expiry_date ? invite.expiry_date : 'None'}</td>
+                <td>${invite.expiry_date ? new Date(invite.expiry_date).toLocaleString() : 'None'}</td>
                 <td>${invite.status === 1 ? 'Claimed' : 'Unclaimed'}</td>
                 <td>${invite.admin ? 'Yes' : 'No'}</td>
             `;

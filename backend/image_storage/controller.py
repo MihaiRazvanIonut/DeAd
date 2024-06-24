@@ -34,6 +34,11 @@ class Controller:
             image_bytes = open(f'{constants.IMAGES_DIR_PATH}/{image_uuid}.{files[image_uuid]}', "rb").read()
             request_handler.send_response(200)
             request_handler.send_header('Content-Type', f'image/{files[image_uuid]}')
+            request_handler.send_header('Access-Control-Allow-Origin', '*')
+            request_handler.send_header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS')
+            request_handler.send_header('Access-Control-Allow-Headers', 'Content-Type')
+            request_handler.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
+
             request_handler.end_headers()
             request_handler.wfile.write(image_bytes)
 
