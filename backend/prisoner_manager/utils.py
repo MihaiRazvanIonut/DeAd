@@ -18,7 +18,7 @@ def normalise_row(row: dict):
 
 def schema_from_dto(dto: dict, schema):
     for field in vars(schema).keys():
-        if not dto.get(field):
+        if dto.get(field) is None:
             raise exceptions.ServiceException(400, f'Bad request: {field} does not exist')
         else:
             vars(schema)[field] = dto[field]
