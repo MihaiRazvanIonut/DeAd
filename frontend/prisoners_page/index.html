@@ -19,16 +19,16 @@
                 <button class="app-menu__button app-menu__button--sandwich" onclick="toggleNav()">
                     ≡
                 </button>
-                <a class="app-menu__button" href="../index.html">
+                <a class="app-menu__button" href="../actions">
                     LATEST
                 </a>
-                <a class="app-menu__button" href="../visits_page/index.html">
+                <a class="app-menu__button" href="../visits_">
                     VISITS
                 </a>
                 <span class="app-menu__button app-menu__button--active">
                     PRISONERS
                 </span>
-                <a class="app-menu__button app-menu__button--logout" href="../login_page/index.html">
+                <a class="app-menu__button app-menu__button--logout" href="../login" id="logoutButton">
                     ↪
                 </a>
             </div>
@@ -39,13 +39,13 @@
                     <div class="nav-menu__title">
                         Prisoners Panel
                     </div>
-                    <a href="./new_prisoner_subpage/index.html" class="nav-menu__button">
+                    <a href="./prisoners" class="nav-menu__button">
                         New Prisoner
                     </a>
-                    <a href="./index.html" class="nav-menu__button">
+                    <a href="./froms/prisoners" class="nav-menu__button">
                         Existing Prisoners
                     </a>
-                    <a href="./export_subpage/index.html" class="nav-menu__button">
+                    <a href="./statistics" class="nav-menu__button">
                         Export
                     </a>
                 </div>
@@ -87,13 +87,14 @@
             <span class="footer-content__info">
                 Application made by Mihai Razvan-Ionut & Cazacu Costin Gabriel
             </span>
-            <a href="../../doc/doc.html" class="footer-content__info--link">
+            <a href="../docs" class="footer-content__info--link">
                 Software Requierments Specification
             </a>
             </div>
         </footer>
     </div>
     <script src="../template/avg_page_template/toggleable/show-nav.js"></script>
-    <script src="../integration/existing-visitors.js"></script>
+    <script src="../integration/logout.js"></script>
+    <script src="../integration/existing-prisoners.js"></script>
 </body>
 </html>
