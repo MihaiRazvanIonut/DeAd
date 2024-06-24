@@ -12,11 +12,6 @@ function addVisitor() {
         newVisitor.innerHTML = 
         `
         <label> Visitor ` + visitorNum + ` </label>
-        <label for="visitor_image_` + visitorNum + `">
-            Image:
-        </label>
-        <div id="visitor_image_preview_` + visitorNum + `" class="person-photo"></div>
-        <input type="file" id="visitor_image_` + visitorNum + `" class="default-form__input" accept="image/*" onchange="loadVisitorImage(this, 'visitor_image_preview_` + visitorNum + `')">
         <label for="visitor_first_name_` + visitorNum + `">
             First name:
         </label>
@@ -58,21 +53,5 @@ function removeVisitor() {
         visitorsCounter--;
         visitorsFieldset.removeChild(visitorsFieldset.lastElementChild);
         console.log("Deleted visitor");
-    }
-}
-
-function loadVisitorImage(input, previewId) {
-    const preview = document.getElementById(previewId);
-    preview.innerHTML = "";
-    const file = input.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-        const img = document.createElement("img");
-        img.src = e.target.result;
-        img.className = "person-photo";
-        preview.appendChild(img);
-        };
-    reader.readAsDataURL(file);
     }
 }
