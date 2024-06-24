@@ -1,0 +1,9 @@
+#!/bin/bash
+
+stop_app() {
+    echo "Stopping app..."
+    pkill -f "python3 main.py"
+    echo "App stopped."
+}
+
+stop_app
