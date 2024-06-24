@@ -10,7 +10,7 @@
     <div class="page-content">
         <header>
             <div class="header-content">
-                <div class = "logo">
+                <div class="logo">
                     <div class="logo__glyph">DeAd</div>
                     <div class="logo__app-name">Detention Admin</div>
                 </div>
@@ -22,13 +22,13 @@
                 <span class="app-menu__button app-menu__button--active">
                     LATEST
                 </span>
-                <a class="app-menu__button" href="./visits_page/index.html">
+                <a class="app-menu__button" href="../visits">
                     VISITS
                 </a>
-                <a class="app-menu__button" href="./prisoners_page/index.html">
+                <a class="app-menu__button" href="../prisoners">
                     PRISONERS
                 </a>
-                <a class="app-menu__button app-menu__button--logout" href="./login_page/index.html">
+                <a class="app-menu__button app-menu__button--logout" href="../login" id="logoutButton">
                     ↪
                 </a>
             </div>
@@ -39,13 +39,13 @@
                     <div class="nav-menu__title">
                         Latest Panel
                     </div>
-                    <a href="./my_updates_subpage/index.html" class="nav-menu__button">
+                    <a href="../user" class="nav-menu__button">
                         My Updates
                     </a>
-                    <a href="./index.html" class="nav-menu__button">
+                    <a href="../actions" class="nav-menu__button">
                         Global Updates
                     </a>
-                    <a href="./generate_invite_page/index.html" class="nav-menu__button">
+                    <a href="../invites" class="nav-menu__button">
                         Generate Invite
                     </a>
                 </div>
@@ -53,46 +53,40 @@
             <main id="page-main" class="shown-main">
                 <div class="main-content">
                     <div class="main-content__text main-content__text--title">Global Updates</div>
-                    <div class="main-content__text main-content__text--header">Hello, Razvan!</div>
                     <div class="main-content__text">See the latest changes done:</div>
-                    <table class="default-table default-table--big">
-                        <tr class = "default-table__header">
-                          <th>Visit ID</th>
-                          <th>Operation</th>
-                          <th>User</th>
-                          <th>Time</th>
-                        </tr>
-                        <tr class = "default-table__row" tabindex="0">
-                          <td>2000000000</td>
-                          <td>Create</td>
-                          <td>Maria Anders</td>
-                          <td>10:20:34</td>
-                        </tr>
-                        <tr class = "default-table__row" tabindex="0">
-                          <td>2000000001</td>
-                          <td>Update</td>
-                          <td>Francisco Chang</td>
-                          <td>09:25:33</td>
-                        </tr>
-                      </table>
+                    <table class="default-table default-table--big" id="userActionsTable">
+                        <thead>
+                            <tr class="default-table__header">
+                                <th>Visit ID</th>
+                                <th>Operation</th>
+                                <th>User</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userActionsTableBody">
+                            
+                        </tbody>
+                    </table>
                 </div>
             </main>
         </div>
         <footer>
             <div class="content-devider"><br></div>
             <div class="footer-content">
-            <span class="footer-content__info">
-                © Detention Admin · 2024
-            </span>
-            <span class="footer-content__info">
-                Application made by Mihai Razvan-Ionut & Cazacu Costin Gabriel
-            </span>
-            <a href="../doc/doc.html" class="footer-content__info--link">
-                Software Requierments Specification
-            </a>
+                <span class="footer-content__info">
+                    © Detention Admin · 2024
+                </span>
+                <span class="footer-content__info">
+                    Application made by Mihai Razvan-Ionut & Cazacu Costin Gabriel
+                </span>
+                <a href="../docs" class="footer-content__info--link">
+                    Software Requirements Specification
+                </a>
             </div>
         </footer>
     </div>
     <script src="./template/avg_page_template/toggleable/show-nav.js"></script>
+    <script src="../integration/logout.js"></script>
+    <script src="../integration/action_page.js"></script>
 </body>
 </html>
