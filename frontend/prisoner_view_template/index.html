@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> DeAd - Prisoner View </title>
+    <title>DeAd - Prisoner View</title>
     <link rel="stylesheet" href="../template/form_page_template/styles.css">
 </head>
 <body>
     <main>
         <div class="box">
-            <div class = "logo">
+            <div class="logo">
                 <h3 class="logo__glyph">
                     DeAd
                 </h3>
@@ -17,82 +17,84 @@
                     Detention Admin
                 </h2>
             </div>      
-            <div class="main-content__text main-content__text--title">Prisoner #3112</div>
+            <div class="main-content__text main-content__text--title">Prisoner #<span id="prisoner_id"></span></div>
             <div class="default-form__menu">
-                <button class="default-form__button default-form__button--small" onclick="editForm()">Edit</button>
-                <button class="default-form__button default-form__button--small" onclick="readOnlyForm()">Save Draft</button>
+                <button class="default-form__button default-form__button--small" id="editButton">Edit</button>
+                <button class="default-form__button default-form__button--small" id="saveDraftButton">Save Draft</button>
             </div>
-            <form action="../index.html" method="POST" class="default-form" id="prisoners_form">
+            <form class="default-form" id="prisoners_form">
                 <fieldset class="default-form__fieldset">
                     <legend>Personal Information</legend>
                     <label for="prisoner_image">
                         Image:
                     </label>
                     <div id="prisoner_image_preview" class="person-photo"></div>
-                    <input type="file" id="prisoner_image" class="default-form__input" accept="image/*" onchange="loadPrisonerImage(this)">
+                    <input type="file" id="prisoner_image" name="prisoner_image" class="default-form__input" accept="image/*" onchange="loadPrisonerImage(this)">
                     <label for="prisoner_first_name">
                         First name:
                     </label>
-                    <input type="text" placeholder="Balan" id="prisoner_first_name" class="default-form__input">    
+                    <input type="text" id="prisoner_first_name" name="prisoner_first_name" class="default-form__input" required>    
                     <label for="prisoner_last_name">
                        Last name:
                     </label>
-                    <input type="text" placeholder="Calin" id="prisoner_last_name" class="default-form__input">
+                    <input type="text" id="prisoner_last_name" name="prisoner_last_name" class="default-form__input" required>
                     <label for="prisoner_ssn">
                         SSN:
                     </label>
-                    <input type="number" placeholder="2001207233455" id="prisoner_ssn" class="default-form__input">
+                    <input type="number" id="prisoner_ssn" name="prisoner_ssn" class="default-form__input" required>
                     <label for="prisoner_birthday">
                         Date of birth:
                     </label>
-                    <input type="text" placeholder="06/12/2003" id="prisoner_birthday" class="default-form__input">
+                    <input type="text" id="prisoner_birthday" name="prisoner_birthday" class="default-form__input" required>
                     <label for="prisoner_nationality">
                         Nationality:
                     </label>
-                    <input type="text" placeholder="romanian" id="prisoner_nationality" class="default-form__input">  
+                    <input type="text" id="prisoner_nationality" name="prisoner_nationality" class="default-form__input" required>  
                     <label for="prisoner_adress">
-                        Adress:
+                        Address:
                     </label>
-                    <input type="text" placeholder="Strada Penes Curcanul 18" id="prisoner_adress" class="default-form__input">
+                    <input type="text" id="prisoner_adress" name="prisoner_adress" class="default-form__input" required>
                     <label for="prisoner_phone_number">
                         Phone number:
                     </label>
-                    <input type="tel" placeholder="07223313243" id="prisoner_phone_number" class="default-form__input">
+                    <input type="tel" id="prisoner_phone_number" name="prisoner_phone_number" class="default-form__input" required>
                     <label for="prisoner_email">
                         Email:
                     </label>
-                    <input type="email" placeholder="balan.calin@yahoo.com" id="prisoner_email" class="default-form__input">
+                    <input type="email" id="prisoner_email" name="prisoner_email" class="default-form__input" required>
                     <label for="emergency_phone_number">
                        Emergency contact number:
                     </label>
-                    <input type="tel" placeholder="0728341298" id="emergency_phone_number" class="default-form__input">
+                    <input type="tel" id="emergency_phone_number" name="emergency_phone_number" class="default-form__input" required>
                 </fieldset>
                 <fieldset class="default-form__fieldset">
                     <legend>Legal Information</legend>
                     <label for="arest_date">
-                        Arest date:
+                        Arrest date:
                     </label>
-                    <input type="text" placeholder="10/02/2024" id="arest_date" class="default-form__input">
+                    <input type="text" id="arest_date" name="arest_date" class="default-form__input" required>
                     <label for="conviction_date">
                         Conviction date:
                     </label>
-                    <input type="text" placeholder="12/02/2024" id="conviction_date" class="default-form__input">
+                    <input type="text" id="conviction_date" name="conviction_date" class="default-form__input" required>
                     <label for="crime_commited">
-                        Crime commited:
+                        Crime committed:
                     </label>
-                    <textarea id="crime_commited" placeholder="omorat biti in serie" class="default-form__input default-form__input--textarea"></textarea>
+                    <textarea id="crime_commited" name="crime_commited" class="default-form__input default-form__input--textarea" required></textarea>
                     <label for="court_case_number">
                         Court case number:
                     </label>
-                    <input type="number" placeholder="123554" id="court_case_number" class="default-form__input">
+                    <input type="number" id="court_case_number" name="court_case_number" class="default-form__input" required>
                     <label for="release_date">
                         Release date:
                     </label>
-                    <input type="text" placeholder="10/07/2030" id="release_date" class="default-form__input">
-                    <label for="previous_crimes_commited">
-                        Previous crimes commited:
-                    </label>
-                    <textarea id="previous_crimes_commited" placeholder="accident rutier" class="default-form__input default-form__input--textarea"></textarea>
+                    <input type="text" id="release_date" name="release_date" class="default-form__input" required>
+                    <div>
+                        <label for="previous_crimes_committed">
+                            Previous crimes committed
+                        </label>
+                        <input type="checkbox" id="previous_crimes_committed" name="previous_crimes_committed">
+                    </div>
                 </fieldset>
                 <div class="default-form__menu">
                     <input type="submit" value="Update" class="default-form__button">
@@ -102,5 +104,6 @@
     </main>
     <script src="./edit_prisoner.js"></script>
     <script src="./add-photo_prisoner.js"></script>
+    <script src="../integration/view_prisoner.js"></script>
 </body>
 </html>
