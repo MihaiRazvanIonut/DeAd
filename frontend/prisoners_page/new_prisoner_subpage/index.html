@@ -10,7 +10,7 @@
     <div class="page-content">
         <header>
             <div class="header-content">
-                <div class = "logo">
+                <div class="logo">
                     <div class="logo__glyph">DeAd</div>
                     <div class="logo__app-name">Detention Admin</div>
                 </div>
@@ -19,16 +19,16 @@
                 <button class="app-menu__button app-menu__button--sandwich" onclick="toggleNav()">
                     ≡
                 </button>
-                <a class="app-menu__button" href="../../index.html">
+                <a class="app-menu__button" href="../../actions">
                     LATEST
                 </a>
-                <a class="app-menu__button" href="../../visits_page/index.html">
+                <a class="app-menu__button" href="../../visits">
                     VISITS
                 </a>
                 <span class="app-menu__button app-menu__button--active">
                     PRISONERS
                 </span>
-                <a class="app-menu__button app-menu__button--logout" href="../../login_page/index.html">
+                <a class="app-menu__button app-menu__button--logout" href="../../login" id="logoutButton">
                     ↪
                 </a>
             </div>
@@ -39,13 +39,13 @@
                     <div class="nav-menu__title">
                         Prisoners Panel
                     </div>
-                    <a href="./index.html" class="nav-menu__button">
+                    <a href="./forms/prisoners" class="nav-menu__button">
                         New Prisoner
                     </a>
-                    <a href="../index.html" class="nav-menu__button">
+                    <a href="../../prisoners" class="nav-menu__button">
                         Existing Prisoners
                     </a>
-                    <a href="../export_subpage/index.html" class="nav-menu__button">
+                    <a href="../../statistics" class="nav-menu__button">
                         Export
                     </a>
                 </div>
@@ -53,77 +53,79 @@
             <main id="page-main" class="shown-main">
                 <div class="main-content">
                     <div class="main-content__text main-content__text--title">New Prisoner</div>
-                    <form action="../index.html" method="POST" class="default-form"">
+                    <form id="prisonerForm" class="default-form">
                         <fieldset class="default-form__fieldset">
                             <legend>Personal Information</legend>
                             <label for="prisoner_image">
                                 Image:
                             </label>
                             <div id="prisoner_image_preview" class="person-photo"></div>
-                            <input type="file" id="prisoner_image" class="default-form__input" accept="image/*" onchange="loadPrisonerImage(this)">
+                            <input type="file" id="prisoner_image" name="prisoner_image" class="default-form__input" accept="image/*" onchange="loadPrisonerImage(this)">
                             <label for="prisoner_first_name">
                                 First name:
                             </label>
-                            <input type="text" id="prisoner_first_name" class="default-form__input">    
+                            <input type="text" id="prisoner_first_name" name="prisoner_first_name" class="default-form__input">    
                             <label for="prisoner_last_name">
                                Last name:
                             </label>
-                            <input type="text" id="prisoner_last_name" class="default-form__input">
+                            <input type="text" id="prisoner_last_name" name="prisoner_last_name" class="default-form__input">
                             <label for="prisoner_ssn">
                                 SSN:
                             </label>
-                            <input type="number" id="prisoner_ssn" class="default-form__input">
+                            <input type="number" id="prisoner_ssn" name="prisoner_ssn" class="default-form__input">
                             <label for="prisoner_birthday">
                                 Date of birth:
                             </label>
-                            <input type="date" id="prisoner_birthday" class="default-form__input">
+                            <input type="date" id="prisoner_birthday" name="prisoner_birthday" class="default-form__input">
                             <label for="prisoner_nationality">
                                 Nationality:
                             </label>
-                            <input type="text" id="prisoner_nationality" class="default-form__input">  
-                            <label for="prisoner_adress">
-                                Adress:
+                            <input type="text" id="prisoner_nationality" name="prisoner_nationality" class="default-form__input">  
+                            <label for="prisoner_address">
+                                Address:
                             </label>
-                            <input type="text" id="prisoner_adress" class="default-form__input">
+                            <input type="text" id="prisoner_address" name="prisoner_address" class="default-form__input">
                             <label for="prisoner_phone_number">
                                 Phone number:
                             </label>
-                            <input type="tel" id="prisoner_phone_number" class="default-form__input">
+                            <input type="tel" id="prisoner_phone_number" name="prisoner_phone_number" class="default-form__input">
                             <label for="prisoner_email">
                                 Email:
                             </label>
-                            <input type="email" id="prisoner_email" class="default-form__input">
+                            <input type="email" id="prisoner_email" name="prisoner_email" class="default-form__input">
                             <label for="emergency_phone_number">
                                Emergency contact number:
                             </label>
-                            <input type="tel" id="emergency_phone_number" class="default-form__input">
+                            <input type="tel" id="emergency_phone_number" name="emergency_phone_number" class="default-form__input">
                         </fieldset>
                         <fieldset class="default-form__fieldset">
                             <legend>Legal Information</legend>
-                            <label for="arest_date">
-                                Arest date:
+                            <label for="arrest_date">
+                                Arrest date:
                             </label>
-                            <input type="date" id="arest_date" class="default-form__input">
+                            <input type="date" id="arrest_date" name="arrest_date" class="default-form__input">
                             <label for="conviction_date">
                                 Conviction date:
                             </label>
-                            <input type="date" id="conviction_date" class="default-form__input">
-                            <label for="crime_commited">
-                                Crime commited:
+                            <input type="date" id="conviction_date" name="conviction_date" class="default-form__input">
+                            <label for="crime_committed">
+                                Crime committed:
                             </label>
-                            <textarea id="crime_commited" class="default-form__input default-form__input--textarea"></textarea>
+                            <textarea id="crime_committed" name="crime_committed" class="default-form__input default-form__input--textarea"></textarea>
                             <label for="court_case_number">
                                 Court case number:
                             </label>
-                            <input type="number" id="court_case_number" class="default-form__input">
+                            <input type="number" id="court_case_number" name="court_case_number" class="default-form__input">
                             <label for="release_date">
                                 Release date:
                             </label>
-                            <input type="date" id="release_date" class="default-form__input">
-                            <label for="previous_crimes_commited">
-                                Previous crimes commited:
-                            </label>
-                            <textarea id="previous_crimes_commited" class="default-form__input default-form__input--textarea"></textarea>
+                            <input type="date" id="release_date" name="release_date" class="default-form__input">
+                            <div>
+                                <label for="previous_crimes_committed">
+                                    Previous crimes committed
+                                </label>
+                                <input type="checkbox" id="previous_crimes_committed" name="previous_crimes_committed">
+                            </div>
                         </fieldset>
                         <input type="submit" value="Create Prisoner" class="default-form__button">
                     </form>
@@ -131,21 +133,15 @@
             </main>
         </div>
         <footer>
-            <div class="content-devider"><br></div>
+            <div class="content-divider"><br></div>
             <div class="footer-content">
-            <span class="footer-content__info">
-                © Detention Admin · 2024
-            </span>
-            <span class="footer-content__info">
-                Application made by Mihai Razvan-Ionut & Cazacu Costin Gabriel
-            </span>
-            <a href="../../../doc/doc.html" class="footer-content__info--link">
-                Software Requierments Specification
-            </a>
+                <span class="footer-content__info">© Detention Admin · 2024</span>
+                <span class="footer-content__info">Application made by Mihai Razvan-Ionut & Cazacu Costin Gabriel</span>
+                <a href="../../docs" class="footer-content__info--link">Software Requirements Specification</a>
             </div>
         </footer>
     </div>
     <script src="../../template/avg_page_template/toggleable/show-nav.js"></script>
-    <script src="./add-photo_prisoner.js"></script>
+    <script src="../../integration/logout.js"></script>
+    <script src="../../integration/new_prisoner.js"></script>
 </body>
-</html>

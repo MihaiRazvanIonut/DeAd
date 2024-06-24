@@ -3,7 +3,7 @@ let form = document.getElementById("visits_form");
 function readOnlyForm() {
     let inputs = form.getElementsByClassName("default-form__input");
     let selects = form.getElementsByTagName("select");
-    let fileInputs = form.querySelectorAll("input[type='file']");
+    let fileInputs = form.querySelectorAll("input[type='checkbox']");
     
     [].forEach.call(inputs, function (input) {
         console.log(input);
@@ -24,7 +24,7 @@ function readOnlyForm() {
 function editForm() {
     let inputs = form.getElementsByClassName("default-form__input");
     let selects = form.getElementsByTagName("select");
-    let fileInputs = form.querySelectorAll("input[type='file']");
+    let fileInputs = form.querySelectorAll("input[type='checkbox']");
     
     [].forEach.call(inputs, function (input) {
         console.log(input);

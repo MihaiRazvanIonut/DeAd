@@ -51,13 +51,17 @@ def generate_id():
     return str(uuid6.uuid7().int % sys.maxsize)
 
 
+def generate_nin():
+    return str(uuid6.uuid7().int)[:10]
+
+
 def populate_prisoners():
     for _ in range(0, constants.PRISONERS_NUMBER):
         prisoner_ids.append(generate_id())
         cursor.execute(
             query=insert_into_table(tables.Prisoners.TABLE_NAME, len(tables.Prisoners.TABLE_COLUMNS)),
             params=(
-                prisoner_ids[-1], faker.ssn(), faker.first_name(), faker.last_name(),
+                prisoner_ids[-1], generate_nin(), faker.first_name(), faker.last_name(),
                 faker.date_time(), faker.country(), constants.DEFAULT_IMAGE_URI,
                 faker.address(), faker.phone_number(), faker.email(),
                 faker.phone_number(), faker.date_time(), faker.date_time(), faker.crime(),
@@ -103,7 +107,7 @@ def populate_visitors():
         cursor.execute(
             query=insert_into_table(tables.Visitors.TABLE_NAME, len(tables.Visitors.TABLE_COLUMNS)),
             params=(
-                visitor_ids[-1], faker.ssn(), faker.first_name(), faker.last_name(), faker.visitor_relation()
+                visitor_ids[-1], generate_nin(), faker.first_name(), faker.last_name(), faker.visitor_relation()
             )
         )
 
@@ -114,7 +118,7 @@ def populate_visits():
         random_prisoner_id = prisoner_ids[int(random.random() * constants.PRISONERS_NUMBER)]
         visit_prisoner_entries.append((visit_ids[-1], random_prisoner_id))
         restricted_visit = faker.boolean(chance_of_getting_true=5)
-        summary = faker.text() if restricted_visit else None
+        summary = faker.text() if not restricted_visit else None
         cursor.execute(
             query=insert_into_table(tables.Visits.TABLE_NAME, len(tables.Visits.TABLE_COLUMNS)),
             params=(
