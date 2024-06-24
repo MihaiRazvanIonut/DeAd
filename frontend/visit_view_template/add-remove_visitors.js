@@ -1,9 +1,10 @@
-let visitorsCounter = 2;
 let maxVisitors = 10;
 const visitorsFieldset = document.getElementById("visitors_fieldset");
 
 function addVisitor() {
-    if (visitorsCounter == maxVisitors) {
+    let visitorsCounter = visitorsFieldset.children.length - 1;
+
+    if (visitorsCounter >= maxVisitors) {
         alert("You have reached the limit of visitors. There can be a maximum of " + maxVisitors);
     } else {
         let newVisitor = document.createElement('div');
@@ -23,7 +24,7 @@ function addVisitor() {
         <label for="visitor_ssn_` + visitorNum + `">
             SSN:
         </label>
-        <input type="number" id="visitor_ssn_` + visitorNum + `" class="default-form__input" required>
+        <input type="text" id="visitor_ssn_` + visitorNum + `" class="default-form__input" required>
         <label for="visitor_relationship_` + visitorNum + `">Relationship with the prisoner:</label>
             <select id="visitor_relationship_` + visitorNum + `" class="default-form__input" required>
                 <option value="spouse">Spouse</option>
@@ -41,17 +42,17 @@ function addVisitor() {
             </select>
         `;
         visitorsFieldset.appendChild(newVisitor);
-        visitorsCounter++;
-        console.log("Added visitor " + visitorsCounter);
+        console.log("Added visitor " + (visitorsCounter + 1));
     }
 }
 
 function removeVisitor() {
+    let visitorsCounter = visitorsFieldset.children.length;
+
     if (visitorsCounter == 0) {
         alert("There are no visitors added!");
     } else {
-        visitorsCounter--;
         visitorsFieldset.removeChild(visitorsFieldset.lastElementChild);
-        console.log("Deleted visitor");
+        console.log("Deleted visitor " + visitorsCounter);
     }
 }

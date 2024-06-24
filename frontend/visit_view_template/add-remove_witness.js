@@ -1,8 +1,8 @@
-let witnessesCounter = 1;
 let maxWitnesses = 3;
 const witnessesFieldset = document.getElementById("witnesses_fieldset");
 
 function addWitness() {
+    witnessesCounter = witnessesFieldset.children.length - 1
     if (witnessesCounter == maxWitnesses) {
         alert("You have reached the limit of witnesses. There can be a maximum of " + maxWitnesses);
     } else {
