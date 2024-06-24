@@ -35,7 +35,7 @@ class Controller:
     def get_visits_page(self, request_handler):
         request_handler.path = '../visits_page/index.html'
 
-    @request(rtype=HTTPVerbs.GET, path_regex=f'^/visits/{PathRegEx.ID_REGEX}$')
+    @request(rtype=HTTPVerbs.GET, path_regex=f'^/visits/{PathRegEx.SHORT_ID_REGEX}$')
     def get_specific_visits_page(self, request_handler):
         request_handler.path = '../visit_view_template/index.html'
 
@@ -47,7 +47,7 @@ class Controller:
     def get_prisoners_page(self, request_handler):
         request_handler.path = '../prisoners_page/index.html'
 
-    @request(rtype=HTTPVerbs.GET, path_regex=f'^/prisoners/{PathRegEx.ID_REGEX}$')
+    @request(rtype=HTTPVerbs.GET, path_regex=f'^/prisoners/{PathRegEx.SHORT_ID_REGEX}$')
     def get_specific_prisoner_page(self, request_handler):
         request_handler.path = '../prisoner_view_template/index.html'
 

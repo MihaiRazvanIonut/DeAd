@@ -3,18 +3,6 @@
 BACKEND_DIR="./backend"
 FRONTEND_DIR="./frontend/client"
 
-install_requirements() {
-    echo "Installing requirements..."
-    for dir in "$BACKEND_DIR"/*/ ; do
-        if [ -f "$dir/requirements.txt" ]; then
-            (cd "$dir" && pip install -r requirements.txt)
-        fi
-    done
-    if [ -f "$FRONTEND_DIR/requirements.txt" ]; then
-        (cd "$FRONTEND_DIR" && pip install -r requirements.txt)
-    fi
-}
-
 start_backend() {
     echo "Starting backend APIs..."
     for dir in "$BACKEND_DIR"/*/ ; do
@@ -34,8 +22,6 @@ start_frontend() {
         echo "Client main.py not found."
     fi
 }
-
-install_requirements
 
 start_backend
 
