@@ -19,16 +19,16 @@
                 <button class="app-menu__button app-menu__button--sandwich" onclick="toggleNav()">
                     ≡
                 </button>
-                <a class="app-menu__button" href="../index.html">
+                <a class="app-menu__button" href="../actions">
                     LATEST
                 </a>
                 <span class="app-menu__button app-menu__button--active">
                     VISITS
                 </span>
-                <a class="app-menu__button" href="../prisoners_page/index.html">
+                <a class="app-menu__button" href="../prisoners">
                     PRISONERS
                 </a>
-                <a class="app-menu__button app-menu__button--logout" href="../login_page/index.html">
+                <a class="app-menu__button app-menu__button--logout" href="../login" id="logoutButton">
                     ↪
                 </a>
             </div>
@@ -39,10 +39,10 @@
                     <div class="nav-menu__title">
                         Visits Panel
                     </div>
-                    <a href="./new_visit_subpage/index.html" class="nav-menu__button">
+                    <a href="../forms/visits" class="nav-menu__button">
                         New Visit
                     </a>
-                    <a href="./index.html" class="nav-menu__button">
+                    <a href="../visits" class="nav-menu__button">
                         Existing Visits
                     </a>
                 </div>
@@ -60,25 +60,13 @@
                         <button type="submit" class="search-box__input">&#x1F50E;&#xFE0E;</button>
                     </form>
                     <table class="default-table default-table--big">
-                        <tr class = "default-table__header">
-                          <th>ID</th>
-                          <th>Hyperlink</th>
-                          <th>Purpose</th>
-                          <th>Date</th>
+                        <tr class="default-table__header">
+                            <th>ID</th>
+                            <th>Hyperlink</th>
+                            <th>Purpose</th>
+                            <th>Date</th>
                         </tr>
-                        <tr class = "default-table__row" tabindex="0">
-                          <td>3521</td>
-                          <td><a href="../visit_view_template/index.html" class="default-table__link">Link</a></td>
-                          <td>Legal</td>
-                          <td>01-04-2023</td>
-                        </tr>
-                        <tr class = "default-table__row" tabindex="0">
-                          <td>101</td>
-                          <td><a href="../visit_view_template/index.html" class="default-table__link">Link</a></td>
-                          <td>Family</td>
-                          <td>07-03-2024</td>
-                        </tr>
-                      </table>
+                    </table>
                 </div>
             </main>
         </div>
@@ -91,12 +79,14 @@
             <span class="footer-content__info">
                 Application made by Mihai Razvan-Ionut & Cazacu Costin Gabriel
             </span>
-            <a href="../../doc/doc.html" class="footer-content__info--link">
+            <a href="../docs" class="footer-content__info--link">
                 Software Requierments Specification
             </a>
             </div>
         </footer>
     </div>
     <script src="../template/avg_page_template/toggleable/show-nav.js"></script>
+    <script src="../integration/logout.js"></script>
+    <script src="../integration/existing_visits_page.js"></script>
 </body>
 </html>
