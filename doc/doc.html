@@ -53,7 +53,7 @@
             </p>
             <p>
                 A REST API implies that the API is developed so that it follows
-                the architectural constrains that the REST architecture suggests. 
+                the architectural constraints that the REST architecture suggests. 
             </p>
         </section>
         <section id="intended-audience">
@@ -124,19 +124,15 @@
                 The following are major components in the Detention Admin Project:
                 <ul role="list">
                     <li>
-                        Frontend: The component that the user sees and interacts
-                        with. This component is built using HTML, CSS and JS.
+                        Multi-Page Client: The component that the user sees and
+                        interacts with. This component is built using HTML, CSS
+                        and JS under a Python HTTP Server
                     </li>
                     <li>
-                        API REST/GraphQL: A component that will be used by other
-                        applications, or the frontend component to communicate
-                        with the backend component. This application programming
-                        interface will be implemented as a Rest or GraphQL API. 
-                    </li>
-                    <li>
-                        Backend: The component that manages requests, parses data,
-                        builds statistics, manages the database, provides utility
-                        for the API and Frontend component.
+                        REST APIs: services or micro services that will be used
+                        by other
+                        applications, or the frontend component to retrieve
+                        information. 
                     </li>
                     <li>
                         Database: The component that stores information about
@@ -167,7 +163,7 @@
                 </li>
                 <li>
                     The user will be able to generate and export statistics about
-                    each individual prisoner.
+                    each individual prisoner or for all prisoners.
                 </li>
             </ul>
             </p>
@@ -226,11 +222,11 @@
                     </li>
                     <li>
                         Technologies and Tools Constraints: this application will
-                        not use existing solutions for its servers in the backend
+                        not use existing solutions for its services in the backend
                         component or powerfull tools on the frontend component
                         being constrained to vanilla HTML, CSS and JS by its
                         product owner. This application is also constrained to
-                        build its API using a Rest/GraphQL architecture.
+                        build its services using a RESTful architecture.
                     </li>
                     <li>
                         Hardware Constraints: while this application aims to be
@@ -253,12 +249,12 @@
             <p>
                 If a given user is not logged in to this application he will not
                 be able to use any of its functionality other than the login
-                form.
+                and register form.
             </p>
             <p>
                 If the prison needs to add one of its staff members to the list
                 of users that can use this application, the person in charge of
-                this application will generate an account for this user.
+                this application will generate an invite code for this new user.
             </p>
             <p>
                 While this behavior might seem to be against its users, this 
@@ -352,13 +348,14 @@
         <section id="software-interfaces">
             <h3>Software Interfaces</h3>
             <p>
-                This application will use an internal REST/GraphQL API for 
-                streamlining the communication between the server and the client
+                This application will use RESTful services for 
+                streamlining the communication between the information and the client
             </p>
             <p>
                 The backend component of this application will be a solution completly
-                buit from scratch that will be server and backbone of the entire
-                application
+                buit from scratch using a HTTP Server that at the lowest level
+                has a TCP Server and an inhouse dispatching system for request
+                that will be the backbone of the entire application
             </p>
             <p>
                 The database that stores information about visits and prisoners
@@ -378,7 +375,7 @@
                         the use of the user interface and the ability to access it.
                     </li>
                     <li>
-                        Communications through the REST/GraphQL internal API to 
+                        Communications through the RESTful APIs to 
                         access the information provided by the backend component.
                     </li>
                     <li>
@@ -386,8 +383,15 @@
                         answers to these queries from the web server.
                     </li>
                     <li>
+                        JSONs as data transfer objects between the client and the
+                        services
+                    </li>
+                    <li>
+                        The TCP protocol as the transport layer
+                    </li>
+                    <li>
                         The use of HTML forms to wrap and send desired information
-                        so that the backend can process it more easily.
+                        so that the frontend can process it more easily into JSONs
                     </li>
                 </ul>
             </p>
@@ -459,6 +463,21 @@
                 As explained in the <a href="#user-documentation">User Documentation</a>
                 section this component is the only feature of the application that
                 allows the user to access any information about the prison.
+            </p>
+        </section>
+        <section id="register">
+            <h3>Register</h3>
+            <p>
+                An user can register into the application if an admin generates
+                an invite code and gives that invite code through other means
+                than that of the scope of the application.
+            </p>
+        </section>
+        <section id="generate-invite">
+            <h3>Generate an Invite Code</h3>
+            <p>
+                A feature that only admins can use. This allows an admin user to 
+                generate invite codes for new admin accounts or non-admin accounts.
             </p>
         </section>
     </section>
